@@ -1,7 +1,7 @@
 
 
 class Change
-  attr_accessor :type
+  attr_accessor :type, :file
 end
 
 class Commit

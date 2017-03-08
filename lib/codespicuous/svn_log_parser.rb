@@ -1,7 +1,7 @@
 
 require 'rexml/document'
 
-class CSVLogParser
+class SVNLogParser
 
   attr_accessor :participants, :repository
 
@@ -38,6 +38,7 @@ class CSVLogParser
     logentry.elements.each("*/path") { |path|
       change = Change.new
       change.type = :modified
+      change.file = path.text
       changes << change
     }
     changes

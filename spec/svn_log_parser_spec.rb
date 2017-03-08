@@ -1,5 +1,5 @@
 
-describe "parsing the CSV logs from repositories" do
+describe "parsing the SVN logs from repositories" do
 
   csv_log_xml = '<?xml version="1.0" encoding="UTF-8"?>
 <log>
@@ -36,7 +36,7 @@ describe "parsing the CSV logs from repositories" do
 </logentry>
 </log>'
 
-  subject { CSVLogParser.new }
+  subject { SVNLogParser.new }
 
   before(:each) do
     @participants = Participants.new(["basvodde", "daniel"])
@@ -45,7 +45,7 @@ describe "parsing the CSV logs from repositories" do
     subject.repository = Repository.new("repo")
   end
 
-  it "parses CSV log files" do
+  it "parses SVN log files" do
     subject.participants = Participants.new("basvodde")
     subject.parse
     commits = subject.commits
@@ -75,5 +75,6 @@ describe "parsing the CSV logs from repositories" do
     commit = subject.parse.commits.find_commit("10")
     expect(commit.changes.size).to eq 1
     expect(commit.changes[0].type).to eq :modified
+    expect(commit.changes[0].file).to eq "/trunk/header.hpp"
   end
 end
