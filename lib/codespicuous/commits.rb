@@ -19,6 +19,10 @@ class Commits
     @commits = {}
   end
 
+  def commits
+    @commits.values
+  end
+
   def amount
     @commits.size
   end
@@ -30,11 +34,34 @@ class Commits
     participants.find_by_loginname(commit.author).add_commit(commit)
   end
 
+  def each
+    @commits.values.each { |commit|
+      yield commit
+    }
+  end
+
   def add commit
-    @commits[commit.revision] = commit
+      @commits[commit.revision] = commit
+  end
+
+  def add_commits commits
+    commits.each { |commit|
+      add commit
+    }
   end
 
   def find_commit revision
     @commits[revision]
+  end
+
+  def == commits
+    @commits.values == commits.commits
+  end
+
+  def +(commits)
+    result = Commits.new
+    result.add_commits(self)
+    result.add_commits(commits)
+    result
   end
 end

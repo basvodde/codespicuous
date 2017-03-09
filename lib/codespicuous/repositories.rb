@@ -27,5 +27,15 @@ class Repositories
   def amount
     @repositories.size
   end
+
+  def each
+    @repositories.values.each { |repository|
+      yield repository
+    }
+  end
+
+  def [](index)
+    @repositories.values[index]
+  end
 end
 
