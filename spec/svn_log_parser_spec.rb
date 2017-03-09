@@ -78,4 +78,46 @@ describe "parsing the SVN logs from repositories" do
       expect(commit.changes[0].file).to eq "/trunk/header.hpp"
     end
   end
+
+  context "Warn for XML elements that aren't implemented yet :)" do
+
+    def log(text)
+      '<?xml version="1.0" encoding="UTF-8"?><log>' + text + '</log>'
+    end
+
+    def logentry(text)
+      log("<logentry>" + text + "</logentry>")
+    end
+
+    def paths(text)
+      logentry("<paths>" + text + "</paths>")
+    end
+
+    it "Warns on non-log entries" do
+      expect{subject.parse(log('<notlogentry></notlogentry>'))}.to raise_error("Unexpected log entry: notlogentry")
+    end
+
+    it "Warns on unexpected attributes to logentry" do
+      expect{subject.parse(log('<logentry shouldntbehere="10"></logentry>'))}.to raise_error("Unexpected attributes log entry: shouldntbehere")
+    end
+
+    it "Warns on unexpected elements to logentry" do
+      expect{subject.parse(logentry('<huh></huh>'))}.to raise_error("Unexpected element in log entry: huh")
+    end
+
+    it "Warns on unexpected elements in path" do
+      expect{subject.parse(logentry('<paths><path><uhm></uhm></path></paths>'))}.to raise_error("Unexpected element in path: uhm")
+    end
+
+    it "Warns on unexpected attributes in path" do
+      expect{subject.parse(logentry('<paths><path bleh="10"></path></paths>'))}.to raise_error("Unexpected attributes in path: bleh")
+    end
+
+    it "Warns if attributes in path have unexpected values" do
+      expect{subject.parse(paths('<path action="A"></path>'))}.to raise_error("Unexpected value to attribute action in path: A")
+      expect{subject.parse(paths('<path action="M" prop-mods="true"></path>'))}.to raise_error("Unexpected value to attribute prop-mods in path: true")
+      expect{subject.parse(paths('<path action="M" prop-mods="false" text-mods="false"></path>'))}.to raise_error("Unexpected value to attribute text-mods in path: false")
+      expect{subject.parse(paths('<path action="M" prop-mods="false" text-mods="true" kind="space"></path>'))}.to raise_error("Unexpected value to attribute kind in path: space")
+    end
+  end
 end
