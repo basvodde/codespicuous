@@ -13,9 +13,7 @@ class RepositoriesParserFromCsv
   end
 
   def parse_row row
-    repository = Repository.new(row["name"])
-    repository.url = row["url"]
-    @repositories.add(repository)
+    @repositories.add(Repository.new(row["name"], row["url"]))
   end
 
   def repositories

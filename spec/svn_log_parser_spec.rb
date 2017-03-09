@@ -42,7 +42,6 @@ describe "parsing the SVN logs from repositories" do
       @participants = Participants.new(["basvodde", "daniel"])
       subject.xml_to_parse(svn_log_xml)
       subject.participants = @participants
-      subject.repository = Repository.new("repo")
     end
 
     it "parses SVN log files" do
@@ -67,6 +66,7 @@ describe "parsing the SVN logs from repositories" do
     end
 
     it "adds the repository information to each commit" do
+      subject.repository = Repository.new("repo", "https://repos.com")
       commit = subject.parse.commits.find_commit("10")
       expect(commit.repository.name).to eq "repo"
     end

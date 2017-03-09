@@ -1,27 +1,27 @@
 
 class Repository
 
-  attr_accessor :url
-  attr_reader :name
+  attr_accessor :url, :name
 
-  def initialize(name)
+  def initialize(name, url)
     @name = name
+    @url = url
   end
 
 end
 
 class Repositories
 
-  def initialize(initial_repository_names = [])
+  def initialize
     @repositories = {}
-
-    [initial_repository_names].flatten.each { |name|
-      @repositories[name] = Repository.new(name)
-    }
   end
 
   def add repository
     @repositories[repository.name] = repository
+  end
+
+  def repository_by_name name
+    @repositories[name]
   end
 
   def amount
