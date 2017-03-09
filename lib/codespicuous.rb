@@ -10,9 +10,12 @@ require_relative 'codespicuous/danielparser.rb'
 
 # Parsers
 require_relative 'codespicuous/danielparser.rb'
-
-# CSV
-require_relative 'codespicuous/participantsparser_from_csv.rb'
-require_relative 'codespicuous/repositoriesparser_from_csv.rb'
 require_relative 'codespicuous/svn_log_parser.rb'
 
+# Config
+require_relative 'codespicuous/participantsparser_from_csv.rb'
+require_relative 'codespicuous/repositoriesparser_from_csv.rb'
+require_relative 'codespicuous/codespicuousconfigurator.rb'
+
+# App
+require_relative 'codespicuous/codespicuous.rb'
