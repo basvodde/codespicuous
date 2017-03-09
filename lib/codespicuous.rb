@@ -1,4 +1,8 @@
 
+# Util
+require_relative 'codespicuous/commandrunner.rb'
+
+# Core
 require_relative 'codespicuous/participants.rb'
 require_relative 'codespicuous/teams.rb'
 require_relative 'codespicuous/repositories.rb'
