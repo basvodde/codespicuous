@@ -6,7 +6,7 @@ describe "Collecting data from SVN" do
   before (:each) do
 
     @heh_repository = Repository.new("heh", "https://heh")
-
+    @participants = Participants.new(["basvodde", "daniel"])
     @xmllog = double(:xmllog)
   end
 
@@ -31,10 +31,11 @@ describe "Collecting data from SVN" do
     expect(SVNLogParser).to receive(:new).and_return(svnxmlparser)
 
     expect(svnxmlparser).to receive(:repository=).with(@heh_repository)
+    expect(svnxmlparser).to receive(:participants=).with(@participants)
     expect(svnxmlparser).to receive(:parse).with(@xmllog)
     expect(svnxmlparser).to receive(:commits).and_return(commits)
 
-    expect(subject.retrieve_commits_from_log(@xmllog, @heh_repository)).to eq commits
+    expect(subject.retrieve_commits_from_log(@xmllog, @heh_repository, @participants)).to eq commits
   end
 
   def create_commits_with_one_commit_in_repository repository
@@ -55,10 +56,10 @@ describe "Collecting data from SVN" do
     wow_commits = create_commits_with_one_commit_in_repository(wow_repository)
 
     expect(subject).to receive(:retrieve_svn_log_from).with(@heh_repository).and_return(@xmllog)
-    expect(subject).to receive(:retrieve_commits_from_log).with(@xmllog, @heh_repository).and_return(heh_commits)
+    expect(subject).to receive(:retrieve_commits_from_log).with(@xmllog, @heh_repository, @participants).and_return(heh_commits)
     expect(subject).to receive(:retrieve_svn_log_from).with(wow_repository).and_return(@xmllog)
-    expect(subject).to receive(:retrieve_commits_from_log).with(@xmllog, wow_repository).and_return(wow_commits)
+    expect(subject).to receive(:retrieve_commits_from_log).with(@xmllog, wow_repository, @participants).and_return(wow_commits)
 
-    expect(subject.collect_commits(repositories)).to eq (heh_commits + wow_commits)
+    expect(subject.collect_commits(repositories, @participants)).to eq (heh_commits + wow_commits)
   end
 end
