@@ -26,7 +26,7 @@ describe "parsing the SVN logs from repositories" do
 <path
    text-mods="true"
    kind="file"
-   action="M"
+   action="A"
    prop-mods="false">/trunk/otherheader.hpp</path>
 <path
    text-mods="true"
@@ -72,10 +72,11 @@ describe "parsing the SVN logs from repositories" do
     end
 
     it "knows which files were changed in the commit" do
-      commit = subject.parse.commits.find_commit("10")
-      expect(commit.changes.size).to eq 1
-      expect(commit.changes[0].type).to eq :modified
-      expect(commit.changes[0].file).to eq "/trunk/header.hpp"
+      commit = subject.parse.commits.find_commit("5")
+      expect(commit.changes.size).to eq 2
+      expect(commit.changes[0].type).to eq :added
+      expect(commit.changes[1].type).to eq :modified
+      expect(commit.changes[1].file).to eq "/trunk/implementation.cpp"
     end
   end
 
@@ -114,7 +115,7 @@ describe "parsing the SVN logs from repositories" do
     end
 
     it "Warns if attributes in path have unexpected values" do
-      expect{subject.parse(paths('<path action="A"></path>'))}.to raise_error("Unexpected value to attribute action in path: A")
+      expect{subject.parse(paths('<path action="T"></path>'))}.to raise_error("Unexpected value to attribute action in path: T")
       expect{subject.parse(paths('<path action="M" prop-mods="true"></path>'))}.to raise_error("Unexpected value to attribute prop-mods in path: true")
       expect{subject.parse(paths('<path action="M" prop-mods="false" text-mods="false"></path>'))}.to raise_error("Unexpected value to attribute text-mods in path: false")
       expect{subject.parse(paths('<path action="M" prop-mods="false" text-mods="true" kind="space"></path>'))}.to raise_error("Unexpected value to attribute kind in path: space")
