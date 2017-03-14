@@ -1,47 +1,40 @@
 
 describe "parsing the SVN logs from repositories" do
 
-  subject { SVNLogParser.new }
-  context "SVN Log with 2 commits and 3 modified files" do
-    svn_log_xml = '<?xml version="1.0" encoding="UTF-8"?>
-<log>
-<logentry
-   revision="10">
-<author>basvodde</author>
-<date>2016-01-04T01:59:13</date>
-<paths>
-<path
-   action="M"
-   prop-mods="false"
-   text-mods="true"
-   kind="file">/trunk/header.hpp</path>
-</paths>
-<msg>Summary:optimize implementation.</msg>
-</logentry>
-<logentry
-   revision="5">
-<author>daniel</author>
-<date>2016-01-04T04:37:03.111034Z</date>
-<paths>
-<path
-   text-mods="true"
-   kind="file"
-   action="A"
-   prop-mods="false">/trunk/otherheader.hpp</path>
-<path
-   text-mods="true"
-   kind="file"
-   action="M"
-   prop-mods="false">/trunk/implementation.cpp</path>
-</paths>
-<msg>Exciting message </msg>
-</logentry>
-</log>'
+  def log(text)
+    '<?xml version="1.0" encoding="UTF-8"?><log>' + text + '</log>'
+  end
 
+  def logentry(revision, author, date, message, additional_tags, paths)
+    "<logentry revision=\"#{revision}\"><author>#{author}</author><date>#{date}</date>#{additional_tags} <paths>" + paths + "</paths><msg>#{message}</msg></logentry>"
+  end
+
+  def path(action, propmods, textmods, kind, file)
+    "<path action=\"#{action}\" prop-mods=\"#{propmods}\" text-mods=\"#{textmods}\" kind=\"#{kind}\">#{file}</path>"
+  end
+
+  def log_with_default_logentry(additional_tags, paths)
+    log(logentry(1, "someone", "2017-01-01", "message", additional_tags, paths))
+  end
+
+  def log_with_paths(paths)
+    log_with_default_logentry("", paths)
+  end
+
+  subject { SVNLogParser.new }
+
+  context "SVN Log with 2 commits and 3 modified files" do
     before(:each) do
       @participants = Participants.new(["basvodde", "daniel"])
+
+      svn_log_xml = log(
+        logentry(10, "basvodde", "2016-01-04T01:59:13", "Summary:optimize implementation.", "",
+                 path("M", true, true, "file", "/trunk/header.hpp")) +
+        logentry(5, "daniel", "2016-01-04T04:37:03.111034Z", "Exciting message", "",
+                 path("A", false, true, "file", "/trunk/otherheader.hpp") +
+                 path("M", false, true, "file", "/trunk/implementation.cpp")))
+
       subject.xml_to_parse(svn_log_xml)
-      subject.participants = @participants
     end
 
     it "parses SVN log files" do
@@ -51,12 +44,20 @@ describe "parsing the SVN logs from repositories" do
       expect(commits.amount).to eq 1
     end
 
-    it "knows Bas had one commit" do
+    it "can filter based on participants and knows Bas had one commit" do
+      subject.participants = @participants
       subject.parse
       expect(@participants.find_by_loginname("basvodde").commits.amount).to eq 1
     end
 
+    it "knows Bas modified properties" do
+      subject.parse
+      expect(subject.commits.find_commit("10").changes[0].changed_property?).to be true
+    end
+
     it "knows all the details of the commit" do
+      subject.participants = @participants
+
       subject.parse
       commit = subject.commits.find_commit("10")
       expect(commit.message).to eq "Summary:optimize implementation."
@@ -82,18 +83,6 @@ describe "parsing the SVN logs from repositories" do
 
   context "Warn for XML elements that aren't implemented yet :)" do
 
-    def log(text)
-      '<?xml version="1.0" encoding="UTF-8"?><log>' + text + '</log>'
-    end
-
-    def logentry(text)
-      log("<logentry>" + text + "</logentry>")
-    end
-
-    def paths(text)
-      logentry("<paths>" + text + "</paths>")
-    end
-
     it "Warns on non-log entries" do
       expect{subject.parse(log('<notlogentry></notlogentry>'))}.to raise_error("Unexpected log entry: notlogentry")
     end
@@ -103,22 +92,33 @@ describe "parsing the SVN logs from repositories" do
     end
 
     it "Warns on unexpected elements to logentry" do
-      expect{subject.parse(logentry('<huh></huh>'))}.to raise_error("Unexpected element in log entry: huh")
+      expect{subject.parse(log_with_default_logentry('<huh></huh>', ""))}.to raise_error("Unexpected element in log entry: huh")
     end
 
     it "Warns on unexpected elements in path" do
-      expect{subject.parse(logentry('<paths><path><uhm></uhm></path></paths>'))}.to raise_error("Unexpected element in path: uhm")
+      expect{subject.parse(log_with_default_logentry("", '<path><uhm></uhm></path>'))}.to raise_error("Unexpected element in path: uhm")
     end
 
     it "Warns on unexpected attributes in path" do
-      expect{subject.parse(logentry('<paths><path bleh="10"></path></paths>'))}.to raise_error("Unexpected attributes in path: bleh")
+      expect{subject.parse(log_with_default_logentry("", '<path bleh="10"></path>'))}.to raise_error("Unexpected attributes in path: bleh")
     end
 
     it "Warns if attributes in path have unexpected values" do
-      expect{subject.parse(paths('<path action="T"></path>'))}.to raise_error("Unexpected value to attribute action in path: T")
-      expect{subject.parse(paths('<path action="M" prop-mods="true"></path>'))}.to raise_error("Unexpected value to attribute prop-mods in path: true")
-      expect{subject.parse(paths('<path action="M" prop-mods="false" text-mods="false"></path>'))}.to raise_error("Unexpected value to attribute text-mods in path: false")
-      expect{subject.parse(paths('<path action="M" prop-mods="false" text-mods="true" kind="space"></path>'))}.to raise_error("Unexpected value to attribute kind in path: space")
+      expect{subject.parse(log_with_paths('<path action="T"></path>'))}.to raise_error("Unexpected value to attribute action in path: T")
+      expect{subject.parse(log_with_paths('<path action="M" prop-mods="false" text-mods="false"></path>'))}.to raise_error("Unexpected value to attribute text-mods in path: false")
+      expect{subject.parse(log_with_paths('<path action="M" prop-mods="false" text-mods="true" kind="space"></path>'))}.to raise_error("Unexpected value to attribute kind in path: space")
     end
   end
+
+  context "Less common svn log elements" do
+
+    it "Can deal with copyfrom-path" do
+      xmllog = log_with_paths('<path action="A" prop-mods="false" text-mods="true" kind="file" copyfrom-path="originalfile.cpp" copyfrom-rev="18">newfile</path>')
+      subject.parse(xmllog)
+      expect(subject.commits.commits[0].changes[0].copyfrom).to eq "originalfile.cpp"
+      expect(subject.commits.commits[0].changes[0].copyrev).to eq "18"
+    end
+
+  end
+
 end

@@ -2,12 +2,21 @@ require 'date'
 
 class SVNDataCollector
 
+  attr_accessor :options
+
+  def initialize
+    @options = {}
+  end
 
   def retrieve_svn_log_from(repository)
-    svn = SVNClient.new
-    svn.repository(repository.url)
-    now = DateTime.now
-    svn.log_xml(now.prev_year, now)
+    if @options["offline"]
+      File.read(repository.name + ".log")
+    else
+      svn = SVNClient.new
+      svn.repository(repository.url)
+      now = DateTime.now
+      svn.log_xml(now.prev_year, now)
+    end
   end
 
   def retrieve_commits_from_log(xmllog, repository, participants)
@@ -18,7 +27,8 @@ class SVNDataCollector
     parser.commits
   end
 
-  def collect_commits(repositories, participants)
+  def collect_commits(repositories, participants, options)
+    @options = options
     all_commits = Commits.new
     repositories.each { | repository|
       xmllog = retrieve_svn_log_from(repository)

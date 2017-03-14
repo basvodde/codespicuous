@@ -22,6 +22,12 @@ describe "Collecting data from SVN" do
     expect(subject.retrieve_svn_log_from(@heh_repository)).to eq @xmllog
   end
 
+  it "should get the xml log from file when offline" do
+    subject.options["offline"] = true
+    expect(File).to receive(:read).with("heh.log").and_return(@xmllog)
+    expect(subject.retrieve_svn_log_from(@heh_repository)).to eq @xmllog
+  end
+
   it "should parse the xml log that was retrieved from the svn client" do
 
     svnxmlparser = double(:parser)
@@ -47,6 +53,7 @@ describe "Collecting data from SVN" do
   end
 
   it "Should collect the log for each repository and add the commits" do
+    options = { "option" => true }
     repositories  = Repositories.new
     wow_repository = Repository.new("wow", "https://wow")
     repositories.add(@heh_repository)
@@ -60,6 +67,7 @@ describe "Collecting data from SVN" do
     expect(subject).to receive(:retrieve_svn_log_from).with(wow_repository).and_return(@xmllog)
     expect(subject).to receive(:retrieve_commits_from_log).with(@xmllog, wow_repository, @participants).and_return(wow_commits)
 
-    expect(subject.collect_commits(repositories, @participants)).to eq (heh_commits + wow_commits)
+    expect(subject.collect_commits(repositories, @participants, options)).to eq (heh_commits + wow_commits)
+    expect(subject.options).to eq options
   end
 end

@@ -1,7 +1,20 @@
 
 
 class Change
-  attr_accessor :type, :file
+
+  def initialize
+    @changed_property = false
+  end
+
+  attr_accessor :type, :file, :copyfrom, :copyrev
+
+  def changed_property?
+    @changed_property
+  end
+
+  def property_changed
+    @changed_property = true
+  end
 end
 
 class Commit
@@ -28,10 +41,11 @@ class Commits
   end
 
   def add_participants_commit(commit, participants)
-    return unless participants.include? commit.author
 
-    add commit
-    participants.find_by_loginname(commit.author).add_commit(commit)
+    if participants.nil? or participants.include? commit.author
+      add commit
+      participants.find_by_loginname(commit.author).add_commit(commit) unless participants.nil?
+    end
   end
 
   def each

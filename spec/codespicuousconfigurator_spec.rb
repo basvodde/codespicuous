@@ -4,14 +4,15 @@ describe "CodepicuousConfigurator reads all the config files and provides the da
   subject { CodespicuousConfigurator.new }
 
   it "reads the codespicuous configuration from YAML file when the file exists" do
-    expect(File).to receive(:read).with("codespicuous.yaml").and_return("option: setting")
+    expect(File).to receive(:read).with("codespicuous.yaml").and_return("offline: true")
     expect(subject).to receive(:puts).with('** Configuring options with "codespicuous.yaml"')
-    expected = { "option" => "setting" }
-    expect(subject.config_options).to eq expected
+    expected_options = { "offline" => true }
+    expect(subject.config_options).to eq expected_options
   end
 
   it "Ignores the missing options file and tries to use defaults" do
-    expect(subject.config_options).to be_empty
+    expected_options = { "offline" => false }
+    expect(subject.config_options).to eq expected_options
   end
 
   it "reads the repositories from file by default" do

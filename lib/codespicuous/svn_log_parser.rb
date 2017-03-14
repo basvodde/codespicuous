@@ -43,6 +43,9 @@ class SVNLogParser
       change = Change.new
       change.type = :modified if path.attributes["action"] == "M"
       change.type = :added if path.attributes["action"] == "A"
+      change.property_changed if  path.attributes["prop-mods"] == "true"
+      change.copyfrom = path.attributes["copyfrom-path"]
+      change.copyrev = path.attributes["copyfrom-rev"]
       change.file = path.text
       changes << change
     }
@@ -73,11 +76,10 @@ class SVNLogParser
   def validate_path path
     path.elements.each { |e| raise ("Unexpected element in path: " + e.name) }
 
-    invalid_attributes = path.attributes.collect { |a| a[0] unless ["action", "prop-mods", "text-mods", "kind"].include? a[0] }.compact
+    invalid_attributes = path.attributes.collect { |a| a[0] unless ["action", "prop-mods", "text-mods", "kind", "copyfrom-path", "copyfrom-rev"].include? a[0] }.compact
     invalid_attributes.each { |a| raise ("Unexpected attributes in path: " + a) }
 
     raise("Unexpected value to attribute action in path: " + path.attributes["action"]) unless ["M", "A"].include?(path.attributes["action"])
-    raise("Unexpected value to attribute prop-mods in path: " + path.attributes["prop-mods"]) unless path.attributes["prop-mods"] == "false"
     raise("Unexpected value to attribute text-mods in path: " + path.attributes["text-mods"]) unless path.attributes["text-mods"] == "true"
     raise("Unexpected value to attribute kind in path: " + path.attributes["kind"]) unless path.attributes["kind"] == "file"
   end

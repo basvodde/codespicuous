@@ -16,11 +16,16 @@ describe "Codespicuous command line" do
   it "configures the config data" do
     configurator = CodespicuousConfigurator.new
     repositories = double(:repositories)
+    options = double(:options)
+    participants = double(:participants)
     expect(CodespicuousConfigurator).to receive(:new).and_return(configurator)
+    expect(configurator).to receive(:config_options).and_return(options)
     expect(configurator).to receive(:config_repositories).and_return(repositories)
-    expect(configurator).to receive(:config_participants).and_return(repositories)
+    expect(configurator).to receive(:config_participants).and_return(participants)
 
     subject.configure
+    expect(subject.options).to eq options
+    expect(subject.participants).to eq participants
     expect(subject.repositories).to eq repositories
   end
 
@@ -28,7 +33,7 @@ describe "Codespicuous command line" do
     collector = SVNDataCollector.new
     commits = Commits.new
     expect(SVNDataCollector).to receive(:new).and_return(collector)
-    expect(collector).to receive(:collect_commits).with(subject.repositories, subject.participants).and_return(commits)
+    expect(collector).to receive(:collect_commits).with(subject.repositories, subject.participants, subject.options).and_return(commits)
 
     subject.collect
 
