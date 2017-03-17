@@ -62,8 +62,10 @@ describe "Collecting data from SVN" do
     heh_commits = create_commits_with_one_commit_in_repository(@heh_repository)
     wow_commits = create_commits_with_one_commit_in_repository(wow_repository)
 
+    expect(subject).to receive(:puts).with("Getting svn log from repository: heh")
     expect(subject).to receive(:retrieve_svn_log_from).with(@heh_repository).and_return(@xmllog)
     expect(subject).to receive(:retrieve_commits_from_log).with(@xmllog, @heh_repository, @participants).and_return(heh_commits)
+    expect(subject).to receive(:puts).with("Getting svn log from repository: wow")
     expect(subject).to receive(:retrieve_svn_log_from).with(wow_repository).and_return(@xmllog)
     expect(subject).to receive(:retrieve_commits_from_log).with(@xmllog, wow_repository, @participants).and_return(wow_commits)
 

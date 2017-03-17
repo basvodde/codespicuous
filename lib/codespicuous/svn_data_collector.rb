@@ -31,6 +31,7 @@ class SVNDataCollector
     @options = options
     all_commits = Commits.new
     repositories.each { | repository|
+      puts "Getting svn log from repository: " + repository.name
       xmllog = retrieve_svn_log_from(repository)
       all_commits += retrieve_commits_from_log(xmllog, repository, participants)
     }
