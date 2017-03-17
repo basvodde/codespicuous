@@ -37,12 +37,24 @@ class SVNLogParser
     commit
   end
 
+  def extract_change_type(path)
+    return :modified if path.attributes["action"] == "M"
+    return :added if path.attributes["action"] == "A"
+    return :deleted if path.attributes["action"] == "D"
+    return :renamed if path.attributes["action"] == "R"
+  end
+
+  def extract_kind(path)
+    return :file if path.attributes["kind"] == "file"
+    return :dir if path.attributes["kind"] == "dir"
+  end
+
   def create_commit_changes_from_log_entry(logentry)
     changes = []
     logentry.elements.each("*/path") { |path|
       change = Change.new
-      change.type = :modified if path.attributes["action"] == "M"
-      change.type = :added if path.attributes["action"] == "A"
+      change.type = extract_change_type(path)
+      change.kind = extract_kind(path)
       change.property_changed if  path.attributes["prop-mods"] == "true"
       change.copyfrom = path.attributes["copyfrom-path"]
       change.copyrev = path.attributes["copyfrom-rev"]
@@ -79,9 +91,10 @@ class SVNLogParser
     invalid_attributes = path.attributes.collect { |a| a[0] unless ["action", "prop-mods", "text-mods", "kind", "copyfrom-path", "copyfrom-rev"].include? a[0] }.compact
     invalid_attributes.each { |a| raise ("Unexpected attributes in path: " + a) }
 
-    raise("Unexpected value to attribute action in path: " + path.attributes["action"]) unless ["M", "A"].include?(path.attributes["action"])
-    raise("Unexpected value to attribute text-mods in path: " + path.attributes["text-mods"]) unless path.attributes["text-mods"] == "true"
-    raise("Unexpected value to attribute kind in path: " + path.attributes["kind"]) unless path.attributes["kind"] == "file"
+    raise("Unexpected value to attribute action in path: " + path.attributes["action"]) unless ["R", "M", "A", "D"].include?(path.attributes["action"])
+    raise("Unexpected value to attribute kind in path: " + path.attributes["kind"]) unless ["file", "dir"].include?(path.attributes["kind"])
+
+    puts "Unexpected value to attribute text-mods in path: " + path.attributes["text-mods"] if path.attributes["text-mods"] == "false" and not ["D", "R"].include?(path.attributes["action"]) and path.attributes["kind"] != "dir"
   end
 
   def commits

@@ -105,8 +105,12 @@ describe "parsing the SVN logs from repositories" do
 
     it "Warns if attributes in path have unexpected values" do
       expect{subject.parse(log_with_paths('<path action="T"></path>'))}.to raise_error("Unexpected value to attribute action in path: T")
-      expect{subject.parse(log_with_paths('<path action="M" prop-mods="false" text-mods="false"></path>'))}.to raise_error("Unexpected value to attribute text-mods in path: false")
       expect{subject.parse(log_with_paths('<path action="M" prop-mods="false" text-mods="true" kind="space"></path>'))}.to raise_error("Unexpected value to attribute kind in path: space")
+    end
+
+    it "Warns by printing output on strange text-mods value. Needs to be checked what to do with it." do
+      expect(subject).to receive(:puts).with('Unexpected value to attribute text-mods in path: false')
+      subject.parse(log_with_paths('<path action="M" prop-mods="false" text-mods="false" kind="file"></path>'))
     end
   end
 
@@ -115,8 +119,33 @@ describe "parsing the SVN logs from repositories" do
     it "Can deal with copyfrom-path" do
       xmllog = log_with_paths('<path action="A" prop-mods="false" text-mods="true" kind="file" copyfrom-path="originalfile.cpp" copyfrom-rev="18">newfile</path>')
       subject.parse(xmllog)
-      expect(subject.commits.commits[0].changes[0].copyfrom).to eq "originalfile.cpp"
-      expect(subject.commits.commits[0].changes[0].copyrev).to eq "18"
+      expect(subject.commits[0].changes[0].copyfrom).to eq "originalfile.cpp"
+      expect(subject.commits[0].changes[0].copyrev).to eq "18"
+    end
+
+    it "Can deal with deleted files" do
+      xmllog = log_with_paths(path("D", false, true, "file", "/trunk/header.hpp"))
+      subject.parse(xmllog)
+      expect(subject.commits[0].changes[0].type).to eq :deleted
+    end
+
+    it "Can deal with renames files" do
+      xmllog = log_with_paths(path("R", false, false, "file", "/trunk/header.hpp"))
+      subject.parse(xmllog)
+      expect(subject.commits[0].changes[0].type).to eq :renamed
+    end
+
+    it "text-mods can be false when the file is deleted" do
+      xmllog = log_with_paths(path("D", false, false, "file", "/trunk/header.hpp"))
+      subject.parse(xmllog)
+
+      # No exception
+    end
+
+    it "can add directories" do
+      xmllog = log_with_paths(path("A", false, false, "dir", "/trunk"))
+      subject.parse(xmllog)
+      expect(subject.commits[0].changes[0].kind).to eq :dir
     end
 
   end

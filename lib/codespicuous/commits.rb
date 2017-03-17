@@ -6,7 +6,7 @@ class Change
     @changed_property = false
   end
 
-  attr_accessor :type, :file, :copyfrom, :copyrev
+  attr_accessor :type, :file, :copyfrom, :copyrev, :kind
 
   def changed_property?
     @changed_property
@@ -34,6 +34,10 @@ class Commits
 
   def commits
     @commits.values
+  end
+
+  def [] index
+    commits[index]
   end
 
   def amount
