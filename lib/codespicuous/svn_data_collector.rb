@@ -6,11 +6,17 @@ class SVNDataCollector
 
   def initialize
     @options = {}
+
+    @svnlogdir = "svnlog"
+  end
+
+  def svnlog_file(repository)
+      @svnlogdir + "/" + repository.name + ".log"
   end
 
   def retrieve_svn_log_from(repository)
     if @options["offline"]
-      File.read(repository.name + ".log")
+      File.read(svnlog_file(repository))
     else
       svn = SVNClient.new
       svn.repository(repository.url)
@@ -27,12 +33,18 @@ class SVNDataCollector
     parser.commits
   end
 
+  def save_svn_log(repository, xmllog)
+    Dir.mkdir(@svnlogdir) unless Dir.exists?(@svnlogdir)
+    File.write(svnlog_file(repository), xmllog)
+  end
+
   def collect_commits(repositories, participants, options)
     @options = options
     all_commits = Commits.new
     repositories.each { | repository|
       puts "Getting svn log from repository: " + repository.name
       xmllog = retrieve_svn_log_from(repository)
+      save_svn_log(repository, xmllog)
       all_commits += retrieve_commits_from_log(xmllog, repository, participants)
     }
     all_commits

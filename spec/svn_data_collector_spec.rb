@@ -24,7 +24,7 @@ describe "Collecting data from SVN" do
 
   it "should get the xml log from file when offline" do
     subject.options["offline"] = true
-    expect(File).to receive(:read).with("heh.log").and_return(@xmllog)
+    expect(File).to receive(:read).with("svnlog/heh.log").and_return(@xmllog)
     expect(subject.retrieve_svn_log_from(@heh_repository)).to eq @xmllog
   end
 
@@ -64,12 +64,29 @@ describe "Collecting data from SVN" do
 
     expect(subject).to receive(:puts).with("Getting svn log from repository: heh")
     expect(subject).to receive(:retrieve_svn_log_from).with(@heh_repository).and_return(@xmllog)
+    expect(subject).to receive(:save_svn_log).with(@heh_repository, @xmllog)
     expect(subject).to receive(:retrieve_commits_from_log).with(@xmllog, @heh_repository, @participants).and_return(heh_commits)
     expect(subject).to receive(:puts).with("Getting svn log from repository: wow")
     expect(subject).to receive(:retrieve_svn_log_from).with(wow_repository).and_return(@xmllog)
+    expect(subject).to receive(:save_svn_log).with(wow_repository, @xmllog)
     expect(subject).to receive(:retrieve_commits_from_log).with(@xmllog, wow_repository, @participants).and_return(wow_commits)
 
     expect(subject.collect_commits(repositories, @participants, options)).to eq (heh_commits + wow_commits)
     expect(subject.options).to eq options
+  end
+
+  it "Should write the svn logs to the svnlog directory" do
+    expect(Dir).to receive(:exists?).with("svnlog").and_return(true)
+    expect(File).to receive(:write).with("svnlog/heh.log", "xmllog")
+
+    subject.save_svn_log(@heh_repository, "xmllog")
+  end
+
+  it "Should write the svn logs to the svnlog directory which must be created first" do
+    expect(Dir).to receive(:exists?).with("svnlog").and_return(false)
+    expect(Dir).to receive(:mkdir).with("svnlog")
+    expect(File).to receive(:write)
+
+    subject.save_svn_log(@heh_repository, "xmllog")
   end
 end
