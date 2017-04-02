@@ -3,7 +3,7 @@ require 'rexml/document'
 
 class SVNLogParser
 
-  attr_accessor :participants, :repository
+  attr_accessor :repository
 
   def initialize
     @commits = Commits.new
@@ -21,7 +21,7 @@ class SVNLogParser
 
     xml.elements.each( "*/logentry" ) do |logentry|
       commit = create_commit_from_log_entry(logentry, @repository)
-      @commits.add_participants_commit(commit, participants)
+      @commits.add(commit)
     end
     self
   end

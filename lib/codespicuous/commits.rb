@@ -23,33 +23,26 @@ class Commit
     @changes = []
   end
 
-  attr_accessor :author, :revision, :message, :participant, :date, :changes, :repository
+  attr_accessor :author, :revision, :message, :date, :changes, :repository, :committer
 end
 
 class Commits
 
   def initialize
     @commits = {}
+    @committers = {}
   end
 
   def commits
     @commits.values
   end
 
-  def [] index
-    commits[index]
+  def [] revision
+    commits[revision]
   end
 
   def amount
     @commits.size
-  end
-
-  def add_participants_commit(commit, participants)
-
-    if participants.nil? or participants.include? commit.author
-      add commit
-      participants.find_by_loginname(commit.author).add_commit(commit) unless participants.nil?
-    end
   end
 
   def each
@@ -60,6 +53,13 @@ class Commits
 
   def add commit
       @commits[commit.revision] = commit
+
+      if commit.committer.nil?
+        @committers[commit.author] ||= Committer.new(commit.author)
+        commit.committer = @committers[commit.author]
+        commit.committer.add_commit(commit)
+      end
+
   end
 
   def add_commits commits
@@ -70,6 +70,10 @@ class Commits
 
   def find_commit revision
     @commits[revision]
+  end
+
+  def find_by_committer name
+    @committers[name].commits
   end
 
   def == commits

@@ -25,7 +25,6 @@ describe "parsing the SVN logs from repositories" do
 
   context "SVN Log with 2 commits and 3 modified files" do
     before(:each) do
-      @participants = Participants.new(["basvodde", "daniel"])
 
       svn_log_xml = log(
         logentry(10, "basvodde", "2016-01-04T01:59:13", "Summary:optimize implementation.", "",
@@ -38,16 +37,14 @@ describe "parsing the SVN logs from repositories" do
     end
 
     it "parses SVN log files" do
-      subject.participants = Participants.new("basvodde")
       subject.parse
       commits = subject.commits
-      expect(commits.amount).to eq 1
+      expect(commits.amount).to eq 2
     end
 
-    it "can filter based on participants and knows Bas had one commit" do
-      subject.participants = @participants
+    it "knows Bas had one commit" do
       subject.parse
-      expect(@participants.find_by_loginname("basvodde").commits.amount).to eq 1
+      expect(subject.commits.find_by_committer("basvodde").amount).to eq 1
     end
 
     it "knows Bas modified properties" do
@@ -56,13 +53,10 @@ describe "parsing the SVN logs from repositories" do
     end
 
     it "knows all the details of the commit" do
-      subject.participants = @participants
-
       subject.parse
       commit = subject.commits.find_commit("10")
       expect(commit.message).to eq "Summary:optimize implementation."
       expect(commit.author).to eq "basvodde"
-      expect(commit.participant.loginname).to eq "basvodde"
       expect(commit.date).to eq DateTime.new(2016,1,4,1,59,13)
     end
 
