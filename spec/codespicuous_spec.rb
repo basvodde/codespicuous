@@ -33,7 +33,7 @@ describe "Codespicuous command line" do
     collector = SVNDataCollector.new
     commits = Commits.new
     expect(SVNDataCollector).to receive(:new).and_return(collector)
-    expect(collector).to receive(:collect_commits).with(subject.repositories, subject.participants, subject.options).and_return(commits)
+    expect(collector).to receive(:collect_commits).with(subject.repositories, subject.options).and_return(commits)
 
     subject.collect
 

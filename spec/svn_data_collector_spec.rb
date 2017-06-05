@@ -6,7 +6,6 @@ describe "Collecting data from SVN" do
   before (:each) do
 
     @heh_repository = Repository.new("heh", "https://heh")
-    @participants = Participants.new(["basvodde", "daniel"])
     @xmllog = double(:xmllog)
   end
 
@@ -37,11 +36,10 @@ describe "Collecting data from SVN" do
     expect(SVNLogParser).to receive(:new).and_return(svnxmlparser)
 
     expect(svnxmlparser).to receive(:repository=).with(@heh_repository)
-    expect(svnxmlparser).to receive(:participants=).with(@participants)
     expect(svnxmlparser).to receive(:parse).with(@xmllog)
     expect(svnxmlparser).to receive(:commits).and_return(commits)
 
-    expect(subject.retrieve_commits_from_log(@xmllog, @heh_repository, @participants)).to eq commits
+    expect(subject.retrieve_commits_from_log(@xmllog, @heh_repository)).to eq commits
   end
 
   def create_commits_with_one_commit_in_repository repository
@@ -65,13 +63,13 @@ describe "Collecting data from SVN" do
     expect(subject).to receive(:puts).with("Getting svn log from repository: heh")
     expect(subject).to receive(:retrieve_svn_log_from).with(@heh_repository).and_return(@xmllog)
     expect(subject).to receive(:save_svn_log).with(@heh_repository, @xmllog)
-    expect(subject).to receive(:retrieve_commits_from_log).with(@xmllog, @heh_repository, @participants).and_return(heh_commits)
+    expect(subject).to receive(:retrieve_commits_from_log).with(@xmllog, @heh_repository).and_return(heh_commits)
     expect(subject).to receive(:puts).with("Getting svn log from repository: wow")
     expect(subject).to receive(:retrieve_svn_log_from).with(wow_repository).and_return(@xmllog)
     expect(subject).to receive(:save_svn_log).with(wow_repository, @xmllog)
-    expect(subject).to receive(:retrieve_commits_from_log).with(@xmllog, wow_repository, @participants).and_return(wow_commits)
+    expect(subject).to receive(:retrieve_commits_from_log).with(@xmllog, wow_repository).and_return(wow_commits)
 
-    expect(subject.collect_commits(repositories, @participants, options)).to eq (heh_commits + wow_commits)
+    expect(subject.collect_commits(repositories, options)).to eq (heh_commits + wow_commits)
     expect(subject.options).to eq options
   end
 

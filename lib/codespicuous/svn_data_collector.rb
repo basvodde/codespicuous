@@ -25,10 +25,9 @@ class SVNDataCollector
     end
   end
 
-  def retrieve_commits_from_log(xmllog, repository, participants)
+  def retrieve_commits_from_log(xmllog, repository)
     parser = SVNLogParser.new
     parser.repository = repository
-    parser.participants = participants
     parser.parse(xmllog)
     parser.commits
   end
@@ -38,14 +37,14 @@ class SVNDataCollector
     File.write(svnlog_file(repository), xmllog)
   end
 
-  def collect_commits(repositories, participants, options)
+  def collect_commits(repositories, options)
     @options = options
     all_commits = Commits.new
     repositories.each { | repository|
       puts "Getting svn log from repository: " + repository.name
       xmllog = retrieve_svn_log_from(repository)
       save_svn_log(repository, xmllog)
-      all_commits += retrieve_commits_from_log(xmllog, repository, participants)
+      all_commits += retrieve_commits_from_log(xmllog, repository)
     }
     all_commits
   end

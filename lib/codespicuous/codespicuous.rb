@@ -21,7 +21,7 @@ class Codespicuous
 
   def collect
     collector = SVNDataCollector.new
-    @commits = collector.collect_commits(repositories, participants, options)
+    @commits = collector.collect_commits(repositories, options)
   end
 
   def generate_output
