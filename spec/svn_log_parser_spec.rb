@@ -1,5 +1,5 @@
 
-describe "parsing the SVN logs from repositories" do
+describe "parsing the SVN logs" do
 
   def log(text)
     '<?xml version="1.0" encoding="UTF-8"?><log>' + text + '</log>'
@@ -58,12 +58,6 @@ describe "parsing the SVN logs from repositories" do
       expect(commit.message).to eq "Summary:optimize implementation."
       expect(commit.author).to eq "basvodde"
       expect(commit.date).to eq DateTime.new(2016,1,4,1,59,13)
-    end
-
-    it "adds the repository information to each commit" do
-      subject.repository = Repository.new("repo", "https://repos.com")
-      commit = subject.parse.commits.find_commit("10")
-      expect(commit.repository.name).to eq "repo"
     end
 
     it "knows which files were changed in the commit" do

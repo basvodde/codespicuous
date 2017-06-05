@@ -3,8 +3,6 @@ require 'rexml/document'
 
 class SVNLogParser
 
-  attr_accessor :repository
-
   def initialize
     @commits = Commits.new
   end
@@ -20,15 +18,14 @@ class SVNLogParser
     validate_xml(xml)
 
     xml.elements.each( "*/logentry" ) do |logentry|
-      commit = create_commit_from_log_entry(logentry, @repository)
+      commit = create_commit_from_log_entry(logentry)
       @commits.add(commit)
     end
     self
   end
 
-  def create_commit_from_log_entry(logentry, repository)
+  def create_commit_from_log_entry(logentry)
     commit = Commit.new
-    commit.repository = repository
     commit.revision = logentry.attributes["revision"]
     commit.author = logentry.elements["author"].text
     commit.message = logentry.elements["msg"].text

@@ -76,6 +76,12 @@ class Commits
     @committers[name].commits
   end
 
+  def set_repository(repository)
+    each { |commit|
+      commit.repository = repository
+    }
+  end
+
   def == commits
     @commits.values == commits.commits
   end
