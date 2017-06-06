@@ -28,38 +28,28 @@ end
 
 class Commits
 
-  def initialize
-    @commits = {}
-    @committers = {}
-  end
+  attr_reader :commits
 
-  def commits
-    @commits.values
-  end
-
-  def [] revision
-    commits[revision]
+  def initialize(commits = [])
+    @commits = commits
   end
 
   def amount
     @commits.size
   end
 
+  def [] index
+    @commits[index]
+  end
+
   def each
-    @commits.values.each { |commit|
+    @commits.each { |commit|
       yield commit
     }
   end
 
   def add commit
-      @commits[commit.revision] = commit
-
-      if commit.committer.nil?
-        @committers[commit.author] ||= Committer.new(commit.author)
-        commit.committer = @committers[commit.author]
-        commit.committer.add_commit(commit)
-      end
-
+    @commits << commit
   end
 
   def add_commits commits
@@ -68,12 +58,12 @@ class Commits
     }
   end
 
-  def find_commit revision
-    @commits[revision]
+  def find_commit(repository, revision)
+    @commits.find { |commit| commit.repository == repository && commit.revision == revision}
   end
 
   def find_by_committer name
-    @committers[name].commits
+    Commits.new (@commits.select { |commit| commit.author == name })
   end
 
   def set_repository(repository)
@@ -83,7 +73,7 @@ class Commits
   end
 
   def == commits
-    @commits.values == commits.commits
+    @commits == commits.commits
   end
 
   def +(commits)

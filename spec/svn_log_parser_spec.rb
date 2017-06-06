@@ -49,19 +49,19 @@ describe "parsing the SVN logs" do
 
     it "knows Bas modified properties" do
       subject.parse
-      expect(subject.commits.find_commit("10").changes[0].changed_property?).to be true
+      expect(subject.commits.find_commit(nil, "10").changes[0].changed_property?).to be true
     end
 
     it "knows all the details of the commit" do
       subject.parse
-      commit = subject.commits.find_commit("10")
+      commit = subject.commits.find_commit(nil, "10")
       expect(commit.message).to eq "Summary:optimize implementation."
       expect(commit.author).to eq "basvodde"
       expect(commit.date).to eq DateTime.new(2016,1,4,1,59,13)
     end
 
     it "knows which files were changed in the commit" do
-      commit = subject.parse.commits.find_commit("5")
+      commit = subject.parse.commits.find_commit(nil, "5")
       expect(commit.changes.size).to eq 2
       expect(commit.changes[0].type).to eq :added
       expect(commit.changes[1].type).to eq :modified
