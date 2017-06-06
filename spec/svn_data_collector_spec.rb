@@ -4,7 +4,6 @@ describe "Collecting data from SVN" do
   subject { SVNDataCollector.new }
 
   before (:each) do
-
     @heh_repository = Repository.new("heh", "https://heh")
     @xmllog = double(:xmllog)
   end
@@ -30,23 +29,13 @@ describe "Collecting data from SVN" do
   it "should parse the xml log that was retrieved from the svn client" do
 
     svnxmlparser = double(:parser)
-
     commits = Commits.new
 
     expect(SVNLogParser).to receive(:new).and_return(svnxmlparser)
-
     expect(svnxmlparser).to receive(:parse).with(@xmllog)
     expect(svnxmlparser).to receive(:commits).and_return(commits)
 
     expect(subject.retrieve_commits_from_log(@xmllog)).to eq commits
-  end
-
-  def create_commits_with_one_commit_in_repository repository
-    commit = Commit.new
-    commit.repository = repository
-    commits = Commits.new
-    commits.add(commit)
-    commits
   end
 
   it "Should collect the log for one repository" do
@@ -64,8 +53,15 @@ describe "Collecting data from SVN" do
     expect(commit.repository).to eq @heh_repository
   end
 
+  def create_commits_with_one_commit_in_repository repository
+    commit = Commit.new
+    commit.repository = repository
+    commits = Commits.new
+    commits.add(commit)
+    commits
+  end
+
   it "Should collect the log for each repository and add the commits" do
-    options = { "option" => true }
     repositories  = Repositories.new
     wow_repository = Repository.new("wow", "https://wow")
     repositories.add(@heh_repository)
@@ -77,8 +73,7 @@ describe "Collecting data from SVN" do
     expect(subject).to receive(:collect_commits_for_repository).with(@heh_repository).and_return(heh_commits)
     expect(subject).to receive(:collect_commits_for_repository).with(wow_repository).and_return(wow_commits)
 
-    expect(subject.collect_commits(repositories, options)).to eq (heh_commits + wow_commits)
-    expect(subject.options).to eq options
+    expect(subject.collect_commit_history(repositories)).to eq (CommitHistory.new(heh_commits + wow_commits))
   end
 
   it "Should write the svn logs to the svnlog directory" do

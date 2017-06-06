@@ -1,7 +1,7 @@
 
 class Codespicuous
 
-  attr_reader :repositories, :commits, :participants, :options
+  attr_reader :repositories, :commit_history, :participants, :options
 
   def run
     puts "Stage 1: Configuring"
@@ -21,7 +21,8 @@ class Codespicuous
 
   def collect
     collector = SVNDataCollector.new
-    @commits = collector.collect_commits(repositories, options)
+    collector.options = options
+    @commit_history = collector.collect_commit_history(repositories)
   end
 
   def generate_output

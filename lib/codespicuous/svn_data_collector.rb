@@ -45,13 +45,12 @@ class SVNDataCollector
       commits_in_repository
   end
 
-  def collect_commits(repositories, options)
-    @options = options
-    all_commits = Commits.new
+  def collect_commit_history(repositories)
+    commit_history = CommitHistory.new
     repositories.each { | repository|
-      all_commits += collect_commits_for_repository(repository)
+      commit_history.add_commits(collect_commits_for_repository(repository))
     }
-    all_commits
+    commit_history
   end
 
 end
