@@ -13,6 +13,7 @@ class Committer
     @commits.add(commit)
     commit.committer = self
   end
+
 end
 
 class Committers

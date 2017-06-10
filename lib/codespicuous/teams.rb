@@ -10,10 +10,7 @@ class Team
 
   def add_member(member)
     @members[member.username] = member
-  end
-
-  def member(name)
-    @members[name] ||= Committer.new(name)
+    member.team = self
   end
 
   def each_member
@@ -42,6 +39,12 @@ class Teams
     @teams[name]
   end
 
+  def each
+    @teams.values.each { |team|
+      yield team
+    }
+  end
+
   def each_member
     @teams.values.each { |team|
       team.each_member { |member|
@@ -52,6 +55,10 @@ class Teams
 
   def team(name)
     @teams[name] ||= Team.new(name)
+  end
+
+  def add(team)
+    @teams[team.name] = team
   end
 
   def amount

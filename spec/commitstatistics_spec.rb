@@ -32,12 +32,10 @@ commits in week:
   2016-05-15: 3 commits"
 
   before :each do
-    parser = DanielFormatParser.new
-    parser.parse(commits_in_daniel_format)
+    @commit_history = DanielFormatParser.new.parse(commits_in_daniel_format)
     @stats = CommitStatistics.new
-    @stats.teams = parser.teams
-    @stats.commits = parser.commits
-    @commit_history = parser.commit_history
+    @stats.teams = @commit_history.teams
+    @stats.commits = @commit_history.commits
   end
 
   it "calculates the amount of committers" do
@@ -45,7 +43,7 @@ commits in week:
   end
 
   it "knows the team the person is in" do
-    #expect(@commit_history.committer("basvodde").team.name).to eq "Wine"
+    expect(@commit_history.committer("basvodde").team.name).to eq "Wine"
   end
 
   it "can extract the commit amounts per user per week" do
