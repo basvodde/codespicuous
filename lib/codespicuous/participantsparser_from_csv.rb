@@ -1,9 +1,9 @@
 
 
-class ParticipantsParserFromCsv
+class CommittersParserFromCsv
 
   def initialize
-    @participants = Participants.new
+    @committers = Committers.new
     @teams = Teams.new
   end
 
@@ -15,18 +15,18 @@ class ParticipantsParserFromCsv
   end
 
   def parse_row row
-      participant = Participant.new(row["Login"])
-      participant.first_name = row["First Name"]
-      participant.last_name = row["Last Name"]
-      participant.email = row["Email"]
+      committer = Committer.new(row["Login"])
+      committer.first_name = row["First Name"]
+      committer.last_name = row["Last Name"]
+      committer.email = row["Email"]
       team = @teams.team(row["Team"])
-      participant.team = team
-      team.add_member(participant)
-      @participants.add(participant)
+      committer.team = team
+      team.add_member(committer)
+      @committers.add(committer)
   end
 
-  def participants
-    @participants
+  def committers
+    @committers
   end
 
   def teams

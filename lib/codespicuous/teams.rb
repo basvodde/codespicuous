@@ -9,7 +9,7 @@ class Team
   end
 
   def add_member(member)
-    @members[member.loginname] = member
+    @members[member.username] = member
   end
 
   def member(name)
@@ -26,7 +26,7 @@ class Team
     @members.size
   end
 
-  def member_loginnames
+  def member_usernames
     @members.keys
   end
 

@@ -17,15 +17,15 @@ describe "Codespicuous command line" do
     configurator = CodespicuousConfigurator.new
     repositories = double(:repositories)
     options = double(:options)
-    participants = double(:participants)
+    committers = double(:committers)
     expect(CodespicuousConfigurator).to receive(:new).and_return(configurator)
     expect(configurator).to receive(:config_options).and_return(options)
     expect(configurator).to receive(:config_repositories).and_return(repositories)
-    expect(configurator).to receive(:config_participants).and_return(participants)
+    expect(configurator).to receive(:config_committers).and_return(committers)
 
     subject.configure
     expect(subject.options).to eq options
-    expect(subject.participants).to eq participants
+    expect(subject.committers).to eq committers
     expect(subject.repositories).to eq repositories
   end
 

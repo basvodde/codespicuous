@@ -1,7 +1,7 @@
 
 class Codespicuous
 
-  attr_reader :repositories, :commit_history, :participants, :options
+  attr_reader :repositories, :commit_history, :committers, :options
 
   def run
     puts "Stage 1: Configuring"
@@ -16,7 +16,7 @@ class Codespicuous
     configurator = CodespicuousConfigurator.new
     @options = configurator.config_options
     @repositories = configurator.config_repositories
-    @participants = configurator.config_participants
+    @committers = configurator.config_committers
   end
 
   def collect

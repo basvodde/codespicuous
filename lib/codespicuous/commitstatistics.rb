@@ -44,10 +44,10 @@ end
 
 class CommitStatisticsForCommitter
 
-  attr_accessor :loginname, :team, :commits_in_repositories
+  attr_accessor :username, :team, :commits_in_repositories
 
-  def initialize(loginname)
-    self.loginname = loginname
+  def initialize(username)
+    self.username = username
     self.commits_in_repositories = {}
   end
 
@@ -124,18 +124,18 @@ class CommitStatistics
     }
   end
 
-  def commit(loginname, repository, date)
-    committer(loginname).commit(repository, date, 1)
+  def commit(username, repository, date)
+    committer(username).commit(repository, date, 1)
   end
 
-  def committer loginname
-    @committer_statistics[loginname] ||= CommitStatisticsForCommitter.new(loginname)
+  def committer username
+    @committer_statistics[username] ||= CommitStatisticsForCommitter.new(username)
   end
 
   def committer_in_team(team)
     team_members = []
     @committer_statistics.each_value { |committer|
-      team_members << committer.loginname if committer.team == team || team == nil
+      team_members << committer.username if committer.team == team || team == nil
     }
     team_members
   end
@@ -199,7 +199,7 @@ class CommitStatistics
   end
 
   def create_commit_table_row_for_committer_with_repository_info committer
-    [committer.loginname, committer.team, repositories_committed_to.map { |repository| committer.amount_of_comnmits_to_repository(repository)}, committer.amount_of_commits].flatten
+    [committer.username, committer.team, repositories_committed_to.map { |repository| committer.amount_of_comnmits_to_repository(repository)}, committer.amount_of_commits].flatten
   end
 
   def create_commit_table_rows_with_committers_and_repository_info(team_to_select)
