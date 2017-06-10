@@ -56,11 +56,11 @@ commits in week:
   end
 
   it "should be able to extract all the repositories" do
-    expect(@stats.repositories_committed_to).to include "osaka"
+    expect(@commit_history.repository_names).to include "osaka"
   end
 
   it "should be able to extract all the teams" do
-    expect(@stats.teams).to eq ["Cheese", "Wine"]
+    expect(@commit_history.teams.team_names).to eq ["Wine", "Cheese"]
   end
 
   it "Should be able to create the wonderful table (sorted on team)" do

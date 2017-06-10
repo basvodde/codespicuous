@@ -8,12 +8,14 @@ class CommitHistory
     @commits = Commits.new
     @committers = Committers.new
     @teams = Teams.new
+    @repositories = Repositories.new
     add_commits(commits)
   end
 
   def add_commit(commit)
     @commits.add(commit)
     committer(commit.author).add_commit(commit)
+    @repositories.add(commit.repository)
   end
 
   def add_commits(commits)
@@ -31,8 +33,16 @@ class CommitHistory
     @committers.committer(name)
   end
 
+  def repository(name)
+    @repositories.repository(name)
+  end
+
   def amount_of_comitters
     @committers.amount
+  end
+
+  def repository_names
+    @repositories.repository_names
   end
 
   def == commit_history

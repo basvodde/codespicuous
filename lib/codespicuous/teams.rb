@@ -39,6 +39,10 @@ class Teams
     @teams[name]
   end
 
+  def team_names
+    @teams.keys
+  end
+
   def each
     @teams.values.each { |team|
       yield team

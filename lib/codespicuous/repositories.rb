@@ -20,8 +20,12 @@ class Repositories
     @repositories[repository.name] = repository
   end
 
-  def repository_by_name name
+  def repository name
     @repositories[name]
+  end
+
+  def repository_names
+    @repositories.keys
   end
 
   def amount
