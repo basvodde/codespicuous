@@ -51,8 +51,8 @@ commits in week:
   end
 
   it "can extract the commits per user" do
-    expect(@stats.committer("basvodde").amount_of_commits_to_repository_in_week("osaka", DateTime.new(2016,03,13))).to eq 4
-    expect(@stats.committer("basvodde").amount_of_commits_to_repository_in_week("osaka", DateTime.new(2016,04,17))).to eq 2
+    expect(@commit_history.committer("basvodde").amount_of_commits_to_repository_in_week("osaka", DateTime.new(2016,03,13))).to eq 4
+    expect(@commit_history.committer("basvodde").amount_of_commits_to_repository_in_week("osaka", DateTime.new(2016,04,17))).to eq 2
   end
 
   it "should be able to extract all the repositories" do

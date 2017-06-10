@@ -77,11 +77,11 @@ class Commits
   end
 
   def amount_of_weeks_committed_in_repository(name)
-    weeks_committed = []
-    commits_in_repository(name).each { |commit|
-      weeks_committed << [commit.date.cwyear, commit.date.cweek]
-    }
-    weeks_committed.uniq.size
+    commits_in_repository(name).collect { |commit| [commit.date.cwyear, commit.date.cweek]}.uniq.size
+  end
+
+  def amount_of_commits_to_repository_in_week(name, week_start)
+    commits_in_repository(name).select { |commit| commit.date.cwyear == week_start.cwyear && commit.date.cweek == week_start.cweek}.size
   end
 
   def == commits
