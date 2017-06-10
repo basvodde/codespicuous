@@ -6,7 +6,7 @@ class CommitHistory
 
   def initialize(commits = Commits.new)
     @commits = Commits.new
-    @committers = {}
+    @committers = Committers.new
     add_commits(commits)
   end
 
@@ -22,11 +22,11 @@ class CommitHistory
   end
 
   def committer(name)
-    @committers[name] ||= Committer.new(name)
+    @committers.committer(name)
   end
 
   def amount_of_comitters
-    @committers.size
+    @committers.amount
   end
 
   def == commit_history

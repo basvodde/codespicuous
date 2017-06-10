@@ -29,6 +29,10 @@ class Committers
     @committers[committer.username] = committer
   end
 
+  def committer(name)
+    @committers[name] ||= Committer.new(name)
+  end
+
   def amount
     @committers.size
   end
