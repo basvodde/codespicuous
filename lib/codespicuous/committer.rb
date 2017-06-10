@@ -2,7 +2,7 @@
 
 class Committer
 
-  attr_reader :commits
+  attr_reader :commits, :username
 
   def initialize(name)
     @username = name

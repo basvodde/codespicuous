@@ -12,6 +12,16 @@ class Team
     @members[member.loginname] = member
   end
 
+  def member(name)
+    @members[name] ||= Committer.new(name)
+  end
+
+  def each_member
+    @members.values.each { |member|
+      yield member
+    }
+  end
+
   def amount_of_members
     @members.size
   end
@@ -30,6 +40,14 @@ class Teams
 
   def find_by_name(name)
     @teams[name]
+  end
+
+  def each_member
+    @teams.values.each { |team|
+      team.each_member { |member|
+        yield team, member
+      }
+    }
   end
 
   def team(name)

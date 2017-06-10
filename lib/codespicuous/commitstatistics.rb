@@ -9,7 +9,8 @@ class CommitStatisticsForCommitterInRepository
   end
 
   def commit(date, amount)
-    @commits[DateTime.parse(date.to_s)] = amount.to_i
+    @commits[DateTime.parse(date.to_s)] ||= 0
+    @commits[DateTime.parse(date.to_s)] += amount.to_i
   end
 
   def amount_of_commits
@@ -51,7 +52,7 @@ class CommitStatisticsForCommitter
   end
 
   def commit(repository, date, amount)
-    repository(repository).commit(date, amount)
+    repository(repository.name).commit(date, amount)
   end
 
   def repository name
@@ -111,8 +112,20 @@ class CommitStatistics
     self.committer_statistics = {}
   end
 
-  def commit(loginname, repository, date, amount)
-    committer(loginname).commit(repository, date, amount)
+  def commits= commits
+    commits.each { |commit|
+      commit(commit.author, commit.repository, commit.date)
+    }
+  end
+
+  def teams= teams
+    teams.each_member { |team, member|
+      committer(member.username).team = team.name
+    }
+  end
+
+  def commit(loginname, repository, date)
+    committer(loginname).commit(repository, date, 1)
   end
 
   def committer loginname
