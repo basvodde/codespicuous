@@ -14,6 +14,9 @@ class Committer
     commit.committer = self
   end
 
+  def amount_of_weeks_committed_to_repository name
+    @commits.amount_of_weeks_committed_in_repository(name)
+  end
 end
 
 class Committers
@@ -45,5 +48,6 @@ class Committers
   def include? username
     @committers.keys.include?(username)
   end
+
 end
 

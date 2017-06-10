@@ -21,7 +21,7 @@ class DanielFormatParser
           commit = Commit.new
           commit.author = current_author
           commit.repository = current_repository
-          commit.date = $~[1]
+          commit.date = DateTime.parse($~[1])
           commit_history.add_commit(commit)
         }
       end

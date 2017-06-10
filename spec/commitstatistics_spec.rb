@@ -47,7 +47,7 @@ commits in week:
   end
 
   it "can extract the commit amounts per user per week" do
-    expect(@stats.committer("basvodde").amount_of_weeks_committed_to_repository("osaka")).to eq 4
+    expect(@commit_history.committer("basvodde").amount_of_weeks_committed_to_repository("osaka")).to eq 4
   end
 
   it "can extract the commits per user" do

@@ -72,6 +72,18 @@ class Commits
     }
   end
 
+  def commits_in_repository(name)
+    @commits.select { |commit| commit.repository.name == name }
+  end
+
+  def amount_of_weeks_committed_in_repository(name)
+    weeks_committed = []
+    commits_in_repository(name).each { |commit|
+      weeks_committed << [commit.date.cwyear, commit.date.cweek]
+    }
+    weeks_committed.uniq.size
+  end
+
   def == commits
     @commits == commits.commits
   end
