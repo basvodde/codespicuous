@@ -53,6 +53,10 @@ class Teams
     }
   end
 
+  def map(&block)
+    @teams.values.map(&block)
+  end
+
   def each_member
     @teams.values.each { |team|
       team.each_member { |member|

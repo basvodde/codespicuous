@@ -9,8 +9,8 @@ class Committer
     @commits = Commits.new
   end
 
-  def in_team?(team)
-    team == team
+  def in_team_with_name?(team_name)
+    @team.name == team_name
   end
 
   def add_commit commit

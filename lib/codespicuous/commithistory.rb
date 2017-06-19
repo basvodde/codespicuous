@@ -45,9 +45,9 @@ class CommitHistory
     @committers.amount
   end
 
-  def amount_of_commits_for_team_in_week(team, week)
+  def amount_of_commits_for_team_in_week(team_name, week)
     @commits.inject(0) { |amount_of_commits, commit|
-      amount_of_commits + ((commit.by_team?(team) && commit.in_week?(week)) ? 1 : 0)
+      amount_of_commits + ((commit.by_team_with_name?(team_name) && commit.in_week?(week)) ? 1 : 0)
     }
   end
 
@@ -57,6 +57,20 @@ class CommitHistory
 
   def == commit_history
     @commits == commit_history.commits
+  end
+
+  def begin_of_week(date)
+    date - (date.cwday-1)
+  end
+
+  def string_date(date)
+    date.strftime("%Y-%m-%d")
+  end
+
+  def for_each_week
+    (begin_of_week(earliest_commit_date)..begin_of_week(latest_commit_date)).step(7) { |week|
+      yield week
+    }
   end
 
   def create_commit_table_row_for_committer_with_repository_info committer
@@ -72,6 +86,15 @@ class CommitHistory
       csv << ["Committer", "Team", @repositories.repository_names, "Total"].flatten
       teams.each { |team|
         create_commit_table_rows_with_committers_and_repository_info(team).each { |row| csv << row }
+      }
+    end
+  end
+
+  def create_commit_table_with_weeks_and_team_commits
+    CSV.generate do |csv|
+      csv <<  ["Week", teams.team_names].flatten
+      for_each_week { |week|
+        csv << [string_date(week), teams.map { |team| amount_of_commits_for_team_in_week(team.name, week) } ].flatten
       }
     end
   end

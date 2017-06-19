@@ -25,8 +25,8 @@ class Commit
 
   attr_accessor :author, :revision, :message, :date, :changes, :repository, :committer
 
-  def by_team?(team)
-    committer.in_team?(team)
+  def by_team_with_name?(team_name)
+    committer.in_team_with_name?(team_name)
   end
 
   def in_week?(date)

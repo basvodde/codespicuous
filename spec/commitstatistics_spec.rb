@@ -8,28 +8,28 @@ repository: osaka
 *** basvodde
 team:                  Wine
 commits in week:
-  2016-04-17: 2 commits
-  2016-05-01: 2 commits
+  2016-04-18: 2 commits
+  2016-05-02: 2 commits
 
 *** daniel
 team:                  Cheese
 commits in week:
-  2016-03-27: 1 commits
+  2016-03-28: 1 commits
 
 *** basvodde
 team:                  Wine
 commits in week:
-  2016-03-13: 4 commits
-  2016-04-03: 1 commits
+  2016-03-14: 4 commits
+  2016-04-04: 1 commits
 
 repository: cpputest
 
 *** janne
 team: Wine
 commits in week:
-  2016-02-28: 1 commits
-  2016-04-03: 3 commits
-  2016-05-15: 3 commits"
+  2016-02-29: 1 commits
+  2016-04-04: 3 commits
+  2016-05-16: 3 commits"
 
   before :each do
     @commit_history = DanielFormatParser.new.parse(commits_in_daniel_format)
@@ -51,8 +51,8 @@ commits in week:
   end
 
   it "can extract the commits per user" do
-    expect(@commit_history.committer("basvodde").amount_of_commits_to_repository_in_week("osaka", DateTime.new(2016,03,13))).to eq 4
-    expect(@commit_history.committer("basvodde").amount_of_commits_to_repository_in_week("osaka", DateTime.new(2016,04,17))).to eq 2
+    expect(@commit_history.committer("basvodde").amount_of_commits_to_repository_in_week("osaka", DateTime.new(2016,03,14))).to eq 4
+    expect(@commit_history.committer("basvodde").amount_of_commits_to_repository_in_week("osaka", DateTime.new(2016,04,18))).to eq 2
   end
 
   it "should be able to extract all the repositories" do
@@ -73,11 +73,11 @@ daniel,Cheese,1,0,1
   end
 
   it "should be able to find the earliest commit date" do
-    expect(@commit_history.earliest_commit_date).to eq DateTime.new(2016,02,28)
+    expect(@commit_history.earliest_commit_date).to eq DateTime.new(2016,02,29)
   end
 
   it "should be able to find the latest commit date" do
-    expect(@commit_history.latest_commit_date).to eq DateTime.new(2016,05,15)
+    expect(@commit_history.latest_commit_date).to eq DateTime.new(2016,05,16)
   end
 
   it "Should be able to get the amount of commits per team per week without commits" do
@@ -85,77 +85,77 @@ daniel,Cheese,1,0,1
   end
 
   it "Should be able to get the amount of commits per team per week" do
-    expect(@stats.amount_of_commits_for_team_in_week("Cheese", DateTime.new(2016,03,27))).to eq 1
+    expect(@commit_history.amount_of_commits_for_team_in_week("Cheese", DateTime.new(2016,03,28))).to eq 1
   end
 
   it "Should make a time table with commits and team" do
-    table = "Week,Cheese,Wine
-2016-02-28,0,1
-2016-03-06,0,0
-2016-03-13,0,4
-2016-03-20,0,0
-2016-03-27,1,0
-2016-04-03,0,4
-2016-04-10,0,0
-2016-04-17,0,2
-2016-04-24,0,0
-2016-05-01,0,2
-2016-05-08,0,0
-2016-05-15,0,3
+    table = "Week,Wine,Cheese
+2016-02-29,1,0
+2016-03-07,0,0
+2016-03-14,4,0
+2016-03-21,0,0
+2016-03-28,0,1
+2016-04-04,4,0
+2016-04-11,0,0
+2016-04-18,2,0
+2016-04-25,0,0
+2016-05-02,2,0
+2016-05-09,0,0
+2016-05-16,3,0
 "
-    expect(@stats.create_commit_table_with_weeks_and_team_commits).to eq table
+    expect(@commit_history.create_commit_table_with_weeks_and_team_commits).to eq table
   end
 
   it "Should make a time table with commits per repository" do
     table = "Week,osaka,cpputest
-2016-02-28,0,1
-2016-03-06,0,0
-2016-03-13,4,0
-2016-03-20,0,0
-2016-03-27,1,0
-2016-04-03,1,3
-2016-04-10,0,0
-2016-04-17,2,0
-2016-04-24,0,0
-2016-05-01,2,0
-2016-05-08,0,0
-2016-05-15,0,3
+2016-02-29,0,1
+2016-03-07,0,0
+2016-03-14,4,0
+2016-03-21,0,0
+2016-03-28,1,0
+2016-04-04,1,3
+2016-04-11,0,0
+2016-04-18,2,0
+2016-04-25,0,0
+2016-05-02,2,0
+2016-05-09,0,0
+2016-05-16,0,3
 "
     expect(@stats.create_commit_table_with_week_and_repository_info).to eq table
   end
 
   it "Should make a time table with commits per user" do
     table = "Week,basvodde,janne,daniel
-2016-02-28,0,1,0
-2016-03-06,0,0,0
-2016-03-13,4,0,0
-2016-03-20,0,0,0
-2016-03-27,0,0,1
-2016-04-03,1,3,0
-2016-04-10,0,0,0
-2016-04-17,2,0,0
-2016-04-24,0,0,0
-2016-05-01,2,0,0
-2016-05-08,0,0,0
-2016-05-15,0,3,0
+2016-02-29,0,1,0
+2016-03-07,0,0,0
+2016-03-14,4,0,0
+2016-03-21,0,0,0
+2016-03-28,0,0,1
+2016-04-04,1,3,0
+2016-04-11,0,0,0
+2016-04-18,2,0,0
+2016-04-25,0,0,0
+2016-05-02,2,0,0
+2016-05-09,0,0,0
+2016-05-16,0,3,0
 "
     expect(@stats.create_commit_table_with_weeks_and_committers).to eq table
   end
 
   it "Should make a time table with commits per user in team" do
     table = "Week,basvodde,janne
-2016-02-28,0,1
-2016-03-06,0,0
-2016-03-13,4,0
-2016-03-20,0,0
-2016-03-27,0,0
-2016-04-03,1,3
-2016-04-10,0,0
-2016-04-17,2,0
-2016-04-24,0,0
-2016-05-01,2,0
-2016-05-08,0,0
-2016-05-15,0,3
+2016-02-29,0,1
+2016-03-07,0,0
+2016-03-14,4,0
+2016-03-21,0,0
+2016-03-28,0,0
+2016-04-04,1,3
+2016-04-11,0,0
+2016-04-18,2,0
+2016-04-25,0,0
+2016-05-02,2,0
+2016-05-09,0,0
+2016-05-16,0,3
 "
     expect(@stats.create_commit_table_with_weeks_and_committers("Wine")).to eq table
   end
