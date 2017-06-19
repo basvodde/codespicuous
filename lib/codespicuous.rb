@@ -1,6 +1,7 @@
 
 # Util
 require_relative 'codespicuous/commandrunner.rb'
+require_relative 'codespicuous/dateutil.rb'
 
 # Core
 require_relative 'codespicuous/teams.rb'

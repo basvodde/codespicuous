@@ -121,7 +121,7 @@ daniel,Cheese,1,0,1
 2016-05-09,0,0
 2016-05-16,0,3
 "
-    expect(@stats.create_commit_table_with_week_and_repository_info).to eq table
+    expect(@commit_history.create_commit_table_with_week_and_repository_info).to eq table
   end
 
   it "Should make a time table with commits per user" do
