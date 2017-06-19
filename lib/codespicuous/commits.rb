@@ -24,6 +24,14 @@ class Commit
   end
 
   attr_accessor :author, :revision, :message, :date, :changes, :repository, :committer
+
+  def by_team?(team)
+    committer.in_team?(team)
+  end
+
+  def in_week?(date)
+    @date.cwyear == date.cwyear && @date.cweek == date.cweek
+  end
 end
 
 class Commits
@@ -42,6 +50,10 @@ class Commits
     @commits.each { |commit|
       yield commit
     }
+  end
+
+  def inject(value, &block)
+    @commits.inject(value, &block)
   end
 
   def commits_in_repository(name)
@@ -94,7 +106,7 @@ class Commits
 
   def amount_of_commits_to_repository_in_week(name, week_start)
     commits_in_repository(name).select { |commit|
-      commit.date.cwyear == week_start.cwyear && commit.date.cweek == week_start.cweek
+      commit.in_week?(week_start)
     }.size
   end
 

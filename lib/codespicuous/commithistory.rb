@@ -45,6 +45,12 @@ class CommitHistory
     @committers.amount
   end
 
+  def amount_of_commits_for_team_in_week(team, week)
+    @commits.inject(0) { |amount_of_commits, commit|
+      amount_of_commits + ((commit.by_team?(team) && commit.in_week?(week)) ? 1 : 0)
+    }
+  end
+
   def repository_names
     @repositories.repository_names
   end

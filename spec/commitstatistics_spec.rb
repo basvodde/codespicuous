@@ -81,7 +81,7 @@ daniel,Cheese,1,0,1
   end
 
   it "Should be able to get the amount of commits per team per week without commits" do
-    expect(@stats.amount_of_commits_for_team_in_week("Cheese", "2016-01-01")).to eq 0
+    expect(@commit_history.amount_of_commits_for_team_in_week("Cheese", DateTime.new(2016,01,01))).to eq 0
   end
 
   it "Should be able to get the amount of commits per team per week" do
