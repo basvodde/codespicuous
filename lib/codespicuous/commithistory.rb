@@ -74,4 +74,8 @@ class CommitHistory
     @commits.earliest_commit_date
   end
 
+  def latest_commit_date
+    @commits.latest_commit_date
+  end
+
 end

@@ -73,8 +73,11 @@ class Commits
   end
 
   def earliest_commit_date
-    earliest_commit = DateTime.now
-    @commits.inject(earliest_commit) { |date, commit| date < commit.date ? date : commit.date }
+    @commits.inject(DateTime.now) { |date, commit| date < commit.date ? date : commit.date }
+  end
+
+  def latest_commit_date
+    @commits.inject(DateTime.new(1977)) { |date, commit| date > commit.date ? date : commit.date }
   end
 
   def amount

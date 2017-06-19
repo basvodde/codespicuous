@@ -77,7 +77,7 @@ daniel,Cheese,1,0,1
   end
 
   it "should be able to find the latest commit date" do
-    expect(@stats.last_week_committed).to eq DateTime.new(2016,05,15)
+    expect(@commit_history.latest_commit_date).to eq DateTime.new(2016,05,15)
   end
 
   it "Should be able to get the amount of commits per team per week without commits" do
