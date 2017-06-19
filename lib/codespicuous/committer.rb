@@ -14,6 +14,14 @@ class Committer
     commit.committer = self
   end
 
+  def amount_of_commits
+    @commits.amount
+  end
+
+  def amount_of_commits_to_repository name
+    @commits.amount_of_commits_to_repository name
+  end
+
   def amount_of_weeks_committed_to_repository name
     @commits.amount_of_weeks_committed_in_repository(name)
   end
@@ -21,6 +29,7 @@ class Committer
   def amount_of_commits_to_repository_in_week(name, week_start)
     @commits.amount_of_commits_to_repository_in_week(name, week_start)
   end
+
 end
 
 class Committers

@@ -34,10 +34,6 @@ class Commits
     @commits = commits
   end
 
-  def amount
-    @commits.size
-  end
-
   def [] index
     @commits[index]
   end
@@ -46,6 +42,10 @@ class Commits
     @commits.each { |commit|
       yield commit
     }
+  end
+
+  def commits_in_repository(name)
+    @commits.select { |commit| commit.repository.name == name }
   end
 
   def add commit
@@ -58,6 +58,12 @@ class Commits
     }
   end
 
+  def set_repository(repository)
+    each { |commit|
+      commit.repository = repository
+    }
+  end
+
   def find_commit(repository, revision)
     @commits.find { |commit| commit.repository == repository && commit.revision == revision}
   end
@@ -66,14 +72,17 @@ class Commits
     Commits.new (@commits.select { |commit| commit.author == name })
   end
 
-  def set_repository(repository)
-    each { |commit|
-      commit.repository = repository
-    }
+  def earliest_commit_date
+    earliest_commit = DateTime.now
+    @commits.inject(earliest_commit) { |date, commit| date < commit.date ? date : commit.date }
   end
 
-  def commits_in_repository(name)
-    @commits.select { |commit| commit.repository.name == name }
+  def amount
+    @commits.size
+  end
+
+  def amount_of_commits_to_repository(name)
+    commits_in_repository(name).size
   end
 
   def amount_of_weeks_committed_in_repository(name)
@@ -81,7 +90,9 @@ class Commits
   end
 
   def amount_of_commits_to_repository_in_week(name, week_start)
-    commits_in_repository(name).select { |commit| commit.date.cwyear == week_start.cwyear && commit.date.cweek == week_start.cweek}.size
+    commits_in_repository(name).select { |commit|
+      commit.date.cwyear == week_start.cwyear && commit.date.cweek == week_start.cweek
+    }.size
   end
 
   def == commits

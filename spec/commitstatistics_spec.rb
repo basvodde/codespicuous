@@ -65,15 +65,15 @@ commits in week:
 
   it "Should be able to create the wonderful table (sorted on team)" do
     table = "Committer,Team,osaka,cpputest,Total
-daniel,Cheese,1,0,1
 basvodde,Wine,9,0,9
 janne,Wine,0,7,7
+daniel,Cheese,1,0,1
 "
-    expect(@stats.create_commit_table_with_committers_and_repository_info).to eq table
+    expect(@commit_history.create_commit_table_with_committers_and_repository_info).to eq table
   end
 
   it "should be able to find the earliest commit date" do
-    expect(@stats.first_week_committed).to eq DateTime.new(2016,02,28)
+    expect(@commit_history.earliest_commit_date).to eq DateTime.new(2016,02,28)
   end
 
   it "should be able to find the latest commit date" do

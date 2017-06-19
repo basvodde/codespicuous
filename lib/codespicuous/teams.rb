@@ -13,6 +13,10 @@ class Team
     member.team = self
   end
 
+  def members
+    @members.values
+  end
+
   def each_member
     @members.values.each { |member|
       yield member
