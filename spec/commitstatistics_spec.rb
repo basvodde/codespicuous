@@ -139,7 +139,7 @@ daniel,Cheese,1,0,1
 2016-05-09,0,0,0
 2016-05-16,0,3,0
 "
-    expect(@stats.create_commit_table_with_weeks_and_committers).to eq table
+    expect(@commit_history.create_commit_table_with_weeks_and_committers).to eq table
   end
 
   it "Should make a time table with commits per user in team" do

@@ -104,6 +104,10 @@ class Commits
     commits_in_repository(name).collect { |commit| [commit.date.cwyear, commit.date.cweek]}.uniq.size
   end
 
+  def amount_of_commits_in_week(week_start)
+    @commits.select { |commit| commit.in_week?(week_start)}.size
+  end
+
   def amount_of_commits_to_repository_in_week(name, week_start)
     commits_in_repository(name).select { |commit|
       commit.in_week?(week_start)

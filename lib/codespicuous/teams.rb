@@ -77,4 +77,8 @@ class Teams
     @teams.size
   end
 
+  def member_usernames(team_name = nil)
+    @teams.values.collect { |team| team.member_usernames if team.name == team_name || team_name == nil }.flatten
+  end
+
 end

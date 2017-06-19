@@ -95,6 +95,17 @@ class CommitHistory
     end
   end
 
+  def create_commit_table_with_weeks_and_committers(team=nil)
+    CSV.generate do |csv|
+      csv <<  ["Week", @teams.member_usernames(team) ].flatten
+      for_each_week { |week|
+        csv <<  [string_date(week), @teams.member_usernames(team).map { |name|
+          @committers.find_by_username(name).amount_of_commits_in_week(week)
+        }].flatten
+      }
+    end
+  end
+
   def earliest_commit_date
     @commits.earliest_commit_date
   end
