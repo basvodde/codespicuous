@@ -157,7 +157,7 @@ daniel,Cheese,1,0,1
 2016-05-09,0,0
 2016-05-16,0,3
 "
-    expect(@stats.create_commit_table_with_weeks_and_committers("Wine")).to eq table
+    expect(@commit_history.create_commit_table_with_weeks_and_committers("Wine")).to eq table
   end
 end
 

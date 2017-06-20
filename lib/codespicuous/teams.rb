@@ -78,7 +78,9 @@ class Teams
   end
 
   def member_usernames(team_name = nil)
-    @teams.values.collect { |team| team.member_usernames if team.name == team_name || team_name == nil }.flatten
+    @teams.values.collect { |team|
+      team.member_usernames if team.name == team_name || team_name == nil
+    }.compact.flatten
   end
-
 end
+
