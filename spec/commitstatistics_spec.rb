@@ -33,9 +33,6 @@ commits in week:
 
   before :each do
     @commit_history = DanielFormatParser.new.parse(commits_in_daniel_format)
-    @stats = CommitStatistics.new
-    @stats.teams = @commit_history.teams
-    @stats.commits = @commit_history.commits
   end
 
   it "calculates the amount of committers" do
