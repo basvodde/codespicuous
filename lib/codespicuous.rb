@@ -27,5 +27,11 @@ require_relative 'codespicuous/committersparser_from_csv.rb'
 require_relative 'codespicuous/repositoriesparser_from_csv.rb'
 require_relative 'codespicuous/codespicuousconfigurator.rb'
 
+# Generator
+require_relative 'codespicuous/metrics_generator.rb'
+require_relative 'codespicuous/metrics_generator_daniel.rb'
+require_relative 'codespicuous/metrics_generator_csv.rb'
+
 # App
 require_relative 'codespicuous/codespicuous.rb'
+

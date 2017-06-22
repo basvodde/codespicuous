@@ -26,6 +26,8 @@ class Codespicuous
   end
 
   def generate_output
+    generator = MetricsGenerator.new
+    generator.generate(@commit_history)
 
   end
 
