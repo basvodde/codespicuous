@@ -8,6 +8,7 @@ require_relative 'codespicuous/teams.rb'
 require_relative 'codespicuous/repositories.rb'
 require_relative 'codespicuous/commits.rb'
 require_relative 'codespicuous/commithistory.rb'
+require_relative 'codespicuous/commithistory_builder.rb'
 require_relative 'codespicuous/committer.rb'
 
 require_relative 'codespicuous/commitstatistics.rb'

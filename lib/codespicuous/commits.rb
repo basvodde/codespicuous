@@ -17,6 +17,10 @@ class Change
   end
 end
 
+class CommitSameButDifferentError < Exception
+
+end
+
 class Commit
 
   def initialize
@@ -32,6 +36,22 @@ class Commit
   def in_week?(date)
     @date.cwyear == date.cwyear && @date.cweek == date.cweek
   end
+
+  def my_object_id
+    object_id
+  end
+
+  def inspect
+    "Commit(o:#{my_object_id}) #{repository.name}:#{revision}"
+  end
+
+  def ==(commit)
+    is_equal = @repository == commit.repository && @revision == commit.revision
+
+    raise CommitSameButDifferentError.new if is_equal && @author != commit.author
+    is_equal
+  end
+
 end
 
 class Commits

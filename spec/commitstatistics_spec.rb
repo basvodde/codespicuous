@@ -1,38 +1,17 @@
 
 require 'codespicuous'
+require 'commithistories_data.rb'
 
 describe "Team commits per week table" do
 
-  commits_in_daniel_format = "
-repository: osaka
-*** basvodde
-team:                  Wine
-commits in week:
-  2016-04-18: 2 commits
-  2016-05-02: 2 commits
-
-*** daniel
-team:                  Cheese
-commits in week:
-  2016-03-28: 1 commits
-
-*** basvodde
-team:                  Wine
-commits in week:
-  2016-03-14: 4 commits
-  2016-04-04: 1 commits
-
-repository: cpputest
-
-*** janne
-team: Wine
-commits in week:
-  2016-02-29: 1 commits
-  2016-04-04: 3 commits
-  2016-05-16: 3 commits"
+  commits_in_daniel_format = COMMIT_HISTORY_WINE_CHEESE_DANIEL_FORMAT
 
   before :each do
     @commit_history = DanielFormatParser.new.parse(commits_in_daniel_format)
+  end
+
+  it "can compare two commit histories" do
+    expect(@commit_history).to eq(@commit_history)
   end
 
   it "calculates the amount of committers" do
@@ -62,9 +41,9 @@ commits in week:
 
   it "Should be able to create the wonderful table (sorted on team)" do
     table = "Committer,Team,osaka,cpputest,Total
+daniel,Cheese,1,0,1
 basvodde,Wine,9,0,9
 janne,Wine,0,7,7
-daniel,Cheese,1,0,1
 "
     expect(@commit_history.create_commit_table_with_committers_and_repository_info).to eq table
   end

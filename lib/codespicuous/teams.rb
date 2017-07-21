@@ -31,6 +31,9 @@ class Team
     @members.keys
   end
 
+  def <=> other
+    @name <=> other.name
+  end
 end
 
 class Teams
@@ -48,7 +51,7 @@ class Teams
   end
 
   def each
-    @teams.values.each { |team|
+    @teams.values.sort.each { |team|
       yield team
     }
   end

@@ -1,4 +1,9 @@
 
+
+class SameRepositoriesWithDifferentCommitsError < Exception
+
+end
+
 class Repository
 
   attr_reader :commits
@@ -16,6 +21,13 @@ class Repository
 
   def amount_of_commits_in_week(week_start)
     @commits.amount_of_commits_to_repository_in_week(name, week_start)
+  end
+
+  def ==(repository)
+    is_equal = @name == repository.name && @url == repository.url
+
+    raise SameRepositoriesWithDifferentCommitsError.new if is_equal && @commits != repository.commits
+    is_equal
   end
 end
 
