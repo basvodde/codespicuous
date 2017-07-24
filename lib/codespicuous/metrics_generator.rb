@@ -11,12 +11,12 @@ class MetricsGenerator
   end
 
   def generate_daniel
-    daniel = MetricsGeneratorDaniel.new
-    daniel.generate(@commit_history)
+    daniel = MetricsGeneratorDaniel.new(@commit_history)
+    daniel.generate
   end
 
   def generate_csv
-    csv = MetricsGeneratorCsv.new
-    csv.generate(@commit_history)
+    csv = MetricsGeneratorCsv.new(@commit_history)
+    csv.generate
   end
 end

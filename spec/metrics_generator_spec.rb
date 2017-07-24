@@ -16,9 +16,9 @@ describe "Generate different types of code metrics" do
   it "generate daniel format metrics" do
     @subject.commit_history = @commit_history
 
-    daniel = MetricsGeneratorDaniel.new
-    expect(MetricsGeneratorDaniel).to receive(:new).and_return(daniel)
-    expect(daniel).to receive(:generate).with(@commit_history)
+    daniel = MetricsGeneratorDaniel.new(@commit_history)
+    expect(MetricsGeneratorDaniel).to receive(:new).with(@commit_history).and_return(daniel)
+    expect(daniel).to receive(:generate)
 
     @subject.generate_daniel
   end
@@ -26,9 +26,9 @@ describe "Generate different types of code metrics" do
   it "generate csv format metrics" do
     @subject.commit_history = @commit_history
 
-    csv = MetricsGeneratorCsv.new
-    expect(MetricsGeneratorCsv).to receive(:new).and_return(csv)
-    expect(csv).to receive(:generate).with(@commit_history)
+    csv = MetricsGeneratorCsv.new(@commit_history)
+    expect(MetricsGeneratorCsv).to receive(:new).with(@commit_history).and_return(csv)
+    expect(csv).to receive(:generate)
 
     @subject.generate_csv
   end

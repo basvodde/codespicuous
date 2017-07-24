@@ -40,6 +40,7 @@ describe "Codespicuous command line" do
 
     expect(subject.commit_history).to eq commit_history
   end
+
   it "generates output" do
     generator = MetricsGenerator.new
     expect(MetricsGenerator).to receive(:new).and_return(generator)

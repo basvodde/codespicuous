@@ -4,10 +4,8 @@ require 'commithistories_data.rb'
 
 describe "Team commits per week table" do
 
-  commits_in_daniel_format = COMMIT_HISTORY_WINE_CHEESE_DANIEL_FORMAT
-
   before :each do
-    @commit_history = DanielFormatParser.new.parse(commits_in_daniel_format)
+    @commit_history = COMMIT_HISTORY_WINE_CHEESE
   end
 
   it "can compare two commit histories" do

@@ -14,7 +14,8 @@ daniel,Cheese,1,0,1
 basvodde,Wine,9,0,9
 janne,Wine,0,7,7
 "
-    expect(@commit_history.create_commit_table_with_committers_and_repository_info).to eq table
+    metrics_generator = MetricsGeneratorCsv.new(@commit_history)
+    expect(metrics_generator.create_commit_table_with_committers_and_repository_info).to eq table
   end
 
   it "exists" do
