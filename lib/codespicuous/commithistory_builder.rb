@@ -10,7 +10,7 @@ class CommitHistoryBuilder
   end
 
   def in_repository(name)
-    @repository_name = name
+    @current_repository = Repository.new(name, "")
     self
   end
 
@@ -41,7 +41,7 @@ class CommitHistoryBuilder
     commit = Commit.new
     commit.author = @author
     commit.date = DateTime.parse(@commit_date)
-    commit.repository = Repository.new(@repository_name, "")
+    commit.repository = @current_repository
     @commit_history.add_commit(commit)
     @commit_history.add_team_member(@team, @author)
   end
