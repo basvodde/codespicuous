@@ -7,6 +7,7 @@ describe "CodepicuousConfigurator reads all the config files and provides the da
     expect(subject).to receive(:configure_from_yaml)
     expect(subject).to receive(:postprocess_yaml_configuration)
     expect(subject).to receive(:find_alternative_configuration_files)
+    expect(subject).to receive(:validate_configuration)
     subject.configure
   end
 

@@ -5,19 +5,26 @@ class Codespicuous
 
   def run
     puts "Stage 1: Configuring"
-    configure
+    return false unless configure
+
     puts "Stage 2: Collecting input data"
     collect
+
     puts "Stage 3: Generating output"
     generate_output
+
+    true
   end
 
   def configure
     configurator = CodespicuousConfigurator.new
-    configurator.configure
+    return false unless configurator.configure
+
     @options = configurator.options
     @repositories = configurator.repositories
     @committers = configurator.committers
+
+    true
   end
 
   def collect
@@ -29,7 +36,5 @@ class Codespicuous
   def generate_output
     generator = MetricsGenerator.new
     generator.generate(@commit_history)
-
   end
-
 end

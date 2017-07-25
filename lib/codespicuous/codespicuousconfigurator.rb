@@ -22,6 +22,8 @@ class CodespicuousConfigurator
     configure_from_yaml
     postprocess_yaml_configuration
     find_alternative_configuration_files
+
+    validate_configuration
   end
 
   def configure_from_yaml
@@ -32,7 +34,8 @@ class CodespicuousConfigurator
   end
 
   def postprocess_yaml_configuration
-    options["repositories"].each { |name, url|
+    repositories_in_yaml = options["repositories"] || {}
+    repositories_in_yaml.each { |name, url|
       @repositories.add(Repository.new(name, url))
     }
 
@@ -55,6 +58,14 @@ class CodespicuousConfigurator
     CSV.parse(File.read("repositories.csv"), headers: true) { |row|
       @repositories.add(Repository.new(row["name"], row["url"]))
     }
+  end
+
+  def validate_configuration
+    if @repositories.empty?
+      puts '** Error: No repositories configured in codespicuous.yaml'
+      return false
+    end
+    true
   end
 
   def config_committers

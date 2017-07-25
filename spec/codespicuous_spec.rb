@@ -3,14 +3,22 @@ describe "Codespicuous command line" do
 
   subject {Codespicuous.new}
 
+  it "prints an error message when no config it present" do
+    expect(subject).to receive(:puts).with("Stage 1: Configuring")
+    expect($stdout).to receive(:puts).with("** Error: No repositories configured in codespicuous.yaml")
+
+    expect(subject.run).to eq false
+  end
+
   it "creates a configurator, collect data, and generate output" do
     expect(subject).to receive(:puts).with("Stage 1: Configuring")
-    expect(subject).to receive(:configure)
+    expect(subject).to receive(:configure).and_return(true)
     expect(subject).to receive(:puts).with("Stage 2: Collecting input data")
     expect(subject).to receive(:collect)
     expect(subject).to receive(:puts).with("Stage 3: Generating output")
     expect(subject).to receive(:generate_output)
-    subject.run
+
+    expect(subject.run).to eq true
   end
 
   it "configures the config data" do
@@ -19,7 +27,7 @@ describe "Codespicuous command line" do
     options = double(:options)
     committers = double(:committers)
     expect(CodespicuousConfigurator).to receive(:new).and_return(configurator)
-    expect(configurator).to receive(:configure)
+    expect(configurator).to receive(:configure).and_return(true)
     expect(configurator).to receive(:options).and_return(options)
     expect(configurator).to receive(:repositories).and_return(repositories)
     expect(configurator).to receive(:committers).and_return(committers)
