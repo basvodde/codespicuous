@@ -19,14 +19,15 @@ describe "Codespicuous command line" do
     options = double(:options)
     committers = double(:committers)
     expect(CodespicuousConfigurator).to receive(:new).and_return(configurator)
-    expect(configurator).to receive(:config_options).and_return(options)
-    expect(configurator).to receive(:config_repositories).and_return(repositories)
-    expect(configurator).to receive(:config_committers).and_return(committers)
+    expect(configurator).to receive(:configure)
+    expect(configurator).to receive(:options).and_return(options)
+    expect(configurator).to receive(:repositories).and_return(repositories)
+    expect(configurator).to receive(:committers).and_return(committers)
 
     subject.configure
-    expect(subject.options).to eq options
-    expect(subject.committers).to eq committers
-    expect(subject.repositories).to eq repositories
+    expect(subject.options).to be options
+    expect(subject.committers).to be committers
+    expect(subject.repositories).to be repositories
   end
 
   it "collects the input data" do

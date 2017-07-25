@@ -33,6 +33,8 @@ end
 
 class Repositories
 
+  attr_reader :repositories
+
   def initialize
     @repositories = {}
   end
@@ -59,12 +61,20 @@ class Repositories
     }
   end
 
+  def empty?
+    @repositories.empty?
+  end
+
   def map(&block)
     @repositories.values.map(&block)
   end
 
   def [](index)
     @repositories.values[index]
+  end
+
+  def ==(repositories)
+    @repositories == repositories.repositories
   end
 end
 

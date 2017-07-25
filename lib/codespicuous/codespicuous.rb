@@ -14,9 +14,10 @@ class Codespicuous
 
   def configure
     configurator = CodespicuousConfigurator.new
-    @options = configurator.config_options
-    @repositories = configurator.config_repositories
-    @committers = configurator.config_committers
+    configurator.configure
+    @options = configurator.options
+    @repositories = configurator.repositories
+    @committers = configurator.committers
   end
 
   def collect

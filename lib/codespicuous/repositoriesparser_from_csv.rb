@@ -7,7 +7,7 @@ class RepositoriesParserFromCsv
 
   def parse csv_string
     CSV.parse(csv_string, headers: true) { |row|
-      parse_row row
+      @repositories.add(Repository.new(row["name"], row["url"]))
     }
     self
   end
