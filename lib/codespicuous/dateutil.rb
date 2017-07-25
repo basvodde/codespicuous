@@ -9,8 +9,8 @@ module DateUtil
     date.strftime("%Y-%m-%d")
   end
 
-  def for_each_week
-    (begin_of_week(earliest_commit_date)..begin_of_week(latest_commit_date)).step(7) { |week|
+  def for_each_week(start_date, end_date)
+    (begin_of_week(start_date)..begin_of_week(end_date)).step(7) { |week|
       yield week
     }
   end
