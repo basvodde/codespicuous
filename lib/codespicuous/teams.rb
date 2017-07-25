@@ -34,9 +34,15 @@ class Team
   def <=> other
     @name <=> other.name
   end
+
+  def ==(team)
+    name == team.name && members == team.members
+  end
 end
 
 class Teams
+
+  attr_reader :teams
 
   def initialize
     @teams = {}
@@ -84,6 +90,10 @@ class Teams
     @teams.values.collect { |team|
       team.member_usernames if team.name == team_name || team_name == nil
     }.compact.flatten
+  end
+
+  def ==(teams)
+    @teams == teams.teams
   end
 end
 

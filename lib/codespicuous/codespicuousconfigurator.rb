@@ -3,13 +3,17 @@ require 'yaml'
 class CodespicuousConfigurator
 
 
-  attr_reader :options, :repositories, :repositories_to_check, :committers
+  attr_reader :options, :repositories, :repositories_to_check, :committers, :teams
 
   def initialize
     @options = default_options
     @options_filename = "codespicuous.yaml"
+
     @repositories = Repositories.new
     @repositories_to_check = Repositories.new
+
+    @committers = Committers.new
+    @teams = Teams.new
   end
 
   def default_options
@@ -26,6 +30,17 @@ class CodespicuousConfigurator
     validate_configuration
   end
 
+  def postprocess_yaml_configuration
+    postprocess_yaml_configuration_repositories
+    postprocess_yaml_configuration_committers
+  end
+
+  def find_alternative_configuration_files
+    find_alternative_configuration_files_for_repositories
+    find_alternative_configuration_files_for_committers
+  end
+
+
   def configure_from_yaml
     return unless File.exist?(@options_filename)
 
@@ -33,7 +48,7 @@ class CodespicuousConfigurator
     @options.merge!(YAML::load(File.read("codespicuous.yaml")))
   end
 
-  def postprocess_yaml_configuration
+  def postprocess_yaml_configuration_repositories
     repositories_in_yaml = options["repositories"] || {}
     repositories_in_yaml.each { |name, url|
       @repositories.add(Repository.new(name, url))
@@ -49,7 +64,7 @@ class CodespicuousConfigurator
     end
   end
 
-  def find_alternative_configuration_files
+  def find_alternative_configuration_files_for_repositories
     return unless repositories.empty?
     return unless File.exist?("repositories.csv")
 
@@ -68,7 +83,24 @@ class CodespicuousConfigurator
     true
   end
 
-  def config_committers
+  def postprocess_yaml_configuration_committers
+    teams = options["teams"] || []
+
+    teams.each { |team|
+      new_team = Team.new(team.keys.first)
+      person_array = team.values.first
+      person = person_array.inject { |hash, element| hash.merge(element) }
+      committer = Committer.create_committer(person["Login"], person["First Name"], person["Last Name"], person["Email"], new_team)
+      new_team.add_member(committer)
+      @committers.add(committer)
+      @teams.add(new_team)
+    }
+  end
+
+  def find_alternative_configuration_files_for_committers
+    return unless committers.empty?
+    return unless File.exist?("committers.csv")
+
     puts '** Configuring committers with "committers.csv"'
 
     @committers = Committers.new

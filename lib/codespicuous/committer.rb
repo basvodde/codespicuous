@@ -47,9 +47,19 @@ class Committer
     @commits.amount_of_commits_to_repository_in_week(name, week_start)
   end
 
+  def ==(committer)
+    username == committer.username &&
+    first_name == committer.first_name &&
+    last_name == committer.last_name &&
+    email == committer.email &&
+    team.name == committer.team.name
+  end
+
 end
 
 class Committers
+
+  attr_reader :committers
 
   def initialize(initial_committers_usernames = [])
     @committers = {}
@@ -81,6 +91,14 @@ class Committers
 
   def select(&block)
     @committers.values.select(&block)
+  end
+
+  def empty?
+    @committers.empty?
+  end
+
+  def ==(committers)
+    @committers == committers.committers
   end
 
 end

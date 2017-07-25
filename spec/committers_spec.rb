@@ -28,7 +28,7 @@ describe "The committers and the teams that we're examining" do
 
   end
 
-  it "reads the committers and teams from a CSV" do
+  it "can calculate amounts" do
     expect(@committers.amount).to eq 3
     expect(@teams.amount).to eq 2
   end
@@ -46,4 +46,21 @@ describe "The committers and the teams that we're examining" do
     expect(wine.amount_of_members).to eq 2
     expect(wine.member_usernames).to include('daniel')
   end
+
+  it "can compare two committers" do
+    team = Team.new("team")
+    bas = Committer.create_committer("basv", "Bas", "Vodde", "basv@wow.com", team)
+    dobbel_bas = Committer.create_committer("basv", "Bas", "Vodde", "basv@wow.com", team)
+
+    expect(bas).to eq dobbel_bas
+  end
+
+  it "can compare two committers that aren't equal" do
+    team = Team.new("team")
+    bas = Committer.create_committer("basv", "Bas", "Fake", "basv@wow.com", team)
+    dobbel_bas = Committer.create_committer("basv", "Bas", "Vodde", "basv@wow.com", team)
+
+    expect(bas).not_to eq dobbel_bas
+  end
 end
+
