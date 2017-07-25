@@ -25,7 +25,6 @@ require_relative 'codespicuous/svn_data_collector.rb'
 
 # Config
 require_relative 'codespicuous/committersparser_from_csv.rb'
-require_relative 'codespicuous/repositoriesparser_from_csv.rb'
 require_relative 'codespicuous/codespicuousconfigurator.rb'
 
 # Generator
