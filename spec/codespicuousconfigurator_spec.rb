@@ -96,3 +96,4 @@ describe "CodepicuousConfigurator reads all the config files and provides the da
     expect(subject.config_committers.include?("basvodde")).to be true
   end
 end
+

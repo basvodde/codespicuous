@@ -70,7 +70,17 @@ class CodespicuousConfigurator
 
   def config_committers
     puts '** Configuring committers with "committers.csv"'
-    CommittersParserFromCsv.new.parse(File.read("committers.csv")).committers
+
+    @committers = Committers.new
+    @teams = Teams.new
+
+    CSV.parse(File.read("committers.csv"), headers: true) { |row|
+      team = @teams.team(row["Team"])
+      committer = Committer.create_committer(row["Login"], row["First Name"], row["Last Name"], row["Email"], team)
+      team.add_member(committer)
+      @committers.add(committer)
+    }
+    @committers
   end
 
 end

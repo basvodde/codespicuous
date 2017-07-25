@@ -9,6 +9,15 @@ class Committer
     @commits = Commits.new
   end
 
+  def self.create_committer(login, firstname, lastname, email, team)
+    committer = Committer.new(login)
+    committer.first_name = firstname
+    committer.last_name = lastname
+    committer.email = email
+    committer.team = team
+    committer
+  end
+
   def in_team_with_name?(team_name)
     @team.name == team_name
   end

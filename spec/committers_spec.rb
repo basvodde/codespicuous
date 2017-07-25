@@ -2,17 +2,30 @@
 
 describe "The committers and the teams that we're examining" do
 
-  committers_in_csv = "#,First Name,Last Name,Email,Login,Team,Specialization,Manager,day1,day2,day3,Comments,Present,Questionaire send,Answered,Pretest,Dietary,Commits,Blamed lines,Average LOC/Commit
-1,Bas,Vodde,basv@wow.com,basvodde,Wine
-2,Janne,Yeah,janne@yeah.com,janne,Cheese
-3,Daniel,Hum,daniel@hum.com,daniel,Wine
-"
   subject { committers.new }
 
   before (:each) do
-    parser = CommittersParserFromCsv.new.parse(committers_in_csv)
-    @committers = parser.committers
-    @teams = parser.teams
+    @committers = Committers.new
+    @teams = Teams.new
+
+    wine = Team.new("Wine")
+    cheese = Team.new("Cheese")
+
+    bas = Committer.create_committer("basvodde", "Bas", "Vodde", "basv@wow.com", wine)
+    janne = Committer.create_committer("janne", "Janne", "Yeah", "janne@yeah.com", cheese)
+    daniel = Committer.create_committer("daniel", "Daniel", "Hum", "daniel@hum.com", wine)
+
+    @committers.add(bas)
+    @committers.add(daniel)
+    @committers.add(janne)
+
+    wine.add_member(bas)
+    wine.add_member(daniel)
+    cheese.add_member(janne)
+
+    @teams.add(wine)
+    @teams.add(cheese)
+
   end
 
   it "reads the committers and teams from a CSV" do
