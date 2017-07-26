@@ -7,7 +7,7 @@ describe "Codespicuous command line" do
     expect(subject).to receive(:puts).with("Stage 1: Configuring")
     expect($stdout).to receive(:puts).with("** Error: No repositories configured in codespicuous.yaml")
 
-    expect(subject.run).to eq false
+    expect(subject.run([])).to eq false
   end
 
   it "creates a configurator, collect data, and generate output" do
@@ -18,7 +18,7 @@ describe "Codespicuous command line" do
     expect(subject).to receive(:puts).with("Stage 3: Generating output")
     expect(subject).to receive(:generate_output)
 
-    expect(subject.run).to eq true
+    expect(subject.run_codespicuous).to eq true
   end
 
   it "configures the config data" do

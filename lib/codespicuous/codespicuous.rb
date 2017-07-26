@@ -3,7 +3,12 @@ class Codespicuous
 
   attr_reader :repositories, :commit_history, :committers, :options
 
-  def run
+  def run(argv)
+    run_codespicuous
+  end
+
+  def run_codespicuous
+
     puts "Stage 1: Configuring"
     return false unless configure
 

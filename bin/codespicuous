@@ -1,4 +1,4 @@
 #!/usr/bin/env ruby
 require_relative '../lib/codespicuous.rb'
 
-Codespicuous.new.run
+Codespicuous.new.run(ARGV)
