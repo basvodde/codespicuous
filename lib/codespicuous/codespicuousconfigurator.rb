@@ -86,14 +86,14 @@ class CodespicuousConfigurator
   def postprocess_yaml_configuration_committers
     teams = options["teams"] || []
 
-    teams.each { |team|
-      new_team = Team.new(team.keys.first)
-      person_array = team.values.first
-      person = person_array.inject { |hash, element| hash.merge(element) }
-      committer = Committer.create_committer(person["Login"], person["First Name"], person["Last Name"], person["Email"], new_team)
-      new_team.add_member(committer)
-      @committers.add(committer)
-      @teams.add(new_team)
+    teams.each { |team_name, team_members|
+      new_team = Team.new(team_name)
+      team_members.each { |person|
+        committer = Committer.create_committer(person["Login"], person["First Name"], person["Last Name"], person["Email"], new_team)
+        new_team.add_member(committer)
+        @committers.add(committer)
+        @teams.add(new_team)
+      }
     }
   end
 

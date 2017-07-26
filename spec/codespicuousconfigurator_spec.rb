@@ -129,12 +129,12 @@ describe "CodepicuousConfigurator reads all the config files and provides the da
     it "can get the team info from the yaml file" do
 
       expect(subject).to receive(:options).and_return({"teams" =>
-                                                       ["Wine" => [
-                                                         { "First Name" => "Bas" },
-                                                         { "Last Name" => "Vodde" },
-                                                         { "Email" => "basv@wow.com" },
-                                                         { "Login" => "basvodde" } ]
-                                                       ] })
+                                                       {"Wine" => [{
+                                                          "First Name" => "Bas",
+                                                          "Last Name" => "Vodde",
+                                                          "Email" => "basv@wow.com",
+                                                          "Login" => "basvodde" } ]
+                                                       } })
 
       subject.postprocess_yaml_configuration_committers
 
@@ -180,6 +180,7 @@ describe "CodepicuousConfigurator reads all the config files and provides the da
 
       expect(subject.committers).to eq committers
     end
+
   end
 
 end
