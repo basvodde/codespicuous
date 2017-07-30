@@ -31,6 +31,7 @@ require_relative 'codespicuous/metrics_generator.rb'
 require_relative 'codespicuous/metrics_generator_daniel.rb'
 require_relative 'codespicuous/metrics_generator_csv.rb'
 
+require_relative 'codespicuous/repository_lister.rb'
 # App
 require_relative 'codespicuous/codespicuous.rb'
 

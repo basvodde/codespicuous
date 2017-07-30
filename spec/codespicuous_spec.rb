@@ -3,11 +3,29 @@ describe "Codespicuous command line" do
 
   subject {Codespicuous.new}
 
+  it "parses the options and can search for repositories committed to" do
+    expect(subject).to receive(:run_which_repositories)
+    expect(subject).not_to receive(:run_codespicuous)
+
+    subject.run(["-r"])
+  end
+
   it "prints an error message when no config it present" do
     expect(subject).to receive(:puts).with("Stage 1: Configuring")
     expect($stdout).to receive(:puts).with("** Error: No repositories configured in codespicuous.yaml")
 
     expect(subject.run([])).to eq false
+  end
+
+  it "creates a configurator, collect data, and lists the repositories the people committed to" do
+    expect(subject).to receive(:puts).with("Stage 1: Configuring")
+    expect(subject).to receive(:configure).and_return(true)
+    expect(subject).to receive(:puts).with("Stage 2: Collecting input data")
+    expect(subject).to receive(:collect)
+    expect(subject).to receive(:puts).with("Stage 3: Listing repositories committed to")
+    expect(subject).to receive(:list_committed_repositories)
+
+    expect(subject.run_which_repositories).to eq true
   end
 
   it "creates a configurator, collect data, and generate output" do
@@ -55,6 +73,13 @@ describe "Codespicuous command line" do
     expect(MetricsGenerator).to receive(:new).and_return(generator)
     expect(generator).to receive(:generate).with(subject.commit_history)
     subject.generate_output
+  end
+
+  it "lists the repositories" do
+    lister = RepositoryLister.new
+    expect(RepositoryLister).to receive(:new).and_return(lister)
+    expect(lister).to receive(:list).with(subject.commit_history)
+    subject.list_committed_repositories
   end
 end
 
