@@ -1,21 +1,29 @@
 
 describe "CodepicuousConfigurator reads all the config files and provides the data needed for running Codespicuous" do
 
-  subject { CodespicuousConfigurator.new }
+  subject { CodespicuousConfigurator.new(CodespicuousConfig.new) }
 
   it "Should process the yaml file" do
+    expect(subject).to receive(:parse_command_line_arguments).with(["argv"])
     expect(subject).to receive(:configure_from_yaml)
     expect(subject).to receive(:postprocess_yaml_configuration)
     expect(subject).to receive(:find_alternative_configuration_files)
     expect(subject).to receive(:validate_configuration)
-    subject.configure
+    subject.configure(["argv"])
+  end
+
+  it "Should parse the command line arguments correctly" do
+    subject.parse_command_line_arguments(["-r"])
+    expect(subject.config.list_repositories).to be true
   end
 
   it "Should post process the YAML file" do
-    expect(subject).to receive(:postprocess_yaml_configuration_repositories)
-    expect(subject).to receive(:postprocess_yaml_configuration_committers)
+    yaml_content = {}
 
-    subject.postprocess_yaml_configuration
+    expect(subject).to receive(:postprocess_yaml_configuration_repositories).with(yaml_content)
+    expect(subject).to receive(:postprocess_yaml_configuration_committers).with(yaml_content)
+
+    subject.postprocess_yaml_configuration(yaml_content)
   end
 
   it "Should find alternative config files" do
@@ -31,19 +39,17 @@ describe "CodepicuousConfigurator reads all the config files and provides the da
       expect(File).to receive(:exist?).with("codespicuous.yaml").and_return(true)
       expect(File).to receive(:read).with("codespicuous.yaml").and_return("offline: true")
       expect(subject).to receive(:puts).with('** Configuring options with "codespicuous.yaml"')
-      expected_options = { "offline" => true }
 
       subject.configure_from_yaml
-      expect(subject.options).to eq expected_options
+      expect(subject.config.offline).to eq true
     end
 
     it "Ignores the missing options file and tries to use defaults" do
-      expected_options = { "offline" => false }
       expect(File).to receive(:exist?).with("codespicuous.yaml").and_return(false)
 
       subject.configure_from_yaml
 
-      expect(subject.options).to eq expected_options
+      expect(subject.config.offline).to eq false
     end
   end
 
@@ -51,10 +57,9 @@ describe "CodepicuousConfigurator reads all the config files and provides the da
 
     it "Processes the repositories out of the options with all selected" do
 
-      expect(subject).to receive(:options).and_return({"repositories" => { "name" => "url"} })
-      expect(subject).to receive(:options).and_return({})
+      yaml_content = {"repositories" => { "name" => "url"}}
 
-      subject.postprocess_yaml_configuration_repositories
+      subject.postprocess_yaml_configuration_repositories(yaml_content)
 
       repositories = Repositories.new
       repositories.add(Repository.new("name", "url"))
@@ -65,10 +70,10 @@ describe "CodepicuousConfigurator reads all the config files and provides the da
 
     it "Processes the repositories out of the options, with only the selected one" do
 
-      expect(subject).to receive(:options).and_return({"repositories" => { "name" => "url", "name2" => "url2"}})
-      expect(subject).to receive(:options).and_return({"repositories_to_check" => ["name2"]})
+      yaml_content = {"repositories" => { "name" => "url", "name2" => "url2"},
+                      "repositories_to_check" => ["name2"]}
 
-      subject.postprocess_yaml_configuration_repositories
+      subject.postprocess_yaml_configuration_repositories(yaml_content)
 
       repositories = Repositories.new
       repositories.add(Repository.new("name", "url"))
@@ -120,7 +125,7 @@ describe "CodepicuousConfigurator reads all the config files and provides the da
     end
 
     it "can have no committers and teams. Just empty then" do
-      subject.postprocess_yaml_configuration_committers
+      subject.postprocess_yaml_configuration_committers({})
 
       expect(subject.committers).to eq Committers.new
       expect(subject.teams).to eq Teams.new
@@ -128,15 +133,15 @@ describe "CodepicuousConfigurator reads all the config files and provides the da
 
     it "can get the team info from the yaml file" do
 
-      expect(subject).to receive(:options).and_return({"teams" =>
-                                                       {"Wine" => [{
-                                                          "First Name" => "Bas",
-                                                          "Last Name" => "Vodde",
-                                                          "Email" => "basv@wow.com",
-                                                          "Login" => "basvodde" } ]
-                                                       } })
+      yaml_content = {"teams" =>
+                        {"Wine" => [{
+                          "First Name" => "Bas",
+                          "Last Name" => "Vodde",
+                          "Email" => "basv@wow.com",
+                          "Login" => "basvodde" } ]
+                          } }
 
-      subject.postprocess_yaml_configuration_committers
+      subject.postprocess_yaml_configuration_committers(yaml_content)
 
       committers = Committers.new
       @team_wine.add_member(@committer_bas)

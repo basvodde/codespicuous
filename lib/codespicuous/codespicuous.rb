@@ -3,75 +3,44 @@ require 'optparse'
 
 class Codespicuous
 
-  attr_reader :repositories, :commit_history, :committers, :options
+  attr_reader :repositories, :commit_history, :committers, :teams, :config
+
+  def initialize
+    @config = CodespicuousConfig.new
+  end
 
   def run(argv)
-    parse_options(argv)
 
-    if @options[:repositories]
-      run_which_repositories
+    puts "Stage 1: Configuring"
+    return false unless configure(argv)
+
+    puts "Stage 2: Collecting input data"
+    collect
+
+    if @config.list_repositories
+      puts "Stage 3: Listing repositories committed to"
+      list_committed_repositories
     else
-      run_codespicuous
+      puts "Stage 3: Generating output"
+      generate_output
     end
-  end
-
-  def parse_options(argv)
-    @options = {}
-
-    parser = OptionParser.new do | opts |
-      @options[:repositories] = false
-
-      opts.on('-r', '--repositories', "List the repositories the team committed to") do
-        @options[:repositories] = true
-      end
-
-    end
-
-    parser.parse!(argv)
-  end
-
-  def run_which_repositories
-
-    puts "Stage 1: Configuring"
-    return false unless configure
-
-    puts "Stage 2: Collecting input data"
-    collect
-
-    puts "Stage 3: Listing repositories committed to"
-    list_committed_repositories
-
     true
   end
 
-  def run_codespicuous
+  def configure(argv)
+    configurator = CodespicuousConfigurator.new(@config)
+    return false unless configurator.configure(argv)
 
-    puts "Stage 1: Configuring"
-    return false unless configure
-
-    puts "Stage 2: Collecting input data"
-    collect
-
-    puts "Stage 3: Generating output"
-    generate_output
-
-    true
-  end
-
-  def configure
-    configurator = CodespicuousConfigurator.new
-    return false unless configurator.configure
-
-    @options = configurator.options
     @repositories = configurator.repositories
     @committers = configurator.committers
+    @teams = configurator.teams
 
     true
   end
 
   def collect
     collector = SVNDataCollector.new
-    collector.options = options
+    collector.config = config
     @commit_history = collector.collect_commit_history(repositories)
   end
 
@@ -81,7 +50,7 @@ class Codespicuous
   end
 
   def list_committed_repositories
-    lister = RepositoryLister.new
-    lister.list(@commit_history)
+    repository_lister = RepositoryLister.new
+    repository_lister.list(@commit_history)
   end
 end

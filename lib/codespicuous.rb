@@ -25,6 +25,7 @@ require_relative 'codespicuous/svn_data_collector.rb'
 
 # Config
 require_relative 'codespicuous/codespicuousconfigurator.rb'
+require_relative 'codespicuous/codespicuous_config.rb'
 
 # Generator
 require_relative 'codespicuous/metrics_generator.rb'
