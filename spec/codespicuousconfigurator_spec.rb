@@ -12,9 +12,14 @@ describe "CodepicuousConfigurator reads all the config files and provides the da
     subject.configure(["argv"])
   end
 
-  it "Should parse the command line arguments correctly" do
+  it "should be able to handle the -r command line option" do
     subject.parse_command_line_arguments(["-r"])
     expect(subject.config.list_repositories).to be true
+  end
+
+  it "Should be able to handle the -i command line option for input directory " do
+    subject.parse_command_line_arguments(["-i", "blah"])
+    expect(subject.config.input_path).to eq Pathname.new("blah")
   end
 
   it "Should post process the YAML file" do

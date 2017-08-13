@@ -32,9 +32,12 @@ class CodespicuousConfigurator
 
     parser = OptionParser.new do | opts |
       opts.on('-r', '--repositories', "List the repositories the team committed to") do
-      @config.list_repositories = true
+        @config.list_repositories = true
       end
 
+      opts.on('-i', '--input-dir [dir]', String, "Directory location for input files such as configuration and cache") do |path|
+        @config.input_path = path
+      end
     end
 
     parser.parse!(argv)
