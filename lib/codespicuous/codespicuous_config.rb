@@ -3,7 +3,7 @@ require 'pathname'
 
 class CodespicuousConfig
 
-  attr_accessor :offline, :configuration_file_name, :list_repositories, :input_path
+  attr_accessor :offline, :configuration_file_name, :list_repositories, :input_path, :output_path
 
   def initialize
     @offline = false
@@ -14,6 +14,10 @@ class CodespicuousConfig
 
   def input_path=(path)
     @input_path = Pathname.new(path)
+  end
+
+  def output_path=(path)
+    @output_path = Pathname.new(path)
   end
 
   def path_to_configuration_file

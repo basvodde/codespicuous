@@ -38,6 +38,10 @@ class CodespicuousConfigurator
       opts.on('-i', '--input-dir [dir]', String, "Directory location for input files such as configuration and cache") do |path|
         @config.input_path = path
       end
+
+      opts.on('-o', '--output-dir [dir]', String, "Directory location for output files") do |path|
+        @config.output_path = path
+      end
     end
 
     parser.parse!(argv)

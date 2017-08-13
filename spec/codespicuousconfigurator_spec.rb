@@ -22,6 +22,11 @@ describe "CodepicuousConfigurator reads all the config files and provides the da
     expect(subject.config.input_path).to eq Pathname.new("blah")
   end
 
+  it "Should be able to handle the -o command line option for output directory " do
+    subject.parse_command_line_arguments(["-o", "blah"])
+    expect(subject.config.output_path).to eq Pathname.new("blah")
+  end
+
   it "Should post process the YAML file" do
     yaml_content = {}
 
