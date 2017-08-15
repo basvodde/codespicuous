@@ -44,17 +44,16 @@ describe "Codespicuous command line" do
 
     expect(configurator).to receive(:repositories).and_return(repositories)
     expect(configurator).to receive(:teams).and_return(teams)
+    expect(subject.commit_history).to receive(:configure).with(teams, repositories)
 
     subject.configure(["argv"])
-    expect(subject.repositories).to be repositories
-    expect(subject.teams).to be teams
   end
 
   it "collects the input data" do
     collector = SVNDataCollector.new(subject.config)
     commit_history = CommitHistory.new
     expect(SVNDataCollector).to receive(:new).and_return(collector)
-    expect(collector).to receive(:collect_commit_history).with(subject.repositories).and_return(commit_history)
+    expect(collector).to receive(:collect_commit_history).with(commit_history.repositories).and_return(commit_history)
 
     subject.collect
 

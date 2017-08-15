@@ -4,7 +4,8 @@ class SVNDataCollector
 
   attr_reader :config
 
-  def initialize(config)
+  def initialize(config, commit_history = CommitHistory.new)
+    @commit_history = commit_history
     @config = config
   end
 
@@ -40,11 +41,10 @@ class SVNDataCollector
   end
 
   def collect_commit_history(repositories)
-    commit_history = CommitHistory.new
     repositories.each { | repository|
-      commit_history.add_commits(collect_commits_for_repository(repository))
+      @commit_history.add_commits(collect_commits_for_repository(repository))
     }
-    commit_history
+    @commit_history
   end
 
 end

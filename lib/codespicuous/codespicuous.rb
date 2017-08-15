@@ -7,6 +7,7 @@ class Codespicuous
 
   def initialize
     @config = CodespicuousConfig.new
+    @commit_history = CommitHistory.new
   end
 
   def run(argv)
@@ -31,15 +32,14 @@ class Codespicuous
     configurator = CodespicuousConfigurator.new(@config)
     return false unless configurator.configure(argv)
 
-    @repositories = configurator.repositories
-    @teams = configurator.teams
+    @commit_history.configure(configurator.teams, configurator.repositories)
 
     true
   end
 
   def collect
-    collector = SVNDataCollector.new(config)
-    @commit_history = collector.collect_commit_history(repositories)
+    collector = SVNDataCollector.new(config, @commit_history)
+    collector.collect_commit_history(@commit_history.repositories)
   end
 
   def generate_output

@@ -51,7 +51,7 @@ class Committer
     commits.each do |commit|
       repositories.push(commit.repository)
     end
-    repositories.uniq!
+    repositories.uniq
   end
 
   def ==(committer)

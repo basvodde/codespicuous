@@ -4,12 +4,17 @@ class CommitHistory
 
   attr_reader :commits, :teams, :repositories, :committers
 
-  def initialize(commits = Commits.new)
+  def initialize
     @commits = Commits.new
-    @committers = Committers.new
     @teams = Teams.new
+    @committers = teams.committers
     @repositories = Repositories.new
-    add_commits(commits)
+  end
+
+  def configure(teams, repositories)
+    @teams = teams
+    @committers = teams.committers
+    @repositories = repositories
   end
 
   def add_commit(commit)

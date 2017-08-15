@@ -73,7 +73,9 @@ describe "Collecting data from SVN" do
     expect(subject).to receive(:collect_commits_for_repository).with(@heh_repository).and_return(heh_commits)
     expect(subject).to receive(:collect_commits_for_repository).with(wow_repository).and_return(wow_commits)
 
-    expect(subject.collect_commit_history(repositories)).to eq (CommitHistory.new(heh_commits + wow_commits))
+    commit_history = CommitHistory.new
+    commit_history.add_commits(heh_commits + wow_commits)
+    expect(subject.collect_commit_history(repositories)).to eq (commit_history)
   end
 
   it "Should write the svn logs to the svnlog directory" do
