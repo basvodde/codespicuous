@@ -129,7 +129,7 @@ class CodespicuousConfigurator
     CSV.parse(File.read("committers.csv"), headers: true) { |row|
       committer = Committer.create_committer(row["Login"], row["First Name"], row["Last Name"], row["Email"])
 
-      team = @teams.team(row["Team"])
+      team = @teams.team(row["Team"] || "")
       team.add_member(committer)
     }
   end
