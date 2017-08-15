@@ -54,10 +54,9 @@ describe "Codespicuous command line" do
   end
 
   it "collects the input data" do
-    collector = SVNDataCollector.new
+    collector = SVNDataCollector.new(subject.config)
     commit_history = CommitHistory.new
     expect(SVNDataCollector).to receive(:new).and_return(collector)
-    expect(collector).to receive(:config=).with(subject.config)
     expect(collector).to receive(:collect_commit_history).with(subject.repositories).and_return(commit_history)
 
     subject.collect

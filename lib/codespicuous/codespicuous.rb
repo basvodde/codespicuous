@@ -39,8 +39,7 @@ class Codespicuous
   end
 
   def collect
-    collector = SVNDataCollector.new
-    collector.config = config
+    collector = SVNDataCollector.new(config)
     @commit_history = collector.collect_commit_history(repositories)
   end
 

@@ -1,0 +1,3939 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<log>
+<logentry
+   revision="7685">
+<author>codesquid</author>
+<date>2016-07-26T10:21:29.372494Z</date>
+<msg>Check if local path exists in search dialog.</msg>
+</logentry>
+<logentry
+   revision="7686">
+<author>codesquid</author>
+<date>2016-07-27T10:40:04.753255Z</date>
+<msg>Simpler footer initialization,.</msg>
+</logentry>
+<logentry
+   revision="7687">
+<author>codesquid</author>
+<date>2016-07-27T10:41:33.127803Z</date>
+<msg>Revert accidental commit.</msg>
+</logentry>
+<logentry
+   revision="7690">
+<author>codesquid</author>
+<date>2016-07-27T14:05:35.800522Z</date>
+<msg>Updated translations</msg>
+</logentry>
+<logentry
+   revision="7691">
+<author>codesquid</author>
+<date>2016-07-27T14:09:02.590058Z</date>
+<msg>Bump to 3.20.0</msg>
+</logentry>
+<logentry
+   revision="7694">
+<author>codesquid</author>
+<date>2016-07-27T14:45:50.568275Z</date>
+<msg>Fix typo
+</msg>
+</logentry>
+<logentry
+   revision="7695">
+<author>codesquid</author>
+<date>2016-07-27T21:50:38.184708Z</date>
+<msg>Clarification of error message if gnutls_x509_trust_list_add_cas fails.</msg>
+</logentry>
+<logentry
+   revision="7696">
+<author>codesquid</author>
+<date>2016-07-29T09:52:58.137180Z</date>
+<msg>Correctly document minimum required lfz version.</msg>
+</logentry>
+<logentry
+   revision="7697">
+<author>codesquid</author>
+<date>2016-07-29T17:24:06.507024Z</date>
+<msg>Fix a locking violation affecting non-MSW.</msg>
+</logentry>
+<logentry
+   revision="7698">
+<author>codesquid</author>
+<date>2016-07-29T17:29:00.650036Z</date>
+<msg>Fix compile error on some configurations.</msg>
+</logentry>
+<logentry
+   revision="7699">
+<author>codesquid</author>
+<date>2016-08-02T11:52:12.298262Z</date>
+<msg>Actually use the new file name if renaming on download.</msg>
+</logentry>
+<logentry
+   revision="7700">
+<author>codesquid</author>
+<date>2016-08-03T09:29:55.553828Z</date>
+<msg>Print an error message if server sends a malformed chain.</msg>
+</logentry>
+<logentry
+   revision="7701">
+<author>codesquid</author>
+<date>2016-08-03T14:40:03.208595Z</date>
+<msg>Updated translations</msg>
+</logentry>
+<logentry
+   revision="7702">
+<author>codesquid</author>
+<date>2016-08-03T15:00:10.163392Z</date>
+<msg>Bump to 3.20.1</msg>
+</logentry>
+<logentry
+   revision="7703">
+<author>codesquid</author>
+<date>2016-08-07T08:18:24.425344Z</date>
+<msg>Merge changes from upstream PuTTY </msg>
+</logentry>
+<logentry
+   revision="7704">
+<author>codesquid</author>
+<date>2016-08-07T18:21:04.966887Z</date>
+<msg>Implement AES256-GCM as cipher.</msg>
+</logentry>
+<logentry
+   revision="7705">
+<author>codesquid</author>
+<date>2016-08-07T18:35:47.146514Z</date>
+<msg>Remove unused flag.</msg>
+</logentry>
+<logentry
+   revision="7706">
+<author>codesquid</author>
+<date>2016-08-08T09:34:41.553019Z</date>
+<msg>Also add AES128-GCM.</msg>
+</logentry>
+<logentry
+   revision="7716">
+<author>codesquid</author>
+<date>2016-08-11T09:30:25.779538Z</date>
+<msg>Fix saving of attributes filter. #10927</msg>
+</logentry>
+<logentry
+   revision="7720">
+<author>codesquid</author>
+<date>2016-08-15T09:56:50.109475Z</date>
+<msg>Cleanup recursive operation modes.</msg>
+</logentry>
+<logentry
+   revision="7721">
+<author>codesquid</author>
+<date>2016-08-15T12:37:59.959686Z</date>
+<msg>Keep both local and remote active filters in recursive operation.</msg>
+</logentry>
+<logentry
+   revision="7722">
+<author>codesquid</author>
+<date>2016-08-16T09:25:06.041178Z</date>
+<msg>Implement basic download synchronization</msg>
+</logentry>
+<logentry
+   revision="7723">
+<author>codesquid</author>
+<date>2016-08-17T07:43:56.990537Z</date>
+<msg>Use std::wstring instead of wxString in a couple of places.</msg>
+</logentry>
+<logentry
+   revision="7724">
+<author>codesquid</author>
+<date>2016-08-17T07:55:04.469568Z</date>
+<msg>Fix compile errors.
+</msg>
+</logentry>
+<logentry
+   revision="7725">
+<author>codesquid</author>
+<date>2016-08-17T07:57:15.404649Z</date>
+<msg>Go via $top_srcdir to locate builtin libpugixml.a
+</msg>
+</logentry>
+<logentry
+   revision="7726">
+<author>codesquid</author>
+<date>2016-08-17T08:06:35.818481Z</date>
+<msg>Actually use the top_builddir to locate libpugixml.a
+</msg>
+</logentry>
+<logentry
+   revision="7727">
+<author>codesquid</author>
+<date>2016-08-17T08:13:41.710554Z</date>
+<msg>Fix a warning.</msg>
+</logentry>
+<logentry
+   revision="7728">
+<author>codesquid</author>
+<date>2016-08-17T14:43:11.254194Z</date>
+<msg>Add option to configure TCP keep alive interval.</msg>
+</logentry>
+<logentry
+   revision="7729">
+<author>codesquid</author>
+<date>2016-08-22T08:08:30.258550Z</date>
+<msg>Further restrict allowed values for keep-alive interval so that it fits into an int.</msg>
+</logentry>
+<logentry
+   revision="7730">
+<author>codesquid</author>
+<date>2016-08-22T08:09:02.239803Z</date>
+<msg>Add option name for TCP keepalive interval.</msg>
+</logentry>
+<logentry
+   revision="7731">
+<author>codesquid</author>
+<date>2016-08-22T17:06:58.324836Z</date>
+<msg>Fix compile error.</msg>
+</logentry>
+<logentry
+   revision="7732">
+<author>codesquid</author>
+<date>2016-08-23T06:46:06.463371Z</date>
+<msg>Fixed typo.</msg>
+</logentry>
+<logentry
+   revision="7733">
+<author>codesquid</author>
+<date>2016-08-23T06:46:48.033433Z</date>
+<msg>Fixed another spelling mistake</msg>
+</logentry>
+<logentry
+   revision="7734">
+<author>codesquid</author>
+<date>2016-08-23T08:56:53.994393Z</date>
+<msg>On OS X, add Ctrl+(Shift+)Tab as shortcut to switch to the next tab. #10851
+</msg>
+</logentry>
+<logentry
+   revision="7735">
+<author>codesquid</author>
+<date>2016-08-23T11:58:44.481426Z</date>
+<msg>Explicitly block queue completion action during certain recursive operations.</msg>
+</logentry>
+<logentry
+   revision="7736">
+<author>codesquid</author>
+<date>2016-08-23T12:23:27.906741Z</date>
+<msg>Updated translations</msg>
+</logentry>
+<logentry
+   revision="7737">
+<author>codesquid</author>
+<date>2016-08-23T12:41:22.167058Z</date>
+<msg>Fix a potential crash if using mismatched resource files from an old version of FileZilla.</msg>
+</logentry>
+<logentry
+   revision="7738">
+<author>codesquid</author>
+<date>2016-08-23T12:58:32.287071Z</date>
+<msg>Fix compile error on non-MSW.
+</msg>
+</logentry>
+<logentry
+   revision="7739">
+<author>codesquid</author>
+<date>2016-08-23T13:33:12.093722Z</date>
+<msg>Do not pass listing entry as format string.
+</msg>
+</logentry>
+<logentry
+   revision="7740">
+<author>codesquid</author>
+<date>2016-08-23T13:33:29.112804Z</date>
+<msg>Bump to 3.21.0
+</msg>
+</logentry>
+<logentry
+   revision="7741">
+<author>codesquid</author>
+<date>2016-08-26T06:59:56.771461Z</date>
+<msg>#8928: Rename CVS/SVN filter to "Source control directories" and add .git, .hg and .bzr</msg>
+</logentry>
+<logentry
+   revision="7742">
+<author>codesquid</author>
+<date>2016-08-30T07:50:06.252646Z</date>
+<msg>Remove unused variable.</msg>
+</logentry>
+<logentry
+   revision="7743">
+<author>codesquid</author>
+<date>2016-08-31T08:11:27.523833Z</date>
+<msg>Handle long paths during drag&amp;drop on Windows 10.</msg>
+</logentry>
+<logentry
+   revision="7744">
+<author>codesquid</author>
+<date>2016-08-31T08:32:04.541790Z</date>
+<msg>Fix redirection to https:// servers.</msg>
+</logentry>
+<logentry
+   revision="7750">
+<author>codesquid</author>
+<date>2016-09-02T13:59:46.858254Z</date>
+<msg>Use fz::thread_pool for socket and file i/o threads.</msg>
+</logentry>
+<logentry
+   revision="7752">
+<author>codesquid</author>
+<date>2016-09-05T07:22:53.344928Z</date>
+<msg>Simplify getting of keyfiles.</msg>
+</logentry>
+<logentry
+   revision="7754">
+<author>codesquid</author>
+<date>2016-09-05T08:30:20.500229Z</date>
+<msg>Use fz::strtok instead of wxStringTokenizer</msg>
+</logentry>
+<logentry
+   revision="7755">
+<author>codesquid</author>
+<date>2016-09-05T09:50:12.417537Z</date>
+<msg>Try password based login if a password-protected keyfile is rejected instead of failing with a cryptic message about multiple login prompts.</msg>
+</logentry>
+<logentry
+   revision="7758">
+<author>codesquid</author>
+<date>2016-09-06T15:26:05.908196Z</date>
+<msg>Replace invalid characters in filenames when editing remote files.</msg>
+</logentry>
+<logentry
+   revision="7760">
+<author>codesquid</author>
+<date>2016-09-07T15:13:28.612343Z</date>
+<msg>Use fz::base64_encode and some related code cleanup.</msg>
+</logentry>
+<logentry
+   revision="7761">
+<author>codesquid</author>
+<date>2016-09-07T15:21:27.571527Z</date>
+<msg>Use fz::base64_encode and some related code cleanup.</msg>
+</logentry>
+<logentry
+   revision="7764">
+<author>codesquid</author>
+<date>2016-09-08T08:35:08.558237Z</date>
+<msg>Use fz::base64_decode instead of wxBase64Decode.</msg>
+</logentry>
+<logentry
+   revision="7766">
+<author>codesquid</author>
+<date>2016-09-08T14:20:20.047432Z</date>
+<msg>Require GnuTLS 3.4.15 or higher as it includes the fix for gnutls_x509_crt_list_import2 not honoring the passed flags.</msg>
+</logentry>
+<logentry
+   revision="7767">
+<author>codesquid</author>
+<date>2016-09-09T14:45:24.570024Z</date>
+<msg>Handle base64 encoded blobs.</msg>
+</logentry>
+<logentry
+   revision="7768">
+<author>codesquid</author>
+<date>2016-09-09T15:34:02.997058Z</date>
+<msg>Fix implicit conversion when creating transfer socket proxy backend.</msg>
+</logentry>
+<logentry
+   revision="7769">
+<author>codesquid</author>
+<date>2016-09-10T10:38:29.223363Z</date>
+<msg>Fix loading hex blobs.</msg>
+</logentry>
+<logentry
+   revision="7770">
+<author>codesquid</author>
+<date>2016-09-10T10:39:05.043278Z</date>
+<msg>Cleanup external ip address resolver.</msg>
+</logentry>
+<logentry
+   revision="7773">
+<author>codesquid</author>
+<date>2016-09-12T11:50:07.470602Z</date>
+<msg>Reduce wxString usage.</msg>
+</logentry>
+<logentry
+   revision="7774">
+<author>codesquid</author>
+<date>2016-09-13T08:05:33.735754Z</date>
+<msg>Fix parsing proxy command sequence, patch by Paolo Zambotti. #10972</msg>
+</logentry>
+<logentry
+   revision="7775">
+<author>codesquid</author>
+<date>2016-09-13T08:49:52.834202Z</date>
+<msg>Make COptions(Base) use std::wstring</msg>
+</logentry>
+<logentry
+   revision="7776">
+<author>codesquid</author>
+<date>2016-09-13T11:14:02.114880Z</date>
+<msg>Fix a bunch of warnings.
+</msg>
+</logentry>
+<logentry
+   revision="7778">
+<author>codesquid</author>
+<date>2016-09-16T13:08:15.293305Z</date>
+<msg>Get rid of wxStringTokenizer from Options.cpp</msg>
+</logentry>
+<logentry
+   revision="7779">
+<author>codesquid</author>
+<date>2016-09-19T12:56:28.862414Z</date>
+<msg>Fix warning.
+</msg>
+</logentry>
+<logentry
+   revision="7780">
+<author>codesquid</author>
+<date>2016-09-19T13:21:48.954223Z</date>
+<msg>Fix stupid mistake
+</msg>
+</logentry>
+<logentry
+   revision="7781">
+<author>codesquid</author>
+<date>2016-09-20T09:38:25.344439Z</date>
+<msg>Add "not all" match type to filters and search. #9293</msg>
+</logentry>
+<logentry
+   revision="7782">
+<author>codesquid</author>
+<date>2016-09-20T09:43:49.144207Z</date>
+<msg>Rename "Filename filters" to "Directory listing filters" in menu.</msg>
+</logentry>
+<logentry
+   revision="7783">
+<author>codesquid</author>
+<date>2016-09-20T13:19:38.612780Z</date>
+<msg>Reorder LDFLAGS, fixes linking errors in the test case.
+</msg>
+</logentry>
+<logentry
+   revision="7784">
+<author>codesquid</author>
+<date>2016-09-20T13:47:10.553155Z</date>
+<msg>Implement exporting directory listing filters.</msg>
+</logentry>
+<logentry
+   revision="7785">
+<author>codesquid</author>
+<date>2016-09-20T14:54:56.318578Z</date>
+<msg>Small modernization.
+</msg>
+</logentry>
+<logentry
+   revision="7786">
+<author>codesquid</author>
+<date>2016-09-20T14:57:12.152339Z</date>
+<msg>Verify item before indexing m_selections in OnItemDeselected just as in OnItemSelected</msg>
+</logentry>
+<logentry
+   revision="7787">
+<author>codesquid</author>
+<date>2016-09-20T15:12:50.209936Z</date>
+<msg>Fix harmless logic error.</msg>
+</logentry>
+<logentry
+   revision="7788">
+<author>codesquid</author>
+<date>2016-09-21T23:06:33.151467Z</date>
+<msg>Use a more permissive copyright for this file.</msg>
+</logentry>
+<logentry
+   revision="7790">
+<author>codesquid</author>
+<date>2016-09-24T12:53:54.917078Z</date>
+<msg>Import of filters</msg>
+</logentry>
+<logentry
+   revision="7791">
+<author>codesquid</author>
+<date>2016-09-24T13:13:13.138596Z</date>
+<msg>Fix compile error
+</msg>
+</logentry>
+<logentry
+   revision="7796">
+<author>codesquid</author>
+<date>2016-09-24T14:14:53.266101Z</date>
+<msg>Updated translations</msg>
+</logentry>
+<logentry
+   revision="7797">
+<author>codesquid</author>
+<date>2016-09-24T14:41:27.347713Z</date>
+<msg>Bump to 3.22.0-rc1
+</msg>
+</logentry>
+<logentry
+   revision="7798">
+<author>codesquid</author>
+<date>2016-09-24T14:42:07.118080Z</date>
+<msg>Document lfz 0.7.0 dependency</msg>
+</logentry>
+<logentry
+   revision="7800">
+<author>codesquid</author>
+<date>2016-09-25T19:46:57.822136Z</date>
+<msg>Fix an issue preventing keyfiles from working correctly.</msg>
+</logentry>
+<logentry
+   revision="7801">
+<author>codesquid</author>
+<date>2016-09-26T12:01:50.144716Z</date>
+<msg>Allow setting color.</msg>
+</logentry>
+<logentry
+   revision="7802">
+<author>codesquid</author>
+<date>2016-09-27T09:33:14.128800Z</date>
+<msg>Update icon specs, we want to transition towards scalable icons.</msg>
+</logentry>
+<logentry
+   revision="7803">
+<author>codesquid</author>
+<date>2016-09-28T10:13:33.866108Z</date>
+<msg>Fixes for --with-pugixml=auto</msg>
+</logentry>
+<logentry
+   revision="7804">
+<author>codesquid</author>
+<date>2016-09-28T10:16:57.021570Z</date>
+<msg>Fix warning in test</msg>
+</logentry>
+<logentry
+   revision="7805">
+<author>codesquid</author>
+<date>2016-09-28T12:41:59.459745Z</date>
+<msg>Fix two more warnings in configure output</msg>
+</logentry>
+<logentry
+   revision="7806">
+<author>codesquid</author>
+<date>2016-09-28T12:56:22.917890Z</date>
+<msg>Refactor CLocalTreeView::GetSpecialFolder to get rid of deprecated SHGetMalloc</msg>
+</logentry>
+<logentry
+   revision="7807">
+<author>codesquid</author>
+<date>2016-09-28T15:16:18.553803Z</date>
+<msg>Clear background in sizeformatting examples when changing selection</msg>
+</logentry>
+<logentry
+   revision="7808">
+<author>codesquid</author>
+<date>2016-09-28T15:23:51.765612Z</date>
+<msg>Fixed typo</msg>
+</logentry>
+<logentry
+   revision="7809">
+<author>codesquid</author>
+<date>2016-09-28T16:23:45.257527Z</date>
+<msg>Update svn:ignore</msg>
+</logentry>
+<logentry
+   revision="7810">
+<author>codesquid</author>
+<date>2016-09-29T11:58:08.195550Z</date>
+<msg>Fix a case of the queue completion action triggering too early.</msg>
+</logentry>
+<logentry
+   revision="7811">
+<author>codesquid</author>
+<date>2016-09-29T12:38:53.690223Z</date>
+<msg>Change wxString to std::wstring in a few places.</msg>
+</logentry>
+<logentry
+   revision="7812">
+<author>codesquid</author>
+<date>2016-09-30T13:12:38.392569Z</date>
+<msg>Fix colors in log after toggling log timestamps. #10990</msg>
+</logentry>
+<logentry
+   revision="7813">
+<author>codesquid</author>
+<date>2016-09-30T13:36:06.529900Z</date>
+<msg>Small update to icon specs.</msg>
+</logentry>
+<logentry
+   revision="7814">
+<author>codesquid</author>
+<date>2016-09-30T15:26:32.116721Z</date>
+<msg>Partial fix for #10960, set comparison flag from site-specific bookmark.</msg>
+</logentry>
+<logentry
+   revision="7815">
+<author>codesquid</author>
+<date>2016-09-30T15:58:35.671420Z</date>
+<msg>Copy comparison flag for bookmarks.</msg>
+</logentry>
+<logentry
+   revision="7816">
+<author>codesquid</author>
+<date>2016-09-30T16:30:32.695103Z</date>
+<msg>Fix setting comparison from bookmarks, #10960</msg>
+</logentry>
+<logentry
+   revision="7817">
+<author>codesquid</author>
+<date>2016-10-01T08:00:09.215424Z</date>
+<msg>Add a link to the paid phone support page for US and Canada in official Windows builds.</msg>
+</logentry>
+<logentry
+   revision="7818">
+<author>codesquid</author>
+<date>2016-10-01T08:18:27.869307Z</date>
+<msg>Updated translations</msg>
+</logentry>
+<logentry
+   revision="7819">
+<author>codesquid</author>
+<date>2016-10-01T08:37:54.407920Z</date>
+<msg>Bump to 3.22.0
+</msg>
+</logentry>
+<logentry
+   revision="7821">
+<author>codesquid</author>
+<date>2016-10-02T15:34:39.833706Z</date>
+<msg>Fix valgrind warning
+</msg>
+</logentry>
+<logentry
+   revision="7822">
+<author>codesquid</author>
+<date>2016-10-02T16:05:46.469662Z</date>
+<msg>Add a debug message.</msg>
+</logentry>
+<logentry
+   revision="7824">
+<author>codesquid</author>
+<date>2016-10-03T09:14:50.516396Z</date>
+<msg>Add workaround for a nasty Xcode bug where compiling for older OS X versions silently allows user of functions only available on newer versions, leading to runtime failures.
+</msg>
+</logentry>
+<logentry
+   revision="7825">
+<author>codesquid</author>
+<date>2016-10-03T09:46:47.019581Z</date>
+<msg>Windows has no strndup</msg>
+</logentry>
+<logentry
+   revision="7826">
+<author>codesquid</author>
+<date>2016-10-03T13:04:52.191219Z</date>
+<msg>Avoid a needless conversion from std::wstring to wxString.</msg>
+</logentry>
+<logentry
+   revision="7829">
+<author>codesquid</author>
+<date>2016-10-03T14:03:24.895291Z</date>
+<msg>Updated translations.</msg>
+</logentry>
+<logentry
+   revision="7830">
+<author>codesquid</author>
+<date>2016-10-03T14:04:55.132180Z</date>
+<msg>Bump to 3.22.1</msg>
+</logentry>
+<logentry
+   revision="7832">
+<author>codesquid</author>
+<date>2016-10-04T08:22:15.392017Z</date>
+<msg>Add a missing include.</msg>
+</logentry>
+<logentry
+   revision="7833">
+<author>codesquid</author>
+<date>2016-10-04T08:24:01.653873Z</date>
+<msg>Two more missing includes.</msg>
+</logentry>
+<logentry
+   revision="7834">
+<author>codesquid</author>
+<date>2016-10-04T08:25:08.191779Z</date>
+<msg>Apply patch #11005 by twu2: Fix string conversion in CProxySocket::GetUser and CProxySocket::GetPass</msg>
+</logentry>
+<logentry
+   revision="7835">
+<author>codesquid</author>
+<date>2016-10-04T13:26:31.066184Z</date>
+<msg>Refactor CFZPuttyGenInterface to use fz::process instead of wxProcess.</msg>
+</logentry>
+<logentry
+   revision="7836">
+<author>codesquid</author>
+<date>2016-10-04T15:42:48.250272Z</date>
+<msg>Some additional wxString removal.</msg>
+</logentry>
+<logentry
+   revision="7837">
+<author>codesquid</author>
+<date>2016-10-04T16:33:03.117053Z</date>
+<msg>Fix a compile error.</msg>
+</logentry>
+<logentry
+   revision="7838">
+<author>codesquid</author>
+<date>2016-10-04T17:08:30.149670Z</date>
+<msg>Further dewxification.
+</msg>
+</logentry>
+<logentry
+   revision="7839">
+<author>codesquid</author>
+<date>2016-10-04T17:13:47.978606Z</date>
+<msg>Fix compile error
+</msg>
+</logentry>
+<logentry
+   revision="7841">
+<author>codesquid</author>
+<date>2016-10-06T08:12:23.655807Z</date>
+<msg>Eliminated wxString usage from the command classes.</msg>
+</logentry>
+<logentry
+   revision="7842">
+<author>codesquid</author>
+<date>2016-10-06T09:26:01.450475Z</date>
+<msg>Remove wxString from CServerPath</msg>
+</logentry>
+<logentry
+   revision="7843">
+<author>codesquid</author>
+<date>2016-10-06T09:45:16.968070Z</date>
+<msg>Fix logic error
+</msg>
+</logentry>
+<logentry
+   revision="7844">
+<author>codesquid</author>
+<date>2016-10-06T13:32:21.091153Z</date>
+<msg>Remove wxString from CLocalPath.</msg>
+</logentry>
+<logentry
+   revision="7845">
+<author>codesquid</author>
+<date>2016-10-06T14:05:23.290276Z</date>
+<msg>Fix compile errors.
+</msg>
+</logentry>
+<logentry
+   revision="7846">
+<author>codesquid</author>
+<date>2016-10-06T15:38:50.380697Z</date>
+<msg>Fix another compile error.
+</msg>
+</logentry>
+<logentry
+   revision="7847">
+<author>codesquid</author>
+<date>2016-10-06T19:06:07.799464Z</date>
+<msg>Hopefully the last compile error.</msg>
+</logentry>
+<logentry
+   revision="7848">
+<author>codesquid</author>
+<date>2016-10-11T07:49:58.630583Z</date>
+<msg>Remove a bit more wxString.</msg>
+</logentry>
+<logentry
+   revision="7849">
+<author>codesquid</author>
+<date>2016-10-11T08:16:13.282648Z</date>
+<msg>Further wxString removal.</msg>
+</logentry>
+<logentry
+   revision="7850">
+<author>codesquid</author>
+<date>2016-10-11T09:48:44.530215Z</date>
+<msg>Remove wxString from notifications</msg>
+</logentry>
+<logentry
+   revision="7851">
+<author>codesquid</author>
+<date>2016-10-11T09:49:25.322478Z</date>
+<msg>Avoid unnecessary conversion to wxString.</msg>
+</logentry>
+<logentry
+   revision="7853">
+<author>codesquid</author>
+<date>2016-10-11T10:23:01.574606Z</date>
+<msg>Begin cleaning up CServer</msg>
+</logentry>
+<logentry
+   revision="7854">
+<author>codesquid</author>
+<date>2016-10-11T10:33:27.206785Z</date>
+<msg>Minor cleanup without functional change.
+</msg>
+</logentry>
+<logentry
+   revision="7855">
+<author>codesquid</author>
+<date>2016-10-11T10:33:40.437599Z</date>
+<msg>Fix warning.
+</msg>
+</logentry>
+<logentry
+   revision="7856">
+<author>codesquid</author>
+<date>2016-10-11T13:15:24.679132Z</date>
+<msg>Further reduction of wxString usage.</msg>
+</logentry>
+<logentry
+   revision="7857">
+<author>codesquid</author>
+<date>2016-10-11T13:30:18.267802Z</date>
+<msg>Fix a compile error</msg>
+</logentry>
+<logentry
+   revision="7858">
+<author>codesquid</author>
+<date>2016-10-11T15:58:37.561671Z</date>
+<msg>Add a null check.</msg>
+</logentry>
+<logentry
+   revision="7859">
+<author>codesquid</author>
+<date>2016-10-11T16:09:08.602329Z</date>
+<msg>Add two more null checks.</msg>
+</logentry>
+<logentry
+   revision="7860">
+<author>codesquid</author>
+<date>2016-10-11T19:42:30.160786Z</date>
+<msg>Additional cleanup of CServer</msg>
+</logentry>
+<logentry
+   revision="7861">
+<author>codesquid</author>
+<date>2016-10-11T20:22:51.769041Z</date>
+<msg>Somewhat dewx CQueueStorage.</msg>
+</logentry>
+<logentry
+   revision="7862">
+<author>codesquid</author>
+<date>2016-10-11T20:33:04.439795Z</date>
+<msg>Change a few XML function to use std::wstring instead of wxString.</msg>
+</logentry>
+<logentry
+   revision="7863">
+<author>codesquid</author>
+<date>2016-10-12T07:50:55.199354Z</date>
+<msg>SFTP: Reduce log output if not detailed.</msg>
+</logentry>
+<logentry
+   revision="7864">
+<author>codesquid</author>
+<date>2016-10-12T08:19:03.912187Z</date>
+<msg>Minor performance improvement</msg>
+</logentry>
+<logentry
+   revision="7865">
+<author>codesquid</author>
+<date>2016-10-12T09:46:56.632447Z</date>
+<msg>Avoid a string copy.</msg>
+</logentry>
+<logentry
+   revision="7866">
+<author>codesquid</author>
+<date>2016-10-12T12:35:36.183532Z</date>
+<msg>Cleanup CBuildInfo</msg>
+</logentry>
+<logentry
+   revision="7868">
+<author>codesquid</author>
+<date>2016-10-12T13:19:58.644970Z</date>
+<msg>Cleaned up CServer.</msg>
+</logentry>
+<logentry
+   revision="7870">
+<author>codesquid</author>
+<date>2016-10-13T08:45:06.355464Z</date>
+<msg>Further removal of wxString.</msg>
+</logentry>
+<logentry
+   revision="7871">
+<author>codesquid</author>
+<date>2016-10-13T15:31:00.159408Z</date>
+<msg>Cleanup C(S)FtpControlSocket</msg>
+</logentry>
+<logentry
+   revision="7872">
+<author>codesquid</author>
+<date>2016-10-13T15:48:35.787601Z</date>
+<msg>Fixed compile error.</msg>
+</logentry>
+<logentry
+   revision="7874">
+<author>codesquid</author>
+<date>2016-10-14T08:02:38.569965Z</date>
+<msg>Further wxString removal.</msg>
+</logentry>
+<logentry
+   revision="7875">
+<author>codesquid</author>
+<date>2016-10-14T14:43:26.290461Z</date>
+<msg>Small bits of wxString removal.</msg>
+</logentry>
+<logentry
+   revision="7876">
+<author>codesquid</author>
+<date>2016-10-14T20:35:12.428336Z</date>
+<msg>Fix compile error
+</msg>
+</logentry>
+<logentry
+   revision="7877">
+<author>codesquid</author>
+<date>2016-10-15T10:03:49.189503Z</date>
+<msg>Add small debug feature to reinitialize the updater on-demand.</msg>
+</logentry>
+<logentry
+   revision="7878">
+<author>codesquid</author>
+<date>2016-10-15T10:46:07.833996Z</date>
+<msg>Remove last remaining wxString usage from queue storage.</msg>
+</logentry>
+<logentry
+   revision="7879">
+<author>codesquid</author>
+<date>2016-10-15T11:07:38.255384Z</date>
+<msg>sqlite3_column_bytes16 returns bytes, not characters, so divide by two.</msg>
+</logentry>
+<logentry
+   revision="7880">
+<author>codesquid</author>
+<date>2016-10-18T07:48:04.264330Z</date>
+<msg>Wait for wx to finish processing the rename before refreshing local file list. Fixes an assertion in wx.
+</msg>
+</logentry>
+<logentry
+   revision="7881">
+<author>codesquid</author>
+<date>2016-10-18T12:11:41.569871Z</date>
+<msg>Make new filters apply to both files and directories by default.
+</msg>
+</logentry>
+<logentry
+   revision="7882">
+<author>codesquid</author>
+<date>2016-10-18T12:42:00.170189Z</date>
+<msg>Allow subclassing wxCustomHeightListCtrl
+</msg>
+</logentry>
+<logentry
+   revision="7883">
+<author>codesquid</author>
+<date>2016-10-19T11:35:58.004370Z</date>
+<msg>Fix assertion if Ctrl+A is pressed in an empty file list.</msg>
+</logentry>
+<logentry
+   revision="7884">
+<author>codesquid</author>
+<date>2016-10-19T13:32:16.261032Z</date>
+<msg>Fix assertion due to new items being unexpectedly selected by default.
+</msg>
+</logentry>
+<logentry
+   revision="7885">
+<author>codesquid</author>
+<date>2016-10-19T13:32:54.725043Z</date>
+<msg>Small formatting changes.
+</msg>
+</logentry>
+<logentry
+   revision="7886">
+<author>codesquid</author>
+<date>2016-10-20T09:10:09.120392Z</date>
+<msg>Remove wxString from one function.</msg>
+</logentry>
+<logentry
+   revision="7887">
+<author>codesquid</author>
+<date>2016-10-20T13:08:09.634271Z</date>
+<msg>Explicitly check for wxUSE_GUI during configure, wx-config unfortunately doesn't do the right thing.
+</msg>
+</logentry>
+<logentry
+   revision="7888">
+<author>codesquid</author>
+<date>2016-10-23T09:38:23.840405Z</date>
+<msg>Some reformatting.</msg>
+</logentry>
+<logentry
+   revision="7889">
+<author>codesquid</author>
+<date>2016-10-24T12:04:33.431280Z</date>
+<msg>Fix compile error
+</msg>
+</logentry>
+<logentry
+   revision="7890">
+<author>codesquid</author>
+<date>2016-10-24T13:14:10.638387Z</date>
+<msg>Save a few cycles.</msg>
+</logentry>
+<logentry
+   revision="7891">
+<author>codesquid</author>
+<date>2016-10-24T14:31:08.480207Z</date>
+<msg>Show a message on non-existing key file</msg>
+</logentry>
+<logentry
+   revision="7892">
+<author>codesquid</author>
+<date>2016-10-24T14:31:21.607358Z</date>
+<msg>Remove un-needed include.</msg>
+</logentry>
+<logentry
+   revision="7893">
+<author>codesquid</author>
+<date>2016-10-24T15:00:27.981278Z</date>
+<msg>Don't silently remove non-existing key files.</msg>
+</logentry>
+<logentry
+   revision="7894">
+<author>codesquid</author>
+<date>2016-10-24T16:45:42.615704Z</date>
+<msg>Apply #11044: Use wxSYS_COLOUR_LISTBOXTEXT instead of wxSYS_COLOUR_WINDOWTEXT for status messages in the message log to match the background which is wxSYS_COLOUR_LISTBOX.</msg>
+</logentry>
+<logentry
+   revision="7895">
+<author>codesquid</author>
+<date>2016-10-25T07:54:20.574429Z</date>
+<msg>Simplify a comment.</msg>
+</logentry>
+<logentry
+   revision="7896">
+<author>codesquid</author>
+<date>2016-10-25T08:53:15.521045Z</date>
+<msg>Get rid of wxSysErrorMsg and wxSysErrorCode
+</msg>
+</logentry>
+<logentry
+   revision="7897">
+<author>codesquid</author>
+<date>2016-10-25T13:01:25.758456Z</date>
+<msg>Fix logic of keyfile skipping.</msg>
+</logentry>
+<logentry
+   revision="7900">
+<author>codesquid</author>
+<date>2016-10-25T14:53:02.094145Z</date>
+<msg>Updated translations</msg>
+</logentry>
+<logentry
+   revision="7901">
+<author>codesquid</author>
+<date>2016-10-25T15:12:49.767658Z</date>
+<msg>Bump to 3.22.2-rc1</msg>
+</logentry>
+<logentry
+   revision="7902">
+<author>codesquid</author>
+<date>2016-10-27T07:47:17.957508Z</date>
+<msg>Fix parsing custom ports.</msg>
+</logentry>
+<logentry
+   revision="7904">
+<author>codesquid</author>
+<date>2016-10-27T16:13:17.757288Z</date>
+<msg>Fix parsing of EPSV reply. Inspired by patch #11048</msg>
+</logentry>
+<logentry
+   revision="7905">
+<author>codesquid</author>
+<date>2016-10-28T08:36:39.414508Z</date>
+<msg>Minor cleanup</msg>
+</logentry>
+<logentry
+   revision="7906">
+<author>codesquid</author>
+<date>2016-10-28T08:45:24.470956Z</date>
+<msg>Avoid a call to substr.</msg>
+</logentry>
+<logentry
+   revision="7907">
+<author>codesquid</author>
+<date>2016-10-28T10:10:24.887633Z</date>
+<msg>Remove wxString from remote recursive operations.</msg>
+</logentry>
+<logentry
+   revision="7908">
+<author>codesquid</author>
+<date>2016-10-28T10:12:14.865445Z</date>
+<msg>Mark error string of CTlsSocket::GetMacName() translatable.</msg>
+</logentry>
+<logentry
+   revision="7909">
+<author>codesquid</author>
+<date>2016-10-28T10:20:44.729349Z</date>
+<msg>Remove wxString from CTlsSocket.</msg>
+</logentry>
+<logentry
+   revision="7910">
+<author>codesquid</author>
+<date>2016-10-28T11:10:58.443577Z</date>
+<msg>Remove a bit of debug code accidentally left in.</msg>
+</logentry>
+<logentry
+   revision="7911">
+<author>codesquid</author>
+<date>2016-10-28T11:42:10.219443Z</date>
+<msg>Fix rename where the target is a directory.</msg>
+</logentry>
+<logentry
+   revision="7912">
+<author>codesquid</author>
+<date>2016-10-28T12:31:15.356559Z</date>
+<msg>Fix code indentation</msg>
+</logentry>
+<logentry
+   revision="7913">
+<author>codesquid</author>
+<date>2016-10-28T12:31:44.900021Z</date>
+<msg>Updated translations</msg>
+</logentry>
+<logentry
+   revision="7914">
+<author>codesquid</author>
+<date>2016-10-28T12:34:38.315736Z</date>
+<msg>Bump to 3.22.2-rc2</msg>
+</logentry>
+<logentry
+   revision="7916">
+<author>codesquid</author>
+<date>2016-10-30T11:01:18.813424Z</date>
+<msg>Use a more discreet border for the progress bar and reduce the gradient strength</msg>
+</logentry>
+<logentry
+   revision="7917">
+<author>codesquid</author>
+<date>2016-11-01T09:05:00.652688Z</date>
+<msg>Updated translation.</msg>
+</logentry>
+<logentry
+   revision="7918">
+<author>codesquid</author>
+<date>2016-11-01T10:04:38.852566Z</date>
+<msg>Bump to 3.22.2</msg>
+</logentry>
+<logentry
+   revision="7920">
+<author>codesquid</author>
+<date>2016-11-01T15:02:12.224073Z</date>
+<msg>Fix a crash if the server only implements a minimal, fact-less MLSD/MLST (RFC 3659 even has a name for such implementation: useless)
+</msg>
+</logentry>
+<logentry
+   revision="7921">
+<author>codesquid</author>
+<date>2016-11-01T15:32:26.265617Z</date>
+<msg>Bump to 3.22.2.1
+</msg>
+</logentry>
+<logentry
+   revision="7923">
+<author>codesquid</author>
+<date>2016-11-01T17:50:27.579534Z</date>
+<msg>Fix trimming of feat response lines.</msg>
+</logentry>
+<logentry
+   revision="7924">
+<author>codesquid</author>
+<date>2016-11-01T17:53:11.661054Z</date>
+<msg>Bump to 3.22.2.2
+</msg>
+</logentry>
+<logentry
+   revision="7925">
+<author>codesquid</author>
+<date>2016-11-01T18:03:20.639884Z</date>
+<msg>Missing commit</msg>
+</logentry>
+<logentry
+   revision="7926">
+<author>codesquid</author>
+<date>2016-11-03T09:43:30.226102Z</date>
+<msg>Add a safety check in case the drop target disappears
+</msg>
+</logentry>
+<logentry
+   revision="7927">
+<author>codesquid</author>
+<date>2016-11-03T15:15:18.680383Z</date>
+<msg>Refactor CFilterConditionsDialog and wxCustomHeightListCtrl to make both simpler and the latter reusable.</msg>
+</logentry>
+<logentry
+   revision="7929">
+<author>codesquid</author>
+<date>2016-11-07T18:03:49.994853Z</date>
+<msg>Minor cleanup.</msg>
+</logentry>
+<logentry
+   revision="7930">
+<author>codesquid</author>
+<date>2016-11-07T18:06:45.138311Z</date>
+<msg>Remove explicit memory management from CCertificaet and partial cleanup of XML functions.</msg>
+</logentry>
+<logentry
+   revision="7931">
+<author>codesquid</author>
+<date>2016-11-08T09:15:57.034240Z</date>
+<msg>Get rid of wxFileName::CreateTempFileName</msg>
+</logentry>
+<logentry
+   revision="7933">
+<author>codesquid</author>
+<date>2016-11-08T09:29:28.863197Z</date>
+<msg>Replace wxRemoveFile with fz::remove_file</msg>
+</logentry>
+<logentry
+   revision="7934">
+<author>codesquid</author>
+<date>2016-11-08T15:26:16.426040Z</date>
+<msg>Add functions to translate strings to the engine so that it is no longer directly handled by wx</msg>
+</logentry>
+<logentry
+   revision="7935">
+<author>codesquid</author>
+<date>2016-11-08T16:13:14.573581Z</date>
+<msg>Fix arguments to xgettext
+</msg>
+</logentry>
+<logentry
+   revision="7936">
+<author>codesquid</author>
+<date>2016-11-08T16:13:44.031553Z</date>
+<msg>Fix compile errors
+</msg>
+</logentry>
+<logentry
+   revision="7937">
+<author>codesquid</author>
+<date>2016-11-11T15:14:39.700609Z</date>
+<msg>Call ResetOperation if converting to command to 8bit charset fails
+</msg>
+</logentry>
+<logentry
+   revision="7938">
+<author>codesquid</author>
+<date>2016-11-11T15:17:35.487681Z</date>
+<msg>Apply same fix to CSFtpControlSocket::SendCommand as well.
+</msg>
+</logentry>
+<logentry
+   revision="7939">
+<author>codesquid</author>
+<date>2016-11-11T15:18:00.660362Z</date>
+<msg>Fix typo.
+</msg>
+</logentry>
+<logentry
+   revision="7941">
+<author>codesquid</author>
+<date>2016-11-11T15:44:34.920080Z</date>
+<msg>More wxString removal
+</msg>
+</logentry>
+<logentry
+   revision="7943">
+<author>codesquid</author>
+<date>2016-11-11T18:30:29.676912Z</date>
+<msg>Use assert instead of wxASSERT in the engine.
+</msg>
+</logentry>
+<logentry
+   revision="7944">
+<author>codesquid</author>
+<date>2016-11-13T17:48:06.975721Z</date>
+<msg>Ignore BOM at beginning of directory listing lines.</msg>
+</logentry>
+<logentry
+   revision="7945">
+<author>codesquid</author>
+<date>2016-11-14T14:25:18.343721Z</date>
+<msg>Allow controlling cache ttl, within reason.</msg>
+</logentry>
+<logentry
+   revision="7946">
+<author>codesquid</author>
+<date>2016-11-15T08:21:09.818630Z</date>
+<msg>Make use of the recently assigned Unix.ownername and Unix.groupname facts.</msg>
+</logentry>
+<logentry
+   revision="7947">
+<author>codesquid</author>
+<date>2016-11-15T12:38:18.233458Z</date>
+<msg>Add link to display download log if getting the update fails.</msg>
+</logentry>
+<logentry
+   revision="7948">
+<author>codesquid</author>
+<date>2016-11-15T12:40:52.103152Z</date>
+<msg>Replace wxURI with a custom uri parser.</msg>
+</logentry>
+<logentry
+   revision="7949">
+<author>codesquid</author>
+<date>2016-11-16T09:12:19.662231Z</date>
+<msg>Do not fail adding site to site manager for site-specific bookmarks if sitemanager.xml does not yet exist.</msg>
+</logentry>
+<logentry
+   revision="7950">
+<author>codesquid</author>
+<date>2016-11-16T09:34:36.334912Z</date>
+<msg>React to changes in global bookmarks.</msg>
+</logentry>
+<logentry
+   revision="7952">
+<author>codesquid</author>
+<date>2016-11-16T15:12:28.327978Z</date>
+<msg>Remove wxString from CDirectoryListing and CDirectoryCache.</msg>
+</logentry>
+<logentry
+   revision="7953">
+<author>codesquid</author>
+<date>2016-11-16T15:18:21.726010Z</date>
+<msg>Remove old timezone detection code which has been unused for almost two years.</msg>
+</logentry>
+<logentry
+   revision="7954">
+<author>codesquid</author>
+<date>2016-11-17T12:18:50.984732Z</date>
+<msg>Move #includes of wx headers out of the public engine API.</msg>
+</logentry>
+<logentry
+   revision="7955">
+<author>codesquid</author>
+<date>2016-11-17T13:14:11.241860Z</date>
+<msg>Define UNICODE on MSW</msg>
+</logentry>
+<logentry
+   revision="7956">
+<author>codesquid</author>
+<date>2016-11-17T13:18:15.946135Z</date>
+<msg>Get test cases to compile again.</msg>
+</logentry>
+<logentry
+   revision="7957">
+<author>codesquid</author>
+<date>2016-11-17T13:45:05.770628Z</date>
+<msg>Fix logic issue in error paths that should be unused.</msg>
+</logentry>
+<logentry
+   revision="7958">
+<author>codesquid</author>
+<date>2016-11-17T14:05:29.319192Z</date>
+<msg>Fix compile error.</msg>
+</logentry>
+<logentry
+   revision="7959">
+<author>codesquid</author>
+<date>2016-11-17T14:26:47.479959Z</date>
+<msg>Add missing include.</msg>
+</logentry>
+<logentry
+   revision="7960">
+<author>codesquid</author>
+<date>2016-11-17T20:02:16.014762Z</date>
+<msg>Fix more compile errors.
+</msg>
+</logentry>
+<logentry
+   revision="7961">
+<author>codesquid</author>
+<date>2016-11-18T10:36:27.776242Z</date>
+<msg>Fix rule gch dependency file generation
+</msg>
+</logentry>
+<logentry
+   revision="7964">
+<author>codesquid</author>
+<date>2016-11-22T20:12:55.653087Z</date>
+<msg>WIP: New scalable icon theme and general theme provider refactoring to make use of the scaling.</msg>
+</logentry>
+<logentry
+   revision="7965">
+<author>codesquid</author>
+<date>2016-11-22T20:13:35.785537Z</date>
+<msg>Remove some unused pre-vista code.</msg>
+</logentry>
+<logentry
+   revision="7966">
+<author>codesquid</author>
+<date>2016-11-22T21:16:24.919174Z</date>
+<msg>Move some files around.
+</msg>
+</logentry>
+<logentry
+   revision="7967">
+<author>codesquid</author>
+<date>2016-11-22T21:47:22.776565Z</date>
+<msg>Update installer for new theme.</msg>
+</logentry>
+<logentry
+   revision="7968">
+<author>codesquid</author>
+<date>2016-11-22T22:10:17.705699Z</date>
+<msg>Remove unused script. These days there are better tools.</msg>
+</logentry>
+<logentry
+   revision="7969">
+<author>codesquid</author>
+<date>2016-11-22T22:12:24.157860Z</date>
+<msg>Fix compile error
+</msg>
+</logentry>
+<logentry
+   revision="7970">
+<author>codesquid</author>
+<date>2016-11-22T22:12:37.210468Z</date>
+<msg>Fix build system.
+</msg>
+</logentry>
+<logentry
+   revision="7971">
+<author>codesquid</author>
+<date>2016-11-22T22:21:05.284453Z</date>
+<msg>Add missing include for std::make_reverse_iterator</msg>
+</logentry>
+<logentry
+   revision="7972">
+<author>codesquid</author>
+<date>2016-11-22T22:48:31.759502Z</date>
+<msg>As it turns out, libstdc++ on many platforms doesn't know about the trivial std::make_reverse_iterator.</msg>
+</logentry>
+<logentry
+   revision="7973">
+<author>codesquid</author>
+<date>2016-11-22T23:24:09.269622Z</date>
+<msg>Since classic theme got moved, use a diffferent data file as reference when searching for the data directory.</msg>
+</logentry>
+<logentry
+   revision="7974">
+<author>codesquid</author>
+<date>2016-11-23T08:38:52.258312Z</date>
+<msg>Mark 16x16 of classic theme as primary.</msg>
+</logentry>
+<logentry
+   revision="7975">
+<author>codesquid</author>
+<date>2016-11-23T13:32:59.581609Z</date>
+<msg>Reformatting.</msg>
+</logentry>
+<logentry
+   revision="7976">
+<author>codesquid</author>
+<date>2016-11-23T13:33:54.484348Z</date>
+<msg>Work around toolbar button alpha blending issues on MSW.</msg>
+</logentry>
+<logentry
+   revision="7977">
+<author>codesquid</author>
+<date>2016-11-23T15:06:42.810620Z</date>
+<msg>Don't mismatch image list size and size of added icons.
+</msg>
+</logentry>
+<logentry
+   revision="7978">
+<author>codesquid</author>
+<date>2016-11-23T15:16:21.750249Z</date>
+<msg>Implement icon scaling on wxGTK.
+</msg>
+</logentry>
+<logentry
+   revision="7979">
+<author>codesquid</author>
+<date>2016-11-23T15:22:18.750280Z</date>
+<msg>Also scale tree controls.
+</msg>
+</logentry>
+<logentry
+   revision="7980">
+<author>codesquid</author>
+<date>2016-11-23T16:00:40.750891Z</date>
+<msg>The default icon set is mandatory.</msg>
+</logentry>
+<logentry
+   revision="7981">
+<author>codesquid</author>
+<date>2016-11-23T16:23:00.085907Z</date>
+<msg>Request correct system image list size.</msg>
+</logentry>
+<logentry
+   revision="7982">
+<author>codesquid</author>
+<date>2016-11-23T16:23:14.903273Z</date>
+<msg>Set remembered scale factor.</msg>
+</logentry>
+<logentry
+   revision="7983">
+<author>codesquid</author>
+<date>2016-11-23T16:46:36.811393Z</date>
+<msg>Cleanup theme page.</msg>
+</logentry>
+<logentry
+   revision="7984">
+<author>codesquid</author>
+<date>2016-11-23T16:51:42.835358Z</date>
+<msg>Remove unused code from theme provider.</msg>
+</logentry>
+<logentry
+   revision="7985">
+<author>codesquid</author>
+<date>2016-11-23T16:54:38.487351Z</date>
+<msg>Declare the INSTALLICONSET macro earlier.</msg>
+</logentry>
+<logentry
+   revision="7986">
+<author>codesquid</author>
+<date>2016-11-23T17:15:53.543279Z</date>
+<msg>Try to handle retina displays.</msg>
+</logentry>
+<logentry
+   revision="7987">
+<author>codesquid</author>
+<date>2016-11-24T20:03:25.733183Z</date>
+<msg>Once again OS X does everything differently from all other platforms. On OS X a pixel isn't a pixel, a pixel on OS X is a virtual thing composed of a multiple actual pixels in a square formation.
+</msg>
+</logentry>
+<logentry
+   revision="7988">
+<author>codesquid</author>
+<date>2016-11-24T20:05:08.892190Z</date>
+<msg>wxArtProvider, even on trunk, cannot handle bitmaps with a scale factor. Replace it with CThemeProvider and use it to get toolbar icons to load proper on OS X.
+</msg>
+</logentry>
+<logentry
+   revision="7989">
+<author>codesquid</author>
+<date>2016-11-24T20:05:45.580993Z</date>
+<msg>Additional wxArtProvider replacement</msg>
+</logentry>
+<logentry
+   revision="7990">
+<author>codesquid</author>
+<date>2016-11-25T16:57:53.193169Z</date>
+<msg>Further HiDPI fixes for OS X</msg>
+</logentry>
+<logentry
+   revision="7991">
+<author>codesquid</author>
+<date>2016-11-25T17:57:18.838916Z</date>
+<msg>Fix stripping of BOM.
+</msg>
+</logentry>
+<logentry
+   revision="7992">
+<author>codesquid</author>
+<date>2016-11-25T17:59:03.936277Z</date>
+<msg>Fix compile error on *nix</msg>
+</logentry>
+<logentry
+   revision="7993">
+<author>codesquid</author>
+<date>2016-11-26T14:54:12.541130Z</date>
+<msg>Simplify creating overlays and handle differences in scale factors and the likes.
+</msg>
+</logentry>
+<logentry
+   revision="7994">
+<author>codesquid</author>
+<date>2016-11-26T15:42:41.502757Z</date>
+<msg>Fix scaling of queue progress line on OS X</msg>
+</logentry>
+<logentry
+   revision="7995">
+<author>codesquid</author>
+<date>2016-11-26T16:21:29.543778Z</date>
+<msg>Fix position of theme scale control</msg>
+</logentry>
+<logentry
+   revision="7996">
+<author>codesquid</author>
+<date>2016-11-26T16:30:15.324043Z</date>
+<msg>Add missing files to distribution.</msg>
+</logentry>
+<logentry
+   revision="7997">
+<author>codesquid</author>
+<date>2016-11-26T16:36:06.093538Z</date>
+<msg>Add another missing file.</msg>
+</logentry>
+<logentry
+   revision="7998">
+<author>codesquid</author>
+<date>2016-11-26T18:33:52.039891Z</date>
+<msg>Fix icons in Site Manager tree.</msg>
+</logentry>
+<logentry
+   revision="7999">
+<author>codesquid</author>
+<date>2016-11-26T18:42:07.552127Z</date>
+<msg>Use actual size, not requrested size to get scale factor.</msg>
+</logentry>
+<logentry
+   revision="8000">
+<author>codesquid</author>
+<date>2016-11-26T21:04:18.907630Z</date>
+<msg>Fix size cancel button.</msg>
+</logentry>
+<logentry
+   revision="8001">
+<author>codesquid</author>
+<date>2016-11-27T18:10:45.607238Z</date>
+<msg>Fix two harmless warnings.</msg>
+</logentry>
+<logentry
+   revision="8002">
+<author>codesquid</author>
+<date>2016-11-27T18:11:56.483395Z</date>
+<msg>Fix type mismatch in sftp_find_request
+
+The id member of the sftp_request structure is of type unsigned int. This type is also used in the sftp_reqfind callback. In sftp_find_request we thus need to pass a pointer to unsigned int to find234. Before this commit, sftp_find_request was passing a pointer to unsigned long to find234, which causes the lookup to fail on big-endian platforms where sizeof(unsigned int) != sizeof(unsigned long), e.g. ppc64.</msg>
+</logentry>
+<logentry
+   revision="8003">
+<author>codesquid</author>
+<date>2016-11-27T19:43:44.409489Z</date>
+<msg>Slightly indent first toolbar icon on MSW, without it just looks odd on Windows 10 where there are no window decorations.</msg>
+</logentry>
+<logentry
+   revision="8004">
+<author>codesquid</author>
+<date>2016-11-28T16:03:25.087553Z</date>
+<msg>Bump to 3.23.0-rc1</msg>
+</logentry>
+<logentry
+   revision="8005">
+<author>codesquid</author>
+<date>2016-11-28T16:29:21.783767Z</date>
+<msg>Updated translations</msg>
+</logentry>
+<logentry
+   revision="8008">
+<author>codesquid</author>
+<date>2016-11-28T16:46:37.988137Z</date>
+<msg>Update svn:ignore
+</msg>
+</logentry>
+<logentry
+   revision="8009">
+<author>codesquid</author>
+<date>2016-11-28T16:50:07.262091Z</date>
+<msg>Initialize two members.</msg>
+</logentry>
+<logentry
+   revision="8010">
+<author>codesquid</author>
+<date>2016-11-28T17:00:14.022576Z</date>
+<msg>Fix size of disabled speedlimits icon on Mac.</msg>
+</logentry>
+<logentry
+   revision="8012">
+<author>codesquid</author>
+<date>2016-11-29T11:21:07.911414Z</date>
+<msg>Apply #11086 to fix a deprecation warning in some wx configurations.</msg>
+</logentry>
+<logentry
+   revision="8013">
+<author>codesquid</author>
+<date>2016-11-29T14:53:07.023010Z</date>
+<msg>Do path expansion in a way that does not destroy UNC paths on MSW. Fixes #11088</msg>
+</logentry>
+<logentry
+   revision="8014">
+<author>codesquid</author>
+<date>2016-11-29T15:43:40.146902Z</date>
+<msg>Add missing directory to SUBDIRS</msg>
+</logentry>
+<logentry
+   revision="8015">
+<author>codesquid</author>
+<date>2016-11-30T15:42:16.147449Z</date>
+<msg>Much easier toolbar creation by not using XRC.</msg>
+</logentry>
+<logentry
+   revision="8016">
+<author>codesquid</author>
+<date>2016-11-30T15:43:17.924263Z</date>
+<msg>Add old toolbar.xrc to leftover cleanup.</msg>
+</logentry>
+<logentry
+   revision="8017">
+<author>codesquid</author>
+<date>2016-11-30T15:47:30.522112Z</date>
+<msg>Remove unused files.</msg>
+</logentry>
+<logentry
+   revision="8018">
+<author>codesquid</author>
+<date>2016-11-30T15:56:01.921288Z</date>
+<msg>Fix compile error</msg>
+</logentry>
+<logentry
+   revision="8019">
+<author>codesquid</author>
+<date>2016-11-30T16:27:22.682915Z</date>
+<msg>Flatten makefiles a little bit.</msg>
+</logentry>
+<logentry
+   revision="8020">
+<author>codesquid</author>
+<date>2016-11-30T16:31:59.304959Z</date>
+<msg>Fix syntax error
+</msg>
+</logentry>
+<logentry
+   revision="8021">
+<author>codesquid</author>
+<date>2016-11-30T16:32:42.112051Z</date>
+<msg>Fix yet another syntax error.
+</msg>
+</logentry>
+<logentry
+   revision="8022">
+<author>codesquid</author>
+<date>2016-11-30T16:34:25.319526Z</date>
+<msg>Remove a few empty lines
+</msg>
+</logentry>
+<logentry
+   revision="8023">
+<author>codesquid</author>
+<date>2016-11-30T16:37:50.927630Z</date>
+<msg>Update svn:ignore
+</msg>
+</logentry>
+<logentry
+   revision="8024">
+<author>codesquid</author>
+<date>2016-11-30T20:18:36.757463Z</date>
+<msg>Avoid expensive conversion from wxBitmap to wxImage.</msg>
+</logentry>
+<logentry
+   revision="8025">
+<author>codesquid</author>
+<date>2016-11-30T20:19:23.838551Z</date>
+<msg>Fix a compile erorr on mac.</msg>
+</logentry>
+<logentry
+   revision="8026">
+<author>codesquid</author>
+<date>2016-12-01T08:12:25.716347Z</date>
+<msg>Restore accidentally deleted file.</msg>
+</logentry>
+<logentry
+   revision="8027">
+<author>codesquid</author>
+<date>2016-12-01T09:06:26.220922Z</date>
+<msg>Remove call to no longer existing sub-make</msg>
+</logentry>
+<logentry
+   revision="8028">
+<author>codesquid</author>
+<date>2016-12-01T09:09:46.119198Z</date>
+<msg>Minor refactoring.</msg>
+</logentry>
+<logentry
+   revision="8029">
+<author>codesquid</author>
+<date>2016-12-01T09:49:22.241370Z</date>
+<msg>Create quickconnect bar directly.</msg>
+</logentry>
+<logentry
+   revision="8030">
+<author>codesquid</author>
+<date>2016-12-01T10:48:36.234014Z</date>
+<msg>Fix typo</msg>
+</logentry>
+<logentry
+   revision="8031">
+<author>codesquid</author>
+<date>2016-12-01T11:26:59.972638Z</date>
+<msg>Fix toolbar not showing on OS X</msg>
+</logentry>
+<logentry
+   revision="8032">
+<author>codesquid</author>
+<date>2016-12-01T20:04:51.541184Z</date>
+<msg>Fixed typo from removing line breaks.</msg>
+</logentry>
+<logentry
+   revision="8033">
+<author>codesquid</author>
+<date>2016-12-01T20:06:52.513362Z</date>
+<msg>Fixed another typo</msg>
+</logentry>
+<logentry
+   revision="8034">
+<author>codesquid</author>
+<date>2016-12-02T10:41:28.027532Z</date>
+<msg>Check for libfilezilla 0.9.0 or higher.</msg>
+</logentry>
+<logentry
+   revision="8035">
+<author>codesquid</author>
+<date>2016-12-03T18:03:43.255858Z</date>
+<msg>Loading and scaling large resources is expensive. Cache scaled resources and load those instead.
+</msg>
+</logentry>
+<logentry
+   revision="8036">
+<author>codesquid</author>
+<date>2016-12-03T18:06:55.162959Z</date>
+<msg>Fix compile error
+</msg>
+</logentry>
+<logentry
+   revision="8037">
+<author>codesquid</author>
+<date>2016-12-03T18:32:28.833948Z</date>
+<msg>Cleanup startup routines
+</msg>
+</logentry>
+<logentry
+   revision="8038">
+<author>codesquid</author>
+<date>2016-12-03T21:52:15.042196Z</date>
+<msg>Fix typo
+</msg>
+</logentry>
+<logentry
+   revision="8039">
+<author>codesquid</author>
+<date>2016-12-03T22:09:19.138155Z</date>
+<msg>Revert previous commit and do proper fix</msg>
+</logentry>
+<logentry
+   revision="8040">
+<author>codesquid</author>
+<date>2016-12-04T14:01:46.202823Z</date>
+<msg>Explicitly load resource files by name, prevents errors due to stale files from previous versions.
+</msg>
+</logentry>
+<logentry
+   revision="8041">
+<author>codesquid</author>
+<date>2016-12-04T14:15:27.188109Z</date>
+<msg>layout.xml does not contain important data, overwrite it if it has become corrupt.
+</msg>
+</logentry>
+<logentry
+   revision="8042">
+<author>codesquid</author>
+<date>2016-12-04T14:17:02.225814Z</date>
+<msg>search.xml is non-critical too and can be overwritten without harm.
+</msg>
+</logentry>
+<logentry
+   revision="8043">
+<author>codesquid</author>
+<date>2016-12-04T18:32:07.681674Z</date>
+<msg>Disallow wxWidgets 3.1 or higher.</msg>
+</logentry>
+<logentry
+   revision="8044">
+<author>codesquid</author>
+<date>2016-12-04T19:25:43.645619Z</date>
+<msg>Remove sizer flags that are no-ops.</msg>
+</logentry>
+<logentry
+   revision="8045">
+<author>codesquid</author>
+<date>2016-12-05T14:06:14.912963Z</date>
+<msg>Disable next button while fetching offer data.</msg>
+</logentry>
+<logentry
+   revision="8046">
+<author>codesquid</author>
+<date>2016-12-05T15:11:30.851028Z</date>
+<msg>Add a 480x480 filezilla.png</msg>
+</logentry>
+<logentry
+   revision="8047">
+<author>codesquid</author>
+<date>2016-12-05T15:20:16.349467Z</date>
+<msg>Add missing icons to installer.</msg>
+</logentry>
+<logentry
+   revision="8048">
+<author>codesquid</author>
+<date>2016-12-05T15:40:00.244339Z</date>
+<msg>On OS X, consider content scale factor when selecting pivot size for icon search.
+</msg>
+</logentry>
+<logentry
+   revision="8049">
+<author>codesquid</author>
+<date>2016-12-05T16:10:14.823602Z</date>
+<msg>Don't use wxArtProvider, it just cannot handle OS X scale factors.
+</msg>
+</logentry>
+<logentry
+   revision="8050">
+<author>codesquid</author>
+<date>2016-12-05T16:20:14.826718Z</date>
+<msg>Get rid of redundant icon loading.</msg>
+</logentry>
+<logentry
+   revision="8051">
+<author>codesquid</author>
+<date>2016-12-05T16:30:10.577872Z</date>
+<msg>Use correct icon in speedlimits dialog on OS X
+</msg>
+</logentry>
+<logentry
+   revision="8052">
+<author>codesquid</author>
+<date>2016-12-05T16:51:00.981320Z</date>
+<msg>Updated translations</msg>
+</logentry>
+<logentry
+   revision="8053">
+<author>codesquid</author>
+<date>2016-12-05T17:04:13.210200Z</date>
+<msg>Bump to 3.23.0</msg>
+</logentry>
+<logentry
+   revision="8055">
+<author>codesquid</author>
+<date>2016-12-05T23:15:13.340557Z</date>
+<msg>Work around bug in wxWidgets: Calling RemoveTool on a toolbar that has not been realized yet leads to it looping over 2^64 non-existing items.</msg>
+</logentry>
+<logentry
+   revision="8056">
+<author>codesquid</author>
+<date>2016-12-05T23:19:18.920522Z</date>
+<msg>Updated translation.</msg>
+</logentry>
+<logentry
+   revision="8057">
+<author>codesquid</author>
+<date>2016-12-05T23:19:36.170466Z</date>
+<msg>Bump to 3.23.0.1</msg>
+</logentry>
+<logentry
+   revision="8059">
+<author>codesquid</author>
+<date>2016-12-06T08:38:38.556276Z</date>
+<msg>Save and load keyfile server entry to queue.sqlite3 and migrate schema. Fixes #11098</msg>
+</logentry>
+<logentry
+   revision="8060">
+<author>codesquid</author>
+<date>2016-12-06T14:53:40.260471Z</date>
+<msg>Work around a bug in wxWidgets: wxImageList::GetBitmap kills the channel, use wxImageList::GetIcon instead and convert it to wxBitmap afterwards.</msg>
+</logentry>
+<logentry
+   revision="8061">
+<author>codesquid</author>
+<date>2016-12-06T15:01:03.287326Z</date>
+<msg>Handle the unlikely case of an invalid icon by creating an empty one.</msg>
+</logentry>
+<logentry
+   revision="8062">
+<author>codesquid</author>
+<date>2016-12-06T15:14:24.809783Z</date>
+<msg>Allow passing relative paths and environment variables in the "Cache directory" setting.</msg>
+</logentry>
+<logentry
+   revision="8063">
+<author>codesquid</author>
+<date>2016-12-06T15:35:03.560883Z</date>
+<msg>Print more detailed error message if libfilezilla isn't found.
+</msg>
+</logentry>
+<logentry
+   revision="8064">
+<author>codesquid</author>
+<date>2016-12-06T16:10:09.940820Z</date>
+<msg>Bump to 3.23.0.2
+</msg>
+</logentry>
+<logentry
+   revision="8066">
+<author>codesquid</author>
+<date>2016-12-06T16:49:01.781501Z</date>
+<msg>Give credit to creator of new icon theme.</msg>
+</logentry>
+<logentry
+   revision="8067">
+<author>codesquid</author>
+<date>2016-12-13T11:31:15.128154Z</date>
+<msg>Add entitlements file for app sandboxing on OS X.
+</msg>
+</logentry>
+<logentry
+   revision="8068">
+<author>codesquid</author>
+<date>2016-12-13T15:06:43.459505Z</date>
+<msg>Add persistant security-scoped bookmarks if using the OSX app sandbox.
+</msg>
+</logentry>
+<logentry
+   revision="8069">
+<author>codesquid</author>
+<date>2016-12-13T15:07:18.256870Z</date>
+<msg>Fixed typo</msg>
+</logentry>
+<logentry
+   revision="8070">
+<author>codesquid</author>
+<date>2016-12-13T16:18:46.206223Z</date>
+<msg>Possible fix for #11105. Should also handle other upload failures better, there was shadowed variable similar to issue #10811 fixed in r7404.</msg>
+</logentry>
+<logentry
+   revision="8071">
+<author>codesquid</author>
+<date>2016-12-13T17:11:49.835466Z</date>
+<msg>Fix copy&amp;paste mistake.
+</msg>
+</logentry>
+<logentry
+   revision="8072">
+<author>codesquid</author>
+<date>2016-12-13T20:14:00.634611Z</date>
+<msg>Fix resource leak</msg>
+</logentry>
+<logentry
+   revision="8073">
+<author>codesquid</author>
+<date>2016-12-13T20:15:35.027869Z</date>
+<msg>Remove accidental commit of debug code.</msg>
+</logentry>
+<logentry
+   revision="8074">
+<author>codesquid</author>
+<date>2016-12-18T11:44:23.777877Z</date>
+<msg>Minify FileZilla logo. Patch by XhmikosR.</msg>
+</logentry>
+<logentry
+   revision="8075">
+<author>codesquid</author>
+<date>2016-12-18T11:47:43.054857Z</date>
+<msg>Whitepsace cleanup. Patch by XhmikosR.</msg>
+</logentry>
+<logentry
+   revision="8076">
+<author>codesquid</author>
+<date>2016-12-23T22:17:18.397243Z</date>
+<msg>Remove stray semicolon
+</msg>
+</logentry>
+<logentry
+   revision="8077">
+<author>codesquid</author>
+<date>2016-12-23T22:30:41.286317Z</date>
+<msg>Minify icons, patch by XhmikosR
+</msg>
+</logentry>
+<logentry
+   revision="8078">
+<author>codesquid</author>
+<date>2016-12-24T14:22:40.041846Z</date>
+<msg>Remove unused variabled and a stray semicolon. Patch by XhmikosR.
+</msg>
+</logentry>
+<logentry
+   revision="8080">
+<author>codesquid</author>
+<date>2016-12-26T22:53:07.026520Z</date>
+<msg>Fix a bunch of warnings.
+</msg>
+</logentry>
+<logentry
+   revision="8081">
+<author>codesquid</author>
+<date>2016-12-27T09:15:51.840807Z</date>
+<msg>During synchronized browsing, reset the syncbrowse dirchange flag when the user canceles the dialog that prompts for action if the remote directory does not exist. #11113
+</msg>
+</logentry>
+<logentry
+   revision="8082">
+<author>codesquid</author>
+<date>2016-12-27T09:30:29.447516Z</date>
+<msg>Also allow using Alt+# to switch to tabs. #10732
+</msg>
+</logentry>
+<logentry
+   revision="8083">
+<author>codesquid</author>
+<date>2016-12-27T10:46:20.505274Z</date>
+<msg>Add "Copy URL(s) to clipboard" to search results context menu.
+</msg>
+</logentry>
+<logentry
+   revision="8084">
+<author>codesquid</author>
+<date>2016-12-27T11:02:56.083320Z</date>
+<msg>Fix initial size of condition type choice.
+</msg>
+</logentry>
+<logentry
+   revision="8085">
+<author>codesquid</author>
+<date>2016-12-27T11:39:56.064562Z</date>
+<msg>Further rendering fixes
+</msg>
+</logentry>
+<logentry
+   revision="8086">
+<author>codesquid</author>
+<date>2016-12-27T18:58:04.668736Z</date>
+<msg>Decrement item after each iteration as it is being deleted. #11122
+</msg>
+</logentry>
+<logentry
+   revision="8087">
+<author>codesquid</author>
+<date>2016-12-28T11:53:03.983482Z</date>
+<msg>Use nettle for SHA512 as well.
+</msg>
+</logentry>
+<logentry
+   revision="8088">
+<author>codesquid</author>
+<date>2016-12-29T14:33:48.664188Z</date>
+<msg>Fix a few compiler warnings.
+</msg>
+</logentry>
+<logentry
+   revision="8089">
+<author>codesquid</author>
+<date>2016-12-29T14:36:55.294737Z</date>
+<msg>Use _nettle_sha1_compress instead of the custom implementation from PuTTY in SHATransform
+</msg>
+</logentry>
+<logentry
+   revision="8090">
+<author>codesquid</author>
+<date>2016-12-29T14:37:43.530162Z</date>
+<msg>Fix indentation
+</msg>
+</logentry>
+<logentry
+   revision="8091">
+<author>codesquid</author>
+<date>2016-12-29T16:17:55.011212Z</date>
+<msg>Merge upstream PuTTY changes.</msg>
+</logentry>
+<logentry
+   revision="8092">
+<author>codesquid</author>
+<date>2016-12-29T17:31:30.383289Z</date>
+<msg>Fix cast.</msg>
+</logentry>
+<logentry
+   revision="8093">
+<author>codesquid</author>
+<date>2016-12-30T16:50:51.385445Z</date>
+<msg>Make engine id const as it never changes.
+</msg>
+</logentry>
+<logentry
+   revision="8094">
+<author>codesquid</author>
+<date>2017-01-05T14:46:44.670578Z</date>
+<msg>Don't show popup dialogs if already handling a native GUI event on OS X. Should fix #11110.</msg>
+</logentry>
+<logentry
+   revision="8095">
+<author>codesquid</author>
+<date>2017-01-06T09:18:35.946460Z</date>
+<msg>Unify style for writing ", aborting."</msg>
+</logentry>
+<logentry
+   revision="8096">
+<author>codesquid</author>
+<date>2017-01-06T09:20:36.936568Z</date>
+<msg>Small cleanup.</msg>
+</logentry>
+<logentry
+   revision="8097">
+<author>codesquid</author>
+<date>2017-01-06T09:25:26.490946Z</date>
+<msg>Remember toolbar tool size.</msg>
+</logentry>
+<logentry
+   revision="8098">
+<author>codesquid</author>
+<date>2017-01-06T12:19:43.331059Z</date>
+<msg>Fix a memory leak.</msg>
+</logentry>
+<logentry
+   revision="8099">
+<author>codesquid</author>
+<date>2017-01-06T14:31:14.961152Z</date>
+<msg>Show base643 encoded SHA256 hash as hostkey fingerprint to match output format of OpenSSH 6.8+</msg>
+</logentry>
+<logentry
+   revision="8100">
+<author>codesquid</author>
+<date>2017-01-06T15:18:12.630023Z</date>
+<msg>Updated translations</msg>
+</logentry>
+<logentry
+   revision="8101">
+<author>codesquid</author>
+<date>2017-01-06T15:18:27.636704Z</date>
+<msg>Bump to 3.24.0-rc1</msg>
+</logentry>
+<logentry
+   revision="8102">
+<author>codesquid</author>
+<date>2017-01-12T18:53:33.536722Z</date>
+<msg>Use correct return code if command cannot be converted to 8-bit charset.</msg>
+</logentry>
+<logentry
+   revision="8103">
+<author>codesquid</author>
+<date>2017-01-12T18:53:59.241153Z</date>
+<msg>Fix CServerPath::operator&lt; </msg>
+</logentry>
+<logentry
+   revision="8104">
+<author>codesquid</author>
+<date>2017-01-13T14:01:08.733229Z</date>
+<msg>Keep insertion point visible.
+</msg>
+</logentry>
+<logentry
+   revision="8105">
+<author>codesquid</author>
+<date>2017-01-13T14:01:54.336794Z</date>
+<msg>Overlay scrollbars are always so much trouble. Refresh layout after refreshing it.
+</msg>
+</logentry>
+<logentry
+   revision="8106">
+<author>codesquid</author>
+<date>2017-01-13T14:39:40.093912Z</date>
+<msg>Refactor offer initialization
+</msg>
+</logentry>
+<logentry
+   revision="8107">
+<author>codesquid</author>
+<date>2017-01-13T15:06:52.742612Z</date>
+<msg>Updated translations</msg>
+</logentry>
+<logentry
+   revision="8108">
+<author>codesquid</author>
+<date>2017-01-13T15:49:52.277576Z</date>
+<msg>Bump to 3.Bump to 3.24.0
+</msg>
+</logentry>
+<logentry
+   revision="8109">
+<author>codesquid</author>
+<date>2017-01-13T17:50:42.389933Z</date>
+<msg>Fixed typo
+</msg>
+</logentry>
+<logentry
+   revision="8110">
+<author>codesquid</author>
+<date>2017-01-13T18:03:51.045746Z</date>
+<msg>Updated translation</msg>
+</logentry>
+<logentry
+   revision="8112">
+<author>codesquid</author>
+<date>2017-01-18T08:31:39.912161Z</date>
+<msg>Remove unused variable.
+</msg>
+</logentry>
+<logentry
+   revision="8119">
+<author>codesquid</author>
+<date>2017-01-30T13:28:38.658631Z</date>
+<msg>Work around a bug in Windows, its documentation does not match its behavior on Vista and possibly 7.
+</msg>
+</logentry>
+<logentry
+   revision="8120">
+<author>codesquid</author>
+<date>2017-01-30T13:41:44.274224Z</date>
+<msg>Minor reformatting.</msg>
+</logentry>
+<logentry
+   revision="8121">
+<author>codesquid</author>
+<date>2017-01-30T15:57:56.578722Z</date>
+<msg>Refactor directory listing notifications, do the broadcast in the GUI, not in the engine.</msg>
+</logentry>
+<logentry
+   revision="8138">
+<author>codesquid</author>
+<date>2017-02-10T08:58:30.768699Z</date>
+<msg>Small refactoring to make pushing operations easier.</msg>
+</logentry>
+<logentry
+   revision="8139">
+<author>codesquid</author>
+<date>2017-02-10T18:02:45.249681Z</date>
+<msg>Various cleanup
+</msg>
+</logentry>
+<logentry
+   revision="8140">
+<author>codesquid</author>
+<date>2017-02-10T18:15:37.482745Z</date>
+<msg>Further cleanup and slight code modernization.
+</msg>
+</logentry>
+<logentry
+   revision="8141">
+<author>codesquid</author>
+<date>2017-02-11T11:26:24.777543Z</date>
+<msg>Remove assert, the error is handled gracefully.
+</msg>
+</logentry>
+<logentry
+   revision="8142">
+<author>codesquid</author>
+<date>2017-02-11T13:22:53.701975Z</date>
+<msg>Revert a small change that breaks compilation.
+</msg>
+</logentry>
+<logentry
+   revision="8143">
+<author>codesquid</author>
+<date>2017-02-11T13:53:20.388459Z</date>
+<msg>Heavy WIP: Refactor operation handling, move FTP specific files into own subdirectory, split operations into individual files.
+</msg>
+</logentry>
+<logentry
+   revision="8144">
+<author>codesquid</author>
+<date>2017-02-11T14:00:20.352635Z</date>
+<msg>Code cleanup
+</msg>
+</logentry>
+<logentry
+   revision="8145">
+<author>codesquid</author>
+<date>2017-02-12T10:12:10.162423Z</date>
+<msg>Work in process: Work on refactoring the list operation.
+</msg>
+</logentry>
+<logentry
+   revision="8146">
+<author>codesquid</author>
+<date>2017-02-12T21:26:41.948873Z</date>
+<msg>Work in progress: Continue refactoring. We're a wee bit further along the complicated listing operation.
+</msg>
+</logentry>
+<logentry
+   revision="8147">
+<author>codesquid</author>
+<date>2017-02-13T17:10:37.374951Z</date>
+<msg>Fix compile error on some compilers.</msg>
+</logentry>
+<logentry
+   revision="8148">
+<author>codesquid</author>
+<date>2017-02-13T17:15:38.592546Z</date>
+<msg>Add missing eol-style</msg>
+</logentry>
+<logentry
+   revision="8149">
+<author>codesquid</author>
+<date>2017-02-13T17:26:41.918548Z</date>
+<msg>Fix warnings.</msg>
+</logentry>
+<logentry
+   revision="8150">
+<author>codesquid</author>
+<date>2017-02-13T18:00:31.883880Z</date>
+<msg>Work in progress: Split mkdir into own file, further work on list.</msg>
+</logentry>
+<logentry
+   revision="8151">
+<author>codesquid</author>
+<date>2017-02-13T20:28:29.107770Z</date>
+<msg>Split raw transfer code into own file and modernize it.</msg>
+</logentry>
+<logentry
+   revision="8152">
+<author>codesquid</author>
+<date>2017-02-14T10:10:01.640012Z</date>
+<msg>Convert the m_pCurrentServer pointer in CControlSocket to a non-pointer member.
+</msg>
+</logentry>
+<logentry
+   revision="8153">
+<author>codesquid</author>
+<date>2017-02-14T16:51:04.801107Z</date>
+<msg>Further refactoring to clean up CFtpControlSocket and in particular the list operation.
+</msg>
+</logentry>
+<logentry
+   revision="8154">
+<author>codesquid</author>
+<date>2017-02-14T17:09:18.467981Z</date>
+<msg>Fix EPSV regression.</msg>
+</logentry>
+<logentry
+   revision="8155">
+<author>codesquid</author>
+<date>2017-02-14T18:06:32.784955Z</date>
+<msg>Make CControlSocket's List and Connect functions asynchronous, they now always return void.</msg>
+</logentry>
+<logentry
+   revision="8156">
+<author>codesquid</author>
+<date>2017-02-14T18:24:07.824272Z</date>
+<msg>Adjust return types of CFtpControlSocket:Transfer, deal with some fixmes.</msg>
+</logentry>
+<logentry
+   revision="8157">
+<author>codesquid</author>
+<date>2017-02-14T19:46:39.851977Z</date>
+<msg>Move filetransfer code.</msg>
+</logentry>
+<logentry
+   revision="8158">
+<author>codesquid</author>
+<date>2017-02-16T09:44:14.211463Z</date>
+<msg>Move transfersocket.* into ftp subdirectory.</msg>
+</logentry>
+<logentry
+   revision="8159">
+<author>codesquid</author>
+<date>2017-02-16T09:58:37.966424Z</date>
+<msg>Refactor raw commands.</msg>
+</logentry>
+<logentry
+   revision="8160">
+<author>codesquid</author>
+<date>2017-02-16T10:43:02.227062Z</date>
+<msg>Refactor delete and rmdir commands.</msg>
+</logentry>
+<logentry
+   revision="8161">
+<author>codesquid</author>
+<date>2017-02-16T11:11:23.619448Z</date>
+<msg>Finish moving FTP operations into separate files.</msg>
+</logentry>
+<logentry
+   revision="8162">
+<author>codesquid</author>
+<date>2017-02-16T12:56:30.633510Z</date>
+<msg>Change return type of CRealControlSocket::Send and CFtpControlSocket::SendCommand.</msg>
+</logentry>
+<logentry
+   revision="8163">
+<author>codesquid</author>
+<date>2017-02-16T13:44:16.208455Z</date>
+<msg>Adjust CControlSocket::CheckOverwriteFile and CRealControlSocket::ContinueConnect to new model. This should complete the transformation for FTP. The other protocols still need to be changed.</msg>
+</logentry>
+<logentry
+   revision="8164">
+<author>codesquid</author>
+<date>2017-02-16T19:26:13.480041Z</date>
+<msg>Fix warnings.</msg>
+</logentry>
+<logentry
+   revision="8165">
+<author>codesquid</author>
+<date>2017-02-16T20:09:08.086882Z</date>
+<msg>WIP: Begin refactoring CHttpControlSocket. As start, turn it into a stub.</msg>
+</logentry>
+<logentry
+   revision="8166">
+<author>codesquid</author>
+<date>2017-02-17T07:58:28.824723Z</date>
+<msg>Fix a few compile errors in currently commented out code.</msg>
+</logentry>
+<logentry
+   revision="8167">
+<author>codesquid</author>
+<date>2017-02-18T10:06:45.984343Z</date>
+<msg>Small progress in redoing the HTTP support.</msg>
+</logentry>
+<logentry
+   revision="8168">
+<author>codesquid</author>
+<date>2017-02-18T10:17:45.527259Z</date>
+<msg>General cleanup pass on SFTP code.</msg>
+</logentry>
+<logentry
+   revision="8169">
+<author>codesquid</author>
+<date>2017-02-18T10:23:30.574175Z</date>
+<msg>Move CSftpControlSocket into own directory.</msg>
+</logentry>
+<logentry
+   revision="8170">
+<author>codesquid</author>
+<date>2017-02-18T10:32:55.816400Z</date>
+<msg>Added Danish translation to .desktop file.</msg>
+</logentry>
+<logentry
+   revision="8172">
+<author>codesquid</author>
+<date>2017-02-18T10:46:11.188823Z</date>
+<msg>Remove an unused variable</msg>
+</logentry>
+<logentry
+   revision="8173">
+<author>codesquid</author>
+<date>2017-02-18T10:46:19.656336Z</date>
+<msg>Fixed a compile error.</msg>
+</logentry>
+<logentry
+   revision="8174">
+<author>codesquid</author>
+<date>2017-02-18T11:16:33.559628Z</date>
+<msg>Update built-in pugixml.</msg>
+</logentry>
+<logentry
+   revision="8175">
+<author>codesquid</author>
+<date>2017-02-18T11:30:19.501121Z</date>
+<msg>Fix compile error with some GCC versions.
+</msg>
+</logentry>
+<logentry
+   revision="8176">
+<author>codesquid</author>
+<date>2017-02-18T13:39:59.823595Z</date>
+<msg>Get HTTP back into a state where it can send requests.</msg>
+</logentry>
+<logentry
+   revision="8177">
+<author>codesquid</author>
+<date>2017-02-18T14:34:32.345734Z</date>
+<msg>Partially re-implement parsing HTTP headers.</msg>
+</logentry>
+<logentry
+   revision="8178">
+<author>codesquid</author>
+<date>2017-02-18T16:40:42.150794Z</date>
+<msg>Basic HTTP downloads working again, though redirects are ignored.</msg>
+</logentry>
+<logentry
+   revision="8179">
+<author>codesquid</author>
+<date>2017-02-18T17:15:10.165632Z</date>
+<msg>Re-implement HTTP redirect handling.</msg>
+</logentry>
+<logentry
+   revision="8180">
+<author>codesquid</author>
+<date>2017-02-18T18:21:57.700240Z</date>
+<msg>Start splitting up SFTP.</msg>
+</logentry>
+<logentry
+   revision="8181">
+<author>codesquid</author>
+<date>2017-02-18T22:55:03.533299Z</date>
+<msg>Move SendNextCommand to CControlSocket.</msg>
+</logentry>
+<logentry
+   revision="8182">
+<author>codesquid</author>
+<date>2017-02-18T23:05:23.349477Z</date>
+<msg>Minor cleanup.</msg>
+</logentry>
+<logentry
+   revision="8183">
+<author>codesquid</author>
+<date>2017-02-19T09:21:56.235161Z</date>
+<msg>Add missing include.</msg>
+</logentry>
+<logentry
+   revision="8184">
+<author>codesquid</author>
+<date>2017-02-19T11:13:44.871418Z</date>
+<msg>Move SFTP list code into own files.</msg>
+</logentry>
+<logentry
+   revision="8185">
+<author>codesquid</author>
+<date>2017-02-19T11:58:30.398847Z</date>
+<msg>Refactor ChangeDir operation for SFTP.</msg>
+</logentry>
+<logentry
+   revision="8186">
+<author>codesquid</author>
+<date>2017-02-19T14:06:00.962267Z</date>
+<msg>Refactor and move SFTP file transfer code into own file.</msg>
+</logentry>
+<logentry
+   revision="8187">
+<author>codesquid</author>
+<date>2017-02-19T15:48:31.493711Z</date>
+<msg>Use a common CProtocolOpData&lt;T&gt; as base class.</msg>
+</logentry>
+<logentry
+   revision="8188">
+<author>codesquid</author>
+<date>2017-02-19T16:39:29.914931Z</date>
+<msg>Refactor SFTP del, mkd and rmd operations.</msg>
+</logentry>
+<logentry
+   revision="8189">
+<author>codesquid</author>
+<date>2017-02-19T17:01:50.097116Z</date>
+<msg>Refactor the rename and chmod operations for SFTP.</msg>
+</logentry>
+<logentry
+   revision="8190">
+<author>codesquid</author>
+<date>2017-02-19T18:30:31.104165Z</date>
+<msg>Get rid of the explicitly managed *m_pCurOpData and replace it with a vector or unique_ptrs.</msg>
+</logentry>
+<logentry
+   revision="8191">
+<author>codesquid</author>
+<date>2017-02-19T18:52:10.444039Z</date>
+<msg>Fix cache unlocking in ResetOperation.</msg>
+</logentry>
+<logentry
+   revision="8192">
+<author>codesquid</author>
+<date>2017-02-19T19:26:42.257900Z</date>
+<msg>Add another missing include.</msg>
+</logentry>
+<logentry
+   revision="8193">
+<author>codesquid</author>
+<date>2017-02-19T19:47:14.307154Z</date>
+<msg>Fix a warning.</msg>
+</logentry>
+<logentry
+   revision="8194">
+<author>codesquid</author>
+<date>2017-02-19T20:08:25.245600Z</date>
+<msg>Fix Coverity warnings.</msg>
+</logentry>
+<logentry
+   revision="8195">
+<author>codesquid</author>
+<date>2017-02-20T10:02:32.447637Z</date>
+<msg>In CHttpControlSocket::OnConnect, check that the current operation is PrivCommand::http_connect, not Command::connect.</msg>
+</logentry>
+<logentry
+   revision="8196">
+<author>codesquid</author>
+<date>2017-02-20T10:12:40.698004Z</date>
+<msg>Fix User-Agent header.</msg>
+</logentry>
+<logentry
+   revision="8197">
+<author>codesquid</author>
+<date>2017-02-20T10:33:00.106758Z</date>
+<msg>Fix a warning.
+</msg>
+</logentry>
+<logentry
+   revision="8198">
+<author>codesquid</author>
+<date>2017-02-20T14:17:34.787713Z</date>
+<msg>Fix duplicate mnemonic in files currently edited dialog. #11135</msg>
+</logentry>
+<logentry
+   revision="8199">
+<author>codesquid</author>
+<date>2017-02-20T17:02:07.486049Z</date>
+<msg>Merge upstream PuTTY changes.</msg>
+</logentry>
+<logentry
+   revision="8200">
+<author>codesquid</author>
+<date>2017-02-20T19:10:48.506939Z</date>
+<msg>Fix a compile error.</msg>
+</logentry>
+<logentry
+   revision="8203">
+<author>codesquid</author>
+<date>2017-02-21T18:06:36.508151Z</date>
+<msg>Implement sending the request body.</msg>
+</logentry>
+<logentry
+   revision="8204">
+<author>codesquid</author>
+<date>2017-02-21T20:38:49.548746Z</date>
+<msg>Merge remaining upstream PuTTY changes.</msg>
+</logentry>
+<logentry
+   revision="8207">
+<author>codesquid</author>
+<date>2017-02-21T20:59:34.864546Z</date>
+<msg>Bump to FileZilla 3.24.1
+</msg>
+</logentry>
+<logentry
+   revision="8210">
+<author>codesquid</author>
+<date>2017-02-22T18:41:21.250379Z</date>
+<msg>Scale widths of status line control.</msg>
+</logentry>
+<logentry
+   revision="8211">
+<author>codesquid</author>
+<date>2017-02-23T10:21:49.508015Z</date>
+<msg>pimpl CTlsSocket and solve the ssize_t issue.</msg>
+</logentry>
+<logentry
+   revision="8212">
+<author>codesquid</author>
+<date>2017-02-23T12:06:26.204446Z</date>
+<msg>Assorted cleanup.</msg>
+</logentry>
+<logentry
+   revision="8213">
+<author>codesquid</author>
+<date>2017-02-23T14:46:37.039555Z</date>
+<msg>Add missing include.</msg>
+</logentry>
+<logentry
+   revision="8214">
+<author>codesquid</author>
+<date>2017-02-23T14:49:23.441547Z</date>
+<msg>Actually fix the includes in the right file...</msg>
+</logentry>
+<logentry
+   revision="8215">
+<author>codesquid</author>
+<date>2017-02-23T14:53:04.370004Z</date>
+<msg>Fix harmless warning.</msg>
+</logentry>
+<logentry
+   revision="8216">
+<author>codesquid</author>
+<date>2017-02-23T14:58:15.609203Z</date>
+<msg>Remove wxFAIL_MSG from engine.</msg>
+</logentry>
+<logentry
+   revision="8217">
+<author>codesquid</author>
+<date>2017-02-23T19:15:11.987477Z</date>
+<msg>Use a new interface for custom character set conversion. From this point on, wxWidgets is no longer used in the engine.</msg>
+</logentry>
+<logentry
+   revision="8218">
+<author>codesquid</author>
+<date>2017-02-23T19:15:59.005780Z</date>
+<msg>Eliminate wx from default project settings.</msg>
+</logentry>
+<logentry
+   revision="8219">
+<author>codesquid</author>
+<date>2017-02-23T19:24:44.310453Z</date>
+<msg>Use a new interface for custom character set conversion. From this point on, wxWidgets is no longer used in the engine, missing half of commit.</msg>
+</logentry>
+<logentry
+   revision="8220">
+<author>codesquid</author>
+<date>2017-02-23T20:04:44.659476Z</date>
+<msg>Move reporting of GUI library dependencies into the GUI.</msg>
+</logentry>
+<logentry
+   revision="8221">
+<author>codesquid</author>
+<date>2017-02-23T20:21:53.794465Z</date>
+<msg>Remove discontinued support channel.</msg>
+</logentry>
+<logentry
+   revision="8222">
+<author>codesquid</author>
+<date>2017-02-23T20:34:11.365994Z</date>
+<msg>Add a missing include.</msg>
+</logentry>
+<logentry
+   revision="8223">
+<author>codesquid</author>
+<date>2017-02-23T22:00:26.124353Z</date>
+<msg>Move GetRealOsVersion to buildinfo.h/cpp</msg>
+</logentry>
+<logentry
+   revision="8224">
+<author>codesquid</author>
+<date>2017-02-23T22:01:40.365472Z</date>
+<msg>Remove unused forward declarations.</msg>
+</logentry>
+<logentry
+   revision="8225">
+<author>codesquid</author>
+<date>2017-02-23T22:28:05.903246Z</date>
+<msg>Add another missing include.</msg>
+</logentry>
+<logentry
+   revision="8226">
+<author>codesquid</author>
+<date>2017-02-24T07:57:21.317022Z</date>
+<msg>Fix a warning about a statement having no effect, a return was missing.</msg>
+</logentry>
+<logentry
+   revision="8227">
+<author>codesquid</author>
+<date>2017-02-24T07:58:19.039213Z</date>
+<msg>Fix warning about signed/unsigned integer comparison.</msg>
+</logentry>
+<logentry
+   revision="8228">
+<author>codesquid</author>
+<date>2017-02-24T08:01:07.754629Z</date>
+<msg>Fixed a compile error due to a constant no longer available.</msg>
+</logentry>
+<logentry
+   revision="8229">
+<author>codesquid</author>
+<date>2017-02-24T13:49:57.351850Z</date>
+<msg>Backport small fixes from an in-development feature branch.</msg>
+</logentry>
+<logentry
+   revision="8230">
+<author>codesquid</author>
+<date>2017-02-24T15:21:01.112375Z</date>
+<msg>Updated translations</msg>
+</logentry>
+<logentry
+   revision="8231">
+<author>codesquid</author>
+<date>2017-02-24T15:28:34.161775Z</date>
+<msg>Bump to 3.25.0-beta1</msg>
+</logentry>
+<logentry
+   revision="8233">
+<author>codesquid</author>
+<date>2017-02-24T16:16:09.992786Z</date>
+<msg>Fix typo in include guard.</msg>
+</logentry>
+<logentry
+   revision="8234">
+<author>codesquid</author>
+<date>2017-02-24T16:26:21.251269Z</date>
+<msg>Fix a bunch of warnings reported by Clang with -Winconsistent-missing-override</msg>
+</logentry>
+<logentry
+   revision="8235">
+<author>codesquid</author>
+<date>2017-02-24T18:33:08.433279Z</date>
+<msg>Fixed a few more warnings.</msg>
+</logentry>
+<logentry
+   revision="8236">
+<author>codesquid</author>
+<date>2017-02-26T10:54:34.374093Z</date>
+<msg>Unify format of debug messages.</msg>
+</logentry>
+<logentry
+   revision="8237">
+<author>codesquid</author>
+<date>2017-02-26T10:55:07.480098Z</date>
+<msg>Small include cleanup.</msg>
+</logentry>
+<logentry
+   revision="8238">
+<author>codesquid</author>
+<date>2017-02-27T14:43:34.343363Z</date>
+<msg>Simpler check for unsure items.</msg>
+</logentry>
+<logentry
+   revision="8239">
+<author>codesquid</author>
+<date>2017-02-27T14:44:55.969713Z</date>
+<msg>Require lfz 0.9.1 or greater.</msg>
+</logentry>
+<logentry
+   revision="8242">
+<author>codesquid</author>
+<date>2017-02-27T15:29:22.218157Z</date>
+<msg>Update svn:ignore
+</msg>
+</logentry>
+<logentry
+   revision="8249">
+<author>codesquid</author>
+<date>2017-03-03T15:38:01.814151Z</date>
+<msg>Remove BOM.
+</msg>
+</logentry>
+<logentry
+   revision="8250">
+<author>codesquid</author>
+<date>2017-03-03T15:50:09.676842Z</date>
+<msg>Merge upstream PuTTY changes.</msg>
+</logentry>
+<logentry
+   revision="8251">
+<author>codesquid</author>
+<date>2017-03-03T16:07:54.741365Z</date>
+<msg>Fix CSiteManagerDialog::GetProtocol()</msg>
+</logentry>
+<logentry
+   revision="8252">
+<author>codesquid</author>
+<date>2017-03-03T16:09:52.187927Z</date>
+<msg>Fix size check.</msg>
+</logentry>
+<logentry
+   revision="8253">
+<author>codesquid</author>
+<date>2017-03-03T18:12:00.275485Z</date>
+<msg>Fix assertion on OS X.
+</msg>
+</logentry>
+<logentry
+   revision="8254">
+<author>codesquid</author>
+<date>2017-03-04T10:44:51.819562Z</date>
+<msg>Use same wording for similar error messages. Clarify others.</msg>
+</logentry>
+<logentry
+   revision="8255">
+<author>codesquid</author>
+<date>2017-03-04T11:03:38.274042Z</date>
+<msg>Updated translations</msg>
+</logentry>
+<logentry
+   revision="8256">
+<author>codesquid</author>
+<date>2017-03-04T11:08:28.710173Z</date>
+<msg>Bump to 3.25.0-rc1</msg>
+</logentry>
+<logentry
+   revision="8257">
+<author>codesquid</author>
+<date>2017-03-04T13:16:06.140382Z</date>
+<msg>Fix typo
+</msg>
+</logentry>
+<logentry
+   revision="8258">
+<author>codesquid</author>
+<date>2017-03-04T14:02:45.501717Z</date>
+<msg>Fix another typo
+</msg>
+</logentry>
+<logentry
+   revision="8259">
+<author>codesquid</author>
+<date>2017-03-06T08:04:57.066696Z</date>
+<msg>Clear response code headers in CHttpRequest::Send</msg>
+</logentry>
+<logentry
+   revision="8260">
+<author>codesquid</author>
+<date>2017-03-06T14:08:42.557883Z</date>
+<msg>Implementations of GetDependencVersion and GetDependencName were swapped.</msg>
+</logentry>
+<logentry
+   revision="8261">
+<author>codesquid</author>
+<date>2017-03-06T14:09:42.841686Z</date>
+<msg>Typo</msg>
+</logentry>
+<logentry
+   revision="8262">
+<author>codesquid</author>
+<date>2017-03-06T17:47:12.041306Z</date>
+<msg>Destroy worker thread in CIoThread destructor.</msg>
+</logentry>
+<logentry
+   revision="8266">
+<author>codesquid</author>
+<date>2017-03-10T09:40:05.575228Z</date>
+<msg>Bump copyright year to 2017</msg>
+</logentry>
+<logentry
+   revision="8267">
+<author>codesquid</author>
+<date>2017-03-10T09:47:31.681737Z</date>
+<msg>Updated svn:ignore</msg>
+</logentry>
+<logentry
+   revision="8268">
+<author>codesquid</author>
+<date>2017-03-10T10:16:09.907909Z</date>
+<msg>Fix variable name.</msg>
+</logentry>
+<logentry
+   revision="8269">
+<author>codesquid</author>
+<date>2017-03-10T10:34:02.969809Z</date>
+<msg>Handle the "100 Continue" response code.</msg>
+</logentry>
+<logentry
+   revision="8270">
+<author>codesquid</author>
+<date>2017-03-10T10:35:56.344518Z</date>
+<msg>Fix include guard.</msg>
+</logentry>
+<logentry
+   revision="8271">
+<author>codesquid</author>
+<date>2017-03-10T10:40:37.839948Z</date>
+<msg>Make thread_local mandatory.</msg>
+</logentry>
+<logentry
+   revision="8272">
+<author>codesquid</author>
+<date>2017-03-10T14:55:59.984764Z</date>
+<msg>Fix selection of encryption option from ServerProtocol.</msg>
+</logentry>
+<logentry
+   revision="8273">
+<author>codesquid</author>
+<date>2017-03-10T14:56:27.236615Z</date>
+<msg>Remove no longer needed include</msg>
+</logentry>
+<logentry
+   revision="8274">
+<author>codesquid</author>
+<date>2017-03-10T14:56:36.011532Z</date>
+<msg>Fix include guards.</msg>
+</logentry>
+<logentry
+   revision="8275">
+<author>codesquid</author>
+<date>2017-03-10T15:15:06.505330Z</date>
+<msg>Zero-initialize some pointers.</msg>
+</logentry>
+<logentry
+   revision="8276">
+<author>codesquid</author>
+<date>2017-03-11T08:55:25.795137Z</date>
+<msg>Fix error resulting from similarly named variable in CControlSocket and CMkdirOpData breaking stepwise directory creation.</msg>
+</logentry>
+<logentry
+   revision="8277">
+<author>codesquid</author>
+<date>2017-03-11T08:56:09.651704Z</date>
+<msg>Fix small typo</msg>
+</logentry>
+<logentry
+   revision="8278">
+<author>codesquid</author>
+<date>2017-03-12T16:38:13.956088Z</date>
+<msg>#11177: OS X: If toolbar is hidden, hide it on creation.</msg>
+</logentry>
+<logentry
+   revision="8279">
+<author>codesquid</author>
+<date>2017-03-12T19:15:36.166931Z</date>
+<msg>Use NSProcessInfo's beginActivityWithOptions to prevent idle sleep instead of IOPMAssertionCreate. This has the benefit of also preventing App Nap. The drawback is that it requires OS X 10.9 or higher.</msg>
+</logentry>
+<logentry
+   revision="8280">
+<author>codesquid</author>
+<date>2017-03-12T19:45:14.731944Z</date>
+<msg>Work around ugly autoconf/automake bug, languaged cannot be conditionally used.
+</msg>
+</logentry>
+<logentry
+   revision="8281">
+<author>codesquid</author>
+<date>2017-03-12T21:06:18.184674Z</date>
+<msg>Apparently Objective C has garbage collection, yet uses pointer notation. Horrible syntax...</msg>
+</logentry>
+<logentry
+   revision="8282">
+<author>codesquid</author>
+<date>2017-03-12T22:18:44.264413Z</date>
+<msg>Use a global NSProcessInfo, else it doesn't work</msg>
+</logentry>
+<logentry
+   revision="8283">
+<author>codesquid</author>
+<date>2017-03-13T09:08:01.780823Z</date>
+<msg>Revert a previous change, it was actually working already.</msg>
+</logentry>
+<logentry
+   revision="8284">
+<author>codesquid</author>
+<date>2017-03-13T09:16:36.106873Z</date>
+<msg>Query location of downloads directory on OS X to store updates in</msg>
+</logentry>
+<logentry
+   revision="8285">
+<author>codesquid</author>
+<date>2017-03-13T09:24:15.431610Z</date>
+<msg>Fix calculation of dataToSend_ in request.</msg>
+</logentry>
+<logentry
+   revision="8286">
+<author>codesquid</author>
+<date>2017-03-13T09:37:25.093585Z</date>
+<msg>Fix retry logic.</msg>
+</logentry>
+<logentry
+   revision="8287">
+<author>codesquid</author>
+<date>2017-03-13T10:07:48.841681Z</date>
+<msg>Pass opt variable to beginActivityWithOptions</msg>
+</logentry>
+<logentry
+   revision="8288">
+<author>codesquid</author>
+<date>2017-03-13T13:03:40.417541Z</date>
+<msg>Update translations</msg>
+</logentry>
+<logentry
+   revision="8289">
+<author>codesquid</author>
+<date>2017-03-13T13:17:10.452540Z</date>
+<msg>Bump to 3.25.0</msg>
+</logentry>
+<logentry
+   revision="8290">
+<author>codesquid</author>
+<date>2017-03-13T14:03:52.231191Z</date>
+<msg>Add a missing include</msg>
+</logentry>
+<logentry
+   revision="8291">
+<author>codesquid</author>
+<date>2017-03-16T08:13:10.273245Z</date>
+<msg>Allow about dialog to go a bit wider.</msg>
+</logentry>
+<logentry
+   revision="8298">
+<author>codesquid</author>
+<date>2017-03-18T15:32:14.675645Z</date>
+<msg>Fix a few warnings
+</msg>
+</logentry>
+<logentry
+   revision="8299">
+<author>codesquid</author>
+<date>2017-03-20T09:09:16.215144Z</date>
+<msg>If converting to wchar_t from char* as ISO8859-1, cast through unsigned char* to preserve correct values of potentially negative chars.</msg>
+</logentry>
+<logentry
+   revision="8300">
+<author>codesquid</author>
+<date>2017-03-20T10:11:23.205138Z</date>
+<msg>Fix timeout detection. #11206</msg>
+</logentry>
+<logentry
+   revision="8301">
+<author>codesquid</author>
+<date>2017-03-20T14:55:58.339989Z</date>
+<msg>Updated translations</msg>
+</logentry>
+<logentry
+   revision="8302">
+<author>codesquid</author>
+<date>2017-03-20T15:03:19.784307Z</date>
+<msg>Add a few null checks.</msg>
+</logentry>
+<logentry
+   revision="8303">
+<author>codesquid</author>
+<date>2017-03-20T15:06:25.174956Z</date>
+<msg>One more null check.</msg>
+</logentry>
+<logentry
+   revision="8304">
+<author>codesquid</author>
+<date>2017-03-20T15:11:35.058624Z</date>
+<msg>Bump to 3.25.1</msg>
+</logentry>
+<logentry
+   revision="8305">
+<author>codesquid</author>
+<date>2017-03-21T11:26:33.011713Z</date>
+<msg>Fix generation of login sequence when using FTP proxies.</msg>
+</logentry>
+<logentry
+   revision="8308">
+<author>codesquid</author>
+<date>2017-03-23T08:12:48.746797Z</date>
+<msg>Fix buffer handling sending request body</msg>
+</logentry>
+<logentry
+   revision="8309">
+<author>codesquid</author>
+<date>2017-03-23T08:20:59.476991Z</date>
+<msg>Minor cleanup.</msg>
+</logentry>
+<logentry
+   revision="8310">
+<author>codesquid</author>
+<date>2017-03-23T08:43:30.943154Z</date>
+<msg>Return FZ_REPLY_WOULDBLOCK in CHttpRequestOpData::Send() if the backend returns EAGAIN.</msg>
+</logentry>
+<logentry
+   revision="8312">
+<author>codesquid</author>
+<date>2017-03-24T14:10:03.162886Z</date>
+<msg>Need to adjust dataToSend_ prior to returning FZ_REPLY_WOULDBLOCK.</msg>
+</logentry>
+<logentry
+   revision="8330">
+<author>codesquid</author>
+<date>2017-04-06T07:21:02.589949Z</date>
+<msg>Fix sending of keep-alive commands.</msg>
+</logentry>
+<logentry
+   revision="8331">
+<author>codesquid</author>
+<date>2017-04-06T09:22:32.114208Z</date>
+<msg>End Vista support.</msg>
+</logentry>
+<logentry
+   revision="8332">
+<author>codesquid</author>
+<date>2017-04-06T09:33:45.874705Z</date>
+<msg>Fix "IP address" capitalization in user-visible strings, patch by Peter Körner.</msg>
+</logentry>
+<logentry
+   revision="8333">
+<author>codesquid</author>
+<date>2017-04-06T11:28:08.099931Z</date>
+<msg>Fix "IP address" capitalization in user-visible strings, patch by Peter Körner.</msg>
+</logentry>
+<logentry
+   revision="8341">
+<author>codesquid</author>
+<date>2017-04-10T09:25:55.264790Z</date>
+<msg>Allow deleting unlistable directories.
+</msg>
+</logentry>
+<logentry
+   revision="8344">
+<author>codesquid</author>
+<date>2017-04-10T16:09:01.218729Z</date>
+<msg>Try harder to obtain the system image list handle. If that still fails, fail more gracefully.</msg>
+</logentry>
+<logentry
+   revision="8347">
+<author>codesquid</author>
+<date>2017-04-18T08:16:07.061721Z</date>
+<msg>Reformatting without functional change.</msg>
+</logentry>
+<logentry
+   revision="8348">
+<author>codesquid</author>
+<date>2017-04-18T08:42:38.626165Z</date>
+<msg>Fix an assertion triggered by an invalid filter.xml that contains no Filters element.</msg>
+</logentry>
+<logentry
+   revision="8349">
+<author>codesquid</author>
+<date>2017-04-18T11:49:50.163176Z</date>
+<msg>Fix spelling.</msg>
+</logentry>
+<logentry
+   revision="8350">
+<author>codesquid</author>
+<date>2017-04-18T12:01:00.253952Z</date>
+<msg>Handle the hint element.</msg>
+</logentry>
+<logentry
+   revision="8351">
+<author>codesquid</author>
+<date>2017-04-18T13:02:36.463463Z</date>
+<msg>Fix detection of regular paths accepting too much due to a typo. Reported by mseker.</msg>
+</logentry>
+<logentry
+   revision="8353">
+<author>codesquid</author>
+<date>2017-04-19T10:24:13.882026Z</date>
+<msg>Do not list Vista as supported in the README file.</msg>
+</logentry>
+<logentry
+   revision="8354">
+<author>codesquid</author>
+<date>2017-04-19T10:25:29.763616Z</date>
+<msg>Use std::deque instead of std::list for the pending notifications and a vector for the queued log messages.</msg>
+</logentry>
+<logentry
+   revision="8360">
+<author>codesquid</author>
+<date>2017-04-21T08:48:19.867159Z</date>
+<msg>Add generic proxy support for HTTP.</msg>
+</logentry>
+<logentry
+   revision="8361">
+<author>codesquid</author>
+<date>2017-04-21T08:59:49.233246Z</date>
+<msg>Remove unused CConnectOpData</msg>
+</logentry>
+<logentry
+   revision="8362">
+<author>codesquid</author>
+<date>2017-04-22T10:35:46.162376Z</date>
+<msg>Minor cleanup.</msg>
+</logentry>
+<logentry
+   revision="8363">
+<author>codesquid</author>
+<date>2017-04-22T12:48:36.800353Z</date>
+<msg>Fix a few insignificant coverity issues.</msg>
+</logentry>
+<logentry
+   revision="8364">
+<author>codesquid</author>
+<date>2017-04-23T10:01:04.541593Z</date>
+<msg>Do not mark a string as translatable that is not meant to be translated.</msg>
+</logentry>
+<logentry
+   revision="8365">
+<author>codesquid</author>
+<date>2017-04-23T10:26:11.852273Z</date>
+<msg>Some header cleanup.</msg>
+</logentry>
+<logentry
+   revision="8366">
+<author>codesquid</author>
+<date>2017-04-23T10:30:33.324669Z</date>
+<msg>Increase default speedlimit values to be more useful.</msg>
+</logentry>
+<logentry
+   revision="8367">
+<author>codesquid</author>
+<date>2017-04-23T10:57:39.955089Z</date>
+<msg>Updated translations.</msg>
+</logentry>
+<logentry
+   revision="8368">
+<author>codesquid</author>
+<date>2017-04-23T11:04:36.227969Z</date>
+<msg>Bump to 3.25.2-rc1</msg>
+</logentry>
+<logentry
+   revision="8369">
+<author>codesquid</author>
+<date>2017-04-24T08:54:15.610156Z</date>
+<msg>Handle asynchronous requests for active engines without associated items, such as listing operations.</msg>
+</logentry>
+<logentry
+   revision="8371">
+<author>codesquid</author>
+<date>2017-04-25T09:34:02.674264Z</date>
+<msg>Move CSocket into fz namespace.</msg>
+</logentry>
+<logentry
+   revision="8372">
+<author>codesquid</author>
+<date>2017-04-25T12:00:40.033542Z</date>
+<msg>Further fz::socket cleanup.</msg>
+</logentry>
+<logentry
+   revision="8374">
+<author>codesquid</author>
+<date>2017-04-28T09:58:46.790002Z</date>
+<msg>Even further fz::socket cleanup.</msg>
+</logentry>
+<logentry
+   revision="8375">
+<author>codesquid</author>
+<date>2017-04-28T10:52:13.590034Z</date>
+<msg>Fix compile errors.
+</msg>
+</logentry>
+<logentry
+   revision="8376">
+<author>codesquid</author>
+<date>2017-04-28T10:53:31.449059Z</date>
+<msg>Revert accidental commit of debug code.
+</msg>
+</logentry>
+<logentry
+   revision="8377">
+<author>codesquid</author>
+<date>2017-04-28T10:54:05.229250Z</date>
+<msg>Typo.
+</msg>
+</logentry>
+<logentry
+   revision="8378">
+<author>codesquid</author>
+<date>2017-04-28T11:01:16.168795Z</date>
+<msg>Remove redundant qualification of fz namespace.
+</msg>
+</logentry>
+<logentry
+   revision="8379">
+<author>codesquid</author>
+<date>2017-04-30T09:08:24.150420Z</date>
+<msg>Merge upstream PuTTY changes.</msg>
+</logentry>
+<logentry
+   revision="8380">
+<author>codesquid</author>
+<date>2017-04-30T09:24:28.266109Z</date>
+<msg>Updated translations
+</msg>
+</logentry>
+<logentry
+   revision="8381">
+<author>codesquid</author>
+<date>2017-04-30T09:39:54.448192Z</date>
+<msg>Bump to 3.25.2
+</msg>
+</logentry>
+<logentry
+   revision="8383">
+<author>codesquid</author>
+<date>2017-05-01T10:07:49.705960Z</date>
+<msg>Code cleanup
+</msg>
+</logentry>
+<logentry
+   revision="8385">
+<author>codesquid</author>
+<date>2017-05-01T12:28:16.200797Z</date>
+<msg>Socket threads are now self-cleaning.
+</msg>
+</logentry>
+<logentry
+   revision="8386">
+<author>codesquid</author>
+<date>2017-05-02T08:59:22.313705Z</date>
+<msg>Remove debug code.</msg>
+</logentry>
+<logentry
+   revision="8387">
+<author>codesquid</author>
+<date>2017-05-02T21:33:53.861826Z</date>
+<msg>wxWidgets 3.0.3 finally got released. Require it.</msg>
+</logentry>
+<logentry
+   revision="8391">
+<author>codesquid</author>
+<date>2017-05-10T11:36:25.516907Z</date>
+<msg>Fix possible null-pointer dereference.</msg>
+</logentry>
+<logentry
+   revision="8392">
+<author>codesquid</author>
+<date>2017-05-10T11:36:35.992666Z</date>
+<msg>Add function to retrigger events.</msg>
+</logentry>
+<logentry
+   revision="8394">
+<author>codesquid</author>
+<date>2017-05-12T09:44:29.677861Z</date>
+<msg>Fix logic error.</msg>
+</logentry>
+<logentry
+   revision="8396">
+<author>codesquid</author>
+<date>2017-05-18T14:03:35.279493Z</date>
+<msg>Work in progress: Separate credentials from CServer into own structure.</msg>
+</logentry>
+<logentry
+   revision="8397">
+<author>codesquid</author>
+<date>2017-05-18T17:35:03.788130Z</date>
+<msg>The two structures depend on each other, disallow invalid or bogus combinations.</msg>
+</logentry>
+<logentry
+   revision="8398">
+<author>codesquid</author>
+<date>2017-05-21T16:58:46.141389Z</date>
+<msg>Fix include guard.</msg>
+</logentry>
+<logentry
+   revision="8399">
+<author>codesquid</author>
+<date>2017-05-21T16:59:35.704052Z</date>
+<msg>Simple unauthenticated asymmetric data encryption and decryption.</msg>
+</logentry>
+<logentry
+   revision="8401">
+<author>codesquid</author>
+<date>2017-05-22T08:57:49.602851Z</date>
+<msg>Move password crypto into own file, fix some include guards.</msg>
+</logentry>
+<logentry
+   revision="8402">
+<author>codesquid</author>
+<date>2017-05-22T15:09:04.041341Z</date>
+<msg>If a master password encryptor is set, use it.</msg>
+</logentry>
+<logentry
+   revision="8403">
+<author>codesquid</author>
+<date>2017-05-22T19:16:22.940912Z</date>
+<msg>Use saved decryptors if available.</msg>
+</logentry>
+<logentry
+   revision="8404">
+<author>codesquid</author>
+<date>2017-05-23T13:16:03.152644Z</date>
+<msg>Ask for master password.</msg>
+</logentry>
+<logentry
+   revision="8407">
+<author>codesquid</author>
+<date>2017-05-23T16:00:28.553101Z</date>
+<msg>Better texts</msg>
+</logentry>
+<logentry
+   revision="8408">
+<author>codesquid</author>
+<date>2017-05-23T16:01:53.578308Z</date>
+<msg>Handle sites that already have encrypted passwords.</msg>
+</logentry>
+<logentry
+   revision="8409">
+<author>codesquid</author>
+<date>2017-05-23T16:02:13.659842Z</date>
+<msg>Encrypt passwords in the queue.</msg>
+</logentry>
+<logentry
+   revision="8412">
+<author>codesquid</author>
+<date>2017-05-23T17:04:02.462347Z</date>
+<msg>Settings prototype.</msg>
+</logentry>
+<logentry
+   revision="8413">
+<author>codesquid</author>
+<date>2017-05-25T10:58:47.405707Z</date>
+<msg>It is now possible to configure master passwords.</msg>
+</logentry>
+<logentry
+   revision="8414">
+<author>codesquid</author>
+<date>2017-05-25T15:17:55.402914Z</date>
+<msg>Set initial control state.</msg>
+</logentry>
+<logentry
+   revision="8415">
+<author>codesquid</author>
+<date>2017-05-25T16:47:06.324596Z</date>
+<msg>Handle mismatch of keys.</msg>
+</logentry>
+<logentry
+   revision="8416">
+<author>codesquid</author>
+<date>2017-05-25T18:20:56.161242Z</date>
+<msg>Change credentials in all states.</msg>
+</logentry>
+<logentry
+   revision="8417">
+<author>codesquid</author>
+<date>2017-05-25T18:21:38.851441Z</date>
+<msg>Fix typo</msg>
+</logentry>
+<logentry
+   revision="8418">
+<author>codesquid</author>
+<date>2017-05-25T18:22:13.503942Z</date>
+<msg>Add option to use a master password to the AskSavePassword dialog.</msg>
+</logentry>
+<logentry
+   revision="8419">
+<author>codesquid</author>
+<date>2017-05-25T18:22:28.222204Z</date>
+<msg>Run the AskSavePassword dialog from the Site Manager.</msg>
+</logentry>
+<logentry
+   revision="8423">
+<author>codesquid</author>
+<date>2017-05-25T18:34:22.829137Z</date>
+<msg>Updated translations</msg>
+</logentry>
+<logentry
+   revision="8424">
+<author>codesquid</author>
+<date>2017-05-25T18:34:41.714411Z</date>
+<msg>Bump to 3.26.0-rc1</msg>
+</logentry>
+<logentry
+   revision="8425">
+<author>codesquid</author>
+<date>2017-05-28T08:35:59.524882Z</date>
+<msg>Add missing backslash, without it half the icons for this theme were not installed. Strangely no error or warning was being generated by Automake.</msg>
+</logentry>
+<logentry
+   revision="8426">
+<author>codesquid</author>
+<date>2017-05-28T08:39:29.624299Z</date>
+<msg>Install the bookmark.png files in the blukis theme.</msg>
+</logentry>
+<logentry
+   revision="8427">
+<author>codesquid</author>
+<date>2017-05-28T09:12:48.924431Z</date>
+<msg>Fix the remember checkbox to appear when asking for a username in addition to a password.</msg>
+</logentry>
+<logentry
+   revision="8428">
+<author>codesquid</author>
+<date>2017-06-01T18:05:47.518527Z</date>
+<msg>Reprotect passwords in active queue if user changes protection settings.</msg>
+</logentry>
+<logentry
+   revision="8429">
+<author>codesquid</author>
+<date>2017-06-01T19:03:10.524619Z</date>
+<msg>Fix translator comments.</msg>
+</logentry>
+<logentry
+   revision="8430">
+<author>codesquid</author>
+<date>2017-06-01T19:20:42.861847Z</date>
+<msg>Updated translations.</msg>
+</logentry>
+<logentry
+   revision="8431">
+<author>codesquid</author>
+<date>2017-06-01T19:28:46.593605Z</date>
+<msg>Bump to 3.26.0</msg>
+</logentry>
+<logentry
+   revision="8433">
+<author>codesquid</author>
+<date>2017-06-02T15:16:07.005172Z</date>
+<msg>Run through xmllint
+</msg>
+</logentry>
+<logentry
+   revision="8434">
+<author>codesquid</author>
+<date>2017-06-02T15:16:48.389034Z</date>
+<msg>Explicitly link against hogweed.
+</msg>
+</logentry>
+<logentry
+   revision="8435">
+<author>codesquid</author>
+<date>2017-06-02T16:36:13.779229Z</date>
+<msg>Fixed crash if rewriting credentials in site directories.</msg>
+</logentry>
+<logentry
+   revision="8436">
+<author>codesquid</author>
+<date>2017-06-02T16:54:06.379843Z</date>
+<msg>Fix argument to wxTreeCtrl::GetNextChild, it expects the parent, not the current child.
+</msg>
+</logentry>
+<logentry
+   revision="8437">
+<author>codesquid</author>
+<date>2017-06-02T17:01:00.944024Z</date>
+<msg>Bump to 3.26.1
+</msg>
+</logentry>
+<logentry
+   revision="8440">
+<author>codesquid</author>
+<date>2017-06-07T18:52:56.024729Z</date>
+<msg>Update pkg.m4 to pkgconfig-0.29.2</msg>
+</logentry>
+<logentry
+   revision="8443">
+<author>codesquid</author>
+<date>2017-06-07T19:33:25.741014Z</date>
+<msg>Use pkg-config to check for cppunit instead of cppunit-config, the latter has been removed in cppunit-1.14.0
+</msg>
+</logentry>
+<logentry
+   revision="8445">
+<author>codesquid</author>
+<date>2017-06-10T12:29:33.333026Z</date>
+<msg>Fix for undoing the length hiding, it didn't work for long passwords.
+</msg>
+</logentry>
+<logentry
+   revision="8448">
+<author>codesquid</author>
+<date>2017-06-12T17:39:24.720407Z</date>
+<msg>Updated translations.</msg>
+</logentry>
+<logentry
+   revision="8449">
+<author>codesquid</author>
+<date>2017-06-12T17:40:46.514548Z</date>
+<msg>Bump to 3.26.2</msg>
+</logentry>
+<logentry
+   revision="8452">
+<author>codesquid</author>
+<date>2017-06-14T15:21:37.930325Z</date>
+<msg>Remove unused variable.</msg>
+</logentry>
+<logentry
+   revision="8453">
+<author>codesquid</author>
+<date>2017-06-20T06:01:00.336836Z</date>
+<msg>Minor formatting.</msg>
+</logentry>
+<logentry
+   revision="8454">
+<author>codesquid</author>
+<date>2017-06-20T06:01:12.132016Z</date>
+<msg>Fix assertion.</msg>
+</logentry>
+<logentry
+   revision="8455">
+<author>codesquid</author>
+<date>2017-06-22T12:21:23.994931Z</date>
+<msg>Allow (un)registering handlers during ongoing notifications
+</msg>
+</logentry>
+<logentry
+   revision="8456">
+<author>codesquid</author>
+<date>2017-06-22T12:25:33.336418Z</date>
+<msg>Revert accidental commit
+</msg>
+</logentry>
+<logentry
+   revision="8457">
+<author>codesquid</author>
+<date>2017-06-22T12:26:34.069052Z</date>
+<msg>Remove unused variable
+</msg>
+</logentry>
+<logentry
+   revision="8458">
+<author>codesquid</author>
+<date>2017-06-22T12:29:58.897580Z</date>
+<msg>Fix assertion.
+</msg>
+</logentry>
+<logentry
+   revision="8459">
+<author>codesquid</author>
+<date>2017-06-22T12:50:50.591260Z</date>
+<msg>Null the hnadler when unregistering.
+</msg>
+</logentry>
+<logentry
+   revision="8460">
+<author>codesquid</author>
+<date>2017-06-29T13:17:46.128190Z</date>
+<msg>Fix filetype of directories on Windows if the filename contains a dot. Also avoid some needless conversion to/from wxString.</msg>
+</logentry>
+<logentry
+   revision="8461">
+<author>codesquid</author>
+<date>2017-06-29T18:50:42.470078Z</date>
+<msg>Fix a compile error.</msg>
+</logentry>
+<logentry
+   revision="8462">
+<author>codesquid</author>
+<date>2017-06-29T19:46:33.983921Z</date>
+<msg>Return value of correct type.</msg>
+</logentry>
+<logentry
+   revision="8463">
+<author>codesquid</author>
+<date>2017-07-04T19:54:08.263344Z</date>
+<msg>Add COpData::Reset() to reduce the amount of operation-specific logic in RequestOperation.</msg>
+</logentry>
+<logentry
+   revision="8464">
+<author>codesquid</author>
+<date>2017-07-04T20:08:16.962178Z</date>
+<msg>Implement HTTP keep-alive.</msg>
+</logentry>
+<logentry
+   revision="8465">
+<author>codesquid</author>
+<date>2017-07-07T10:18:48.599594Z</date>
+<msg>Reset m_closed when connecting.
+</msg>
+</logentry>
+<logentry
+   revision="8466">
+<author>codesquid</author>
+<date>2017-07-07T10:29:09.515666Z</date>
+<msg>Show additional information if certificate verification fails.
+</msg>
+</logentry>
+<logentry
+   revision="8467">
+<author>codesquid</author>
+<date>2017-07-07T10:39:55.610900Z</date>
+<msg>Remove debug code.</msg>
+</logentry>
+<logentry
+   revision="8468">
+<author>codesquid</author>
+<date>2017-07-07T10:40:20.763423Z</date>
+<msg>Minor cleanup.</msg>
+</logentry>
+<logentry
+   revision="8469">
+<author>codesquid</author>
+<date>2017-07-07T10:40:51.792537Z</date>
+<msg>Further fixes to HTTP keep-alive.</msg>
+</logentry>
+<logentry
+   revision="8472">
+<author>codesquid</author>
+<date>2017-07-09T16:09:13.747865Z</date>
+<msg>Use correct peer address in certificate notification.</msg>
+</logentry>
+<logentry
+   revision="8473">
+<author>codesquid</author>
+<date>2017-07-09T16:10:24.093740Z</date>
+<msg>Get rid of CSftpControlSocket::ResetOperation</msg>
+</logentry>
+<logentry
+   revision="8478">
+<author>codesquid</author>
+<date>2017-07-09T16:32:48.184316Z</date>
+<msg>Adapt to libfilezilla changes.
+</msg>
+</logentry>
+<logentry
+   revision="8489">
+<author>codesquid</author>
+<date>2017-07-11T15:17:44.970851Z</date>
+<msg>Merge storj branch onto trunk.
+</msg>
+</logentry>
+<logentry
+   revision="8490">
+<author>codesquid</author>
+<date>2017-07-11T15:45:51.657992Z</date>
+<msg>Updated translations</msg>
+</logentry>
+<logentry
+   revision="8491">
+<author>codesquid</author>
+<date>2017-07-11T15:46:30.721573Z</date>
+<msg>Bump to 3.27.0-rc1</msg>
+</logentry>
+<logentry
+   revision="8492">
+<author>codesquid</author>
+<date>2017-07-13T08:46:35.317182Z</date>
+<msg>Trivial code cleanup.</msg>
+</logentry>
+<logentry
+   revision="8494">
+<author>codesquid</author>
+<date>2017-07-16T09:27:26.286370Z</date>
+<msg>Trivial code cleanup</msg>
+</logentry>
+<logentry
+   revision="8495">
+<author>codesquid</author>
+<date>2017-07-16T09:49:31.268634Z</date>
+<msg>Address some harmless issues found by a static analyzer.</msg>
+</logentry>
+<logentry
+   revision="8496">
+<author>codesquid</author>
+<date>2017-07-16T10:29:07.247625Z</date>
+<msg>Merge changes from upstream PuTTY.</msg>
+</logentry>
+<logentry
+   revision="8497">
+<author>codesquid</author>
+<date>2017-07-16T10:56:09.193075Z</date>
+<msg>Fix compile error.</msg>
+</logentry>
+<logentry
+   revision="8498">
+<author>codesquid</author>
+<date>2017-07-19T07:31:22.137542Z</date>
+<msg>Updated translations</msg>
+</logentry>
+<logentry
+   revision="8499">
+<author>codesquid</author>
+<date>2017-07-19T07:35:21.185317Z</date>
+<msg>Merge upstream PuTTY changes.</msg>
+</logentry>
+<logentry
+   revision="8500">
+<author>codesquid</author>
+<date>2017-07-19T07:43:42.368092Z</date>
+<msg>Trivial cleanup</msg>
+</logentry>
+<logentry
+   revision="8501">
+<author>codesquid</author>
+<date>2017-07-19T07:51:06.939243Z</date>
+<msg>Bump to 3.27.0</msg>
+</logentry>
+<logentry
+   revision="8502">
+<author>codesquid</author>
+<date>2017-07-19T08:00:56.485735Z</date>
+<msg>Add a comment aimed at package maintainers blindly changing dependencies at will, without regarding the consequences.</msg>
+</logentry>
+<logentry
+   revision="8503">
+<author>codesquid</author>
+<date>2017-07-19T12:41:21.517983Z</date>
+<msg>Add missing file</msg>
+</logentry>
+<logentry
+   revision="8504">
+<author>codesquid</author>
+<date>2017-07-19T15:30:40.888031Z</date>
+<msg>Provide a dummy __cxa_pure_virtual. My code is proper, it doesn't call pure virtuals.
+</msg>
+</logentry>
+<logentry
+   revision="8505">
+<author>codesquid</author>
+<date>2017-07-19T15:31:51.886384Z</date>
+<msg>There's a problematic libtool bug, it strips the -static-libgcc and -static-libstdc++ options. Force libtool to use them.
+</msg>
+</logentry>
+<logentry
+   revision="8506">
+<author>codesquid</author>
+<date>2017-07-19T16:40:46.250869Z</date>
+<msg>\b does not work with + or -
+</msg>
+</logentry>
+<logentry
+   revision="8507">
+<author>codesquid</author>
+<date>2017-07-19T16:41:06.241341Z</date>
+<msg>Bump to 3.27.0.1
+</msg>
+</logentry>
+<logentry
+   revision="8508">
+<author>codesquid</author>
+<date>2017-07-21T12:17:06.278389Z</date>
+<msg>Add events.hpp to distribution.</msg>
+</logentry>
+<logentry
+   revision="8509">
+<author>codesquid</author>
+<date>2017-07-22T08:54:18.613807Z</date>
+<msg>Mark a string translatable that should be translated.</msg>
+</logentry>
+<logentry
+   revision="8510">
+<author>codesquid</author>
+<date>2017-07-24T06:55:24.080984Z</date>
+<msg>Add /skipuac flag to bypass UAC prompt if started unevaluated.</msg>
+</logentry>
+<logentry
+   revision="8511">
+<author>codesquid</author>
+<date>2017-07-24T07:09:53.184372Z</date>
+<msg>Add port to error message when creating the listen socket fails.</msg>
+</logentry>
+<logentry
+   revision="8512">
+<author>codesquid</author>
+<date>2017-07-24T19:36:41.252245Z</date>
+<msg>Fix silent installation, the uninstaller was not being run. Also add the /quiet flag which acts like silent, except for showing error messages.
+</msg>
+</logentry>
+</log>

@@ -2,21 +2,15 @@ require 'date'
 
 class SVNDataCollector
 
-  attr_accessor :options
+  attr_reader :config
 
-  def initialize
-    @options = {}
-
-    @svnlogdir = "svnlog"
-  end
-
-  def svnlog_file(repository)
-      @svnlogdir + "/" + repository.name + ".log"
+  def initialize(config)
+    @config = config
   end
 
   def retrieve_svn_log_from(repository)
-    if @options["offline"]
-      File.read(svnlog_file(repository))
+    if config.offline
+      File.read(config.path_to_cached_svn_log(repository.name))
     else
       svn = SVNClient.new
       svn.repository(repository.url)
@@ -32,8 +26,8 @@ class SVNDataCollector
   end
 
   def save_svn_log(repository, xmllog)
-    Dir.mkdir(@svnlogdir) unless Dir.exists?(@svnlogdir)
-    File.write(svnlog_file(repository), xmllog)
+    Dir.mkdir(config.path_to_cached_svn_log_dir) unless Dir.exists?(config.path_to_cached_svn_log_dir)
+    File.write(config.path_to_cached_svn_log(repository.name), xmllog)
   end
 
   def collect_commits_for_repository(repository)

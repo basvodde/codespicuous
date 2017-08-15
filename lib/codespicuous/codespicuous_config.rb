@@ -10,6 +10,7 @@ class CodespicuousConfig
     @configuration_file_name = "codespicuous.yaml"
     @input_path = Pathname.new(".")
     @list_repositories = false
+    @svnlogdir = "svnlog"
   end
 
   def input_path=(path)
@@ -22,5 +23,13 @@ class CodespicuousConfig
 
   def path_to_configuration_file
     (@input_path + @configuration_file_name).to_s
+  end
+
+  def path_to_cached_svn_log(repository_name)
+    (Pathname.new(path_to_cached_svn_log_dir) + Pathname.new(repository_name + ".log")).to_s
+  end
+
+  def path_to_cached_svn_log_dir
+    (@input_path + Pathname.new(@svnlogdir)).to_s
   end
 end

@@ -1,7 +1,7 @@
 
 describe "Collecting data from SVN" do
 
-  subject { SVNDataCollector.new }
+  subject { SVNDataCollector.new(CodespicuousConfig.new) }
 
   before (:each) do
     @heh_repository = Repository.new("heh", "https://heh")
@@ -21,7 +21,7 @@ describe "Collecting data from SVN" do
   end
 
   it "should get the xml log from file when offline" do
-    subject.options["offline"] = true
+    subject.config.offline = true
     expect(File).to receive(:read).with("svnlog/heh.log").and_return(@xmllog)
     expect(subject.retrieve_svn_log_from(@heh_repository)).to eq @xmllog
   end

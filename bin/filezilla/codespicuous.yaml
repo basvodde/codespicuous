@@ -1,0 +1,23 @@
+
+offline: true
+
+repositories:
+  filezilla: https://svn.filezilla-project.org/svn/FileZilla3/trunk
+  xiph: https://svn.xiph.org/
+
+teams:
+  wine:
+    - First Name: Code
+      Last Name: Squid
+      Email: basv@wow.com
+      Login: codesquid
+    - First Name: B
+      Last Name: tog
+      Email: basv@wow.com
+      Login: botg
+  cheese:
+    - First Name: No
+      Last Name: Idea
+      Login: noidea
+      Email: No@idea.com
+
