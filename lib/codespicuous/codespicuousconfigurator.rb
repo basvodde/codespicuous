@@ -3,7 +3,7 @@ require 'yaml'
 class CodespicuousConfigurator
 
 
-  attr_reader :repositories, :repositories_to_check, :committers, :teams, :config
+  attr_reader :repositories, :repositories_to_check, :teams, :config
 
   def initialize(config)
 
@@ -12,7 +12,6 @@ class CodespicuousConfigurator
     @repositories = Repositories.new
     @repositories_to_check = Repositories.new
 
-    @committers = Committers.new
     @teams = Teams.new
   end
 
@@ -102,35 +101,37 @@ class CodespicuousConfigurator
   end
 
   def postprocess_yaml_configuration_committers(yaml_content)
-    teams = yaml_content["teams"] || []
+    teams_yaml = yaml_content["teams"] || []
 
-    teams.each { |team_name, team_members|
-      new_team = Team.new(team_name)
+    teams_yaml.each do |team_name, team_members|
+
+      committers = Committers.new
       team_members.each { |person|
-        committer = Committer.create_committer(person["Login"], person["First Name"], person["Last Name"], person["Email"], new_team)
-        new_team.add_member(committer)
-        @committers.add(committer)
-        @teams.add(new_team)
+        committers.add(Committer.create_committer(person["Login"], person["First Name"], person["Last Name"], person["Email"]))
       }
-    }
+
+      unless committers.empty?
+        new_team = Team.new(team_name)
+        new_team.add_members(committers)
+        @teams.add(new_team)
+      end
+    end
   end
 
   def find_alternative_configuration_files_for_committers
-    return unless committers.empty?
+    return unless teams.empty?
     return unless File.exist?("committers.csv")
 
     puts '** Configuring committers with "committers.csv"'
 
-    @committers = Committers.new
     @teams = Teams.new
 
     CSV.parse(File.read("committers.csv"), headers: true) { |row|
+      committer = Committer.create_committer(row["Login"], row["First Name"], row["Last Name"], row["Email"])
+
       team = @teams.team(row["Team"])
-      committer = Committer.create_committer(row["Login"], row["First Name"], row["Last Name"], row["Email"], team)
       team.add_member(committer)
-      @committers.add(committer)
     }
-    @committers
   end
 
 end

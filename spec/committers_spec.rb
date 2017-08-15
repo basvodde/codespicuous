@@ -8,19 +8,20 @@ describe "The committers and the teams that we're examining" do
     @committers = Committers.new
     @teams = Teams.new
 
-    wine = Team.new("Wine")
-    cheese = Team.new("Cheese")
 
-    bas = Committer.create_committer("basvodde", "Bas", "Vodde", "basv@wow.com", wine)
-    janne = Committer.create_committer("janne", "Janne", "Yeah", "janne@yeah.com", cheese)
-    daniel = Committer.create_committer("daniel", "Daniel", "Hum", "daniel@hum.com", wine)
+    bas = Committer.create_committer("basvodde", "Bas", "Vodde", "basv@wow.com")
+    janne = Committer.create_committer("janne", "Janne", "Yeah", "janne@yeah.com")
+    daniel = Committer.create_committer("daniel", "Daniel", "Hum", "daniel@hum.com")
 
     @committers.add(bas)
     @committers.add(daniel)
     @committers.add(janne)
 
+    wine = Team.new("Wine")
     wine.add_member(bas)
     wine.add_member(daniel)
+
+    cheese = Team.new("Cheese")
     cheese.add_member(janne)
 
     @teams.add(wine)
@@ -48,18 +49,23 @@ describe "The committers and the teams that we're examining" do
   end
 
   it "can compare two committers" do
+    bas = Committer.create_committer("basv", "Bas", "Vodde", "basv@wow.com")
+    dobbel_bas = Committer.create_committer("basv", "Bas", "Vodde", "basv@wow.com")
+
     team = Team.new("team")
-    bas = Committer.create_committer("basv", "Bas", "Vodde", "basv@wow.com", team)
-    dobbel_bas = Committer.create_committer("basv", "Bas", "Vodde", "basv@wow.com", team)
+    team.add_member(bas)
+    team.add_member(dobbel_bas)
 
     expect(bas).to eq dobbel_bas
   end
 
   it "can compare two committers that aren't equal" do
-    team = Team.new("team")
-    bas = Committer.create_committer("basv", "Bas", "Fake", "basv@wow.com", team)
-    dobbel_bas = Committer.create_committer("basv", "Bas", "Vodde", "basv@wow.com", team)
+    bas = Committer.create_committer("basv", "Bas", "Fake", "basv@wow.com")
+    dobbel_bas = Committer.create_committer("basv", "Bas", "Vodde", "basv@wow.com")
 
+    team = Team.new("team")
+    team.add_member(bas)
+    team.add_member(dobbel_bas)
     expect(bas).not_to eq dobbel_bas
   end
 end

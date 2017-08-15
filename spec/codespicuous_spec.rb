@@ -37,18 +37,15 @@ describe "Codespicuous command line" do
   it "configures the config data" do
     configurator = CodespicuousConfigurator.new(subject.config)
     repositories = Repositories.new
-    committers = Committers.new
     teams = Teams.new
 
     expect(CodespicuousConfigurator).to receive(:new).and_return(configurator)
     expect(configurator).to receive(:configure).with(["argv"]).and_return(true)
 
     expect(configurator).to receive(:repositories).and_return(repositories)
-    expect(configurator).to receive(:committers).and_return(committers)
     expect(configurator).to receive(:teams).and_return(teams)
 
     subject.configure(["argv"])
-    expect(subject.committers).to be committers
     expect(subject.repositories).to be repositories
     expect(subject.teams).to be teams
   end

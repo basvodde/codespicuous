@@ -32,7 +32,6 @@ class Codespicuous
     return false unless configurator.configure(argv)
 
     @repositories = configurator.repositories
-    @committers = configurator.committers
     @teams = configurator.teams
 
     true

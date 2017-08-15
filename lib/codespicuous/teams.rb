@@ -13,6 +13,10 @@ class Team
     member.team = self
   end
 
+  def add_members(members)
+    members.each { |member| add_member(member) }
+  end
+
   def members
     @members.values
   end
@@ -38,6 +42,16 @@ class Team
   def ==(team)
     name == team.name && members == team.members
   end
+
+  def committed_repositories
+
+    repositories = []
+
+    each_member do |member|
+      repositories += member.committed_repositories
+    end
+    repositories.uniq
+  end
 end
 
 class Teams
@@ -60,6 +74,16 @@ class Teams
     @teams.values.sort.each { |team|
       yield team
     }
+  end
+
+  def committers
+    committers = Committers.new
+    each_member { |team, committer| committers.add(committer) }
+    committers
+  end
+
+  def empty?
+    @teams.empty?
   end
 
   def map(&block)

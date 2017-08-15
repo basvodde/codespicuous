@@ -130,14 +130,14 @@ describe "CodepicuousConfigurator reads all the config files and provides the da
   context "Parsing the teams and committers" do
 
     before (:each) do
+      @committer_bas = Committer.create_committer("basvodde", "Bas", "Vodde", "basv@wow.com")
       @team_wine = Team.new("Wine")
-      @committer_bas = Committer.create_committer("basvodde", "Bas", "Vodde", "basv@wow.com", @team_wine)
+      @team_wine.add_member(@committer_bas)
     end
 
     it "can have no committers and teams. Just empty then" do
       subject.postprocess_yaml_configuration_committers({})
 
-      expect(subject.committers).to eq Committers.new
       expect(subject.teams).to eq Teams.new
     end
 
@@ -160,15 +160,17 @@ describe "CodepicuousConfigurator reads all the config files and provides the da
       teams = Teams.new
       teams.add(@team_wine)
 
-      expect(subject.committers).to eq committers
       expect(subject.teams).to eq teams
 
     end
 
     it "will not bother checking the CSV file when it found committers already" do
-      committers = Committers.new
-      committers.add(@committer_bas)
-      expect(subject).to receive(:committers).and_return(committers)
+      teams = Teams.new
+      team = Team.new("Wine")
+      team.add_member(@committer_bas)
+      teams.add(team)
+
+      expect(subject).to receive(:teams).and_return(teams)
       expect(File).not_to receive(:exist?)
 
       subject.find_alternative_configuration_files_for_committers
@@ -179,7 +181,7 @@ describe "CodepicuousConfigurator reads all the config files and provides the da
 
       subject.find_alternative_configuration_files_for_committers
 
-      expect(subject.committers).to eq Committers.new
+      expect(subject.teams).to eq Teams.new
     end
 
     it "will read the CSV file when it exists" do
@@ -190,10 +192,12 @@ describe "CodepicuousConfigurator reads all the config files and provides the da
 
       subject.find_alternative_configuration_files_for_committers
 
-      committers = Committers.new
-      committers.add(@committer_bas)
+      teams = Teams.new
+      team = Team.new("Wine")
+      team.add_member(@committer_bas)
+      teams.add(team)
 
-      expect(subject.committers).to eq committers
+      expect(subject.teams).to eq teams
     end
 
   end

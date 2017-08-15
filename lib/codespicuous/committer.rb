@@ -9,12 +9,11 @@ class Committer
     @commits = Commits.new
   end
 
-  def self.create_committer(login, firstname, lastname, email, team)
+  def self.create_committer(login, firstname, lastname, email)
     committer = Committer.new(login)
     committer.first_name = firstname
     committer.last_name = lastname
     committer.email = email
-    committer.team = team
     committer
   end
 
@@ -47,6 +46,14 @@ class Committer
     @commits.amount_of_commits_to_repository_in_week(name, week_start)
   end
 
+  def committed_repositories
+    repositories = []
+    commits.each do |commit|
+      repositories.push(commit.repository)
+    end
+    repositories.uniq!
+  end
+
   def ==(committer)
     username == committer.username &&
     first_name == committer.first_name &&
@@ -75,6 +82,12 @@ class Committers
 
   def committer(name)
     @committers[name] ||= Committer.new(name)
+  end
+
+  def each
+    @committers.values.each do |committer|
+      yield committer
+    end
   end
 
   def amount
