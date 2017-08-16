@@ -1,6 +1,8 @@
 
 require 'rexml/document'
 
+REXML::Document.entity_expansion_text_limit *= 10
+
 class SVNLogParser
 
   def initialize
