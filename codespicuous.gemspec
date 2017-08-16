@@ -6,6 +6,7 @@ Gem::Specification.new do |gem|
   gem.version = Codespicuous::VERSION
   gem.date    = Date.today.to_s
   gem.license = "MIT"
+  gem.executables = [ "codespicuous" ]
 
   gem.summary = "Codespicuous is a tool for generating team based metrics from code"
   gem.description = "Codespicuous is a tool for generating several different metrics from codebases to gain insight in how the teams are working."
