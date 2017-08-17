@@ -7,7 +7,7 @@ class MetricsGenerator
   def generate(commit_history)
     @commit_history = commit_history
     generate_daniel
-    generate_csv
+    generate_csv_files
   end
 
   def generate_daniel
@@ -15,8 +15,8 @@ class MetricsGenerator
     daniel.generate
   end
 
-  def generate_csv
-    csv = MetricsGeneratorCsv.new(@commit_history)
+  def generate_csv_files
+    csv = MetricsGeneratorCsvFiles.new(@commit_history)
     csv.generate
   end
 end

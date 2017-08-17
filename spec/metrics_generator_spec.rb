@@ -8,7 +8,7 @@ describe "Generate different types of code metrics" do
 
   it "can generate different metrics" do
     expect(@subject).to receive(:generate_daniel)
-    expect(@subject).to receive(:generate_csv)
+    expect(@subject).to receive(:generate_csv_files)
 
     @subject.generate(@commit_history)
   end
@@ -26,10 +26,10 @@ describe "Generate different types of code metrics" do
   it "generate csv format metrics" do
     @subject.commit_history = @commit_history
 
-    csv = MetricsGeneratorCsv.new(@commit_history)
-    expect(MetricsGeneratorCsv).to receive(:new).with(@commit_history).and_return(csv)
+    csv = MetricsGeneratorCsvFiles.new(@commit_history)
+    expect(MetricsGeneratorCsvFiles).to receive(:new).with(@commit_history).and_return(csv)
     expect(csv).to receive(:generate)
 
-    @subject.generate_csv
+    @subject.generate_csv_files
   end
 end
