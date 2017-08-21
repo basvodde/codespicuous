@@ -2,7 +2,7 @@
 
 class MetricsGeneratorDaniel
 
-  def initialize(commit_history)
+  def initialize(config, commit_history)
   end
 
   def generate
