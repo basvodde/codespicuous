@@ -12,10 +12,9 @@ describe "Collecting data from SVN" do
     svnclient = double(:svnclient)
 
     expect(SVNClient).to receive(:new).and_return(svnclient)
-    expect(DateTime).to receive(:now).and_return(DateTime.new(2001))
 
     expect(svnclient).to receive(:repository).with(@heh_repository.url)
-    expect(svnclient).to receive(:log_xml).with(DateTime.new(2000), DateTime.new(2001)).and_return(@xmllog)
+    expect(svnclient).to receive(:log_xml).and_return(@xmllog)
 
     expect(subject.retrieve_svn_log_from(@heh_repository)).to eq @xmllog
   end

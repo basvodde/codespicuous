@@ -15,8 +15,7 @@ class SVNDataCollector
     else
       svn = SVNClient.new
       svn.repository(repository.url)
-      now = DateTime.now
-      svn.log_xml(now.prev_year, now)
+      svn.log_xml
     end
   end
 
