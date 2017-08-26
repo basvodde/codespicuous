@@ -34,6 +34,11 @@ describe "The committers and the teams that we're examining" do
     expect(@teams.amount).to eq 2
   end
 
+  it "is not in the team with name if th committer is not in a team" do
+    committer = Committer.new("lonely_guy")
+    expect(committer.in_team_with_name?("nice team")).to eq false
+  end
+
   it "has all the committer information" do
     bas = @committers.find_by_username('basvodde')
     expect(bas.first_name).to eq "Bas"

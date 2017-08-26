@@ -39,4 +39,8 @@ class CodespicuousConfig
   def path_to_output_dir_for_csv_files
     (@output_path + Pathname.new(@output_dir_csv_files)).to_s
   end
+
+  def path_to_csv_file(filename)
+    (Pathname.new(path_to_output_dir_for_csv_files) + Pathname.new(filename)).to_s
+  end
 end

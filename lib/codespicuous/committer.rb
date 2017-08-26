@@ -9,6 +9,14 @@ class Committer
     @commits = Commits.new
   end
 
+  def clone_without_commits
+    cloned_committer = Committer.new(username)
+    cloned_committer.first_name = first_name
+    cloned_committer.last_name = last_name
+    cloned_committer.email = email
+    cloned_committer
+  end
+
   def self.create_committer(login, firstname, lastname, email)
     committer = Committer.new(login)
     committer.first_name = firstname
@@ -18,7 +26,7 @@ class Committer
   end
 
   def in_team_with_name?(team_name)
-    @team.name == team_name
+    !@team.nil? && @team.name == team_name
   end
 
   def add_commit commit

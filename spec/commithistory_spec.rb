@@ -53,5 +53,49 @@ describe "Team commits per week table" do
     expect(@commit_history.amount_of_commits_for_team_in_week("Cheese", DateTime.new(2016,03,28))).to eq 1
   end
 
+  context "extracting a subset of the commit history" do
+
+    before (:each) do
+      @large_commit_history = CommitHistoryBuilder.new.
+        in_repository("one").
+          commits_of("basvodde").of_team("Wine").
+            at("2016-04-18").times(2).
+          commits_of("daniel").of_team("Cheese").
+            at("2016-03-28").
+          commits_of("janne").without_team.
+            at("2016-08-18").times(2).
+        in_repository("cpputest").
+          commits_of("janne").without_team.
+            at("2016-02-29").
+        build
+
+      @restricted_commit_history = @large_commit_history.restrict_to_teams
+    end
+
+    it "will only have two committers in the restricted commit history" do
+      expect(@large_commit_history.amount_of_comitters).to eq 3
+      expect(@restricted_commit_history.amount_of_comitters).to eq 2
+    end
+
+    it "will only have the repositories of the restricted committers" do
+      expect(@large_commit_history.amount_of_repositories).to eq 2
+      expect(@restricted_commit_history.amount_of_repositories).to eq 1
+    end
+
+    it "will also be able to get the right amount of commits via the reposities" do
+      expect(@large_commit_history.repository("one").amount_of_commits).to eq 5
+      expect(@restricted_commit_history.repository("one").amount_of_commits).to eq 3
+    end
+
+    it "will also be able to get the right amount of commits via the comitter" do
+      expect(@large_commit_history.committer("basvodde").amount_of_commits).to eq 2
+      expect(@restricted_commit_history.committer("basvodde").amount_of_commits).to eq 2
+    end
+
+    it "will also be able to get the right amount of team members in the teams" do
+      expect(@large_commit_history.team("Wine").amount_of_members).to eq 1
+      expect(@restricted_commit_history.team("Wine").amount_of_members).to eq 1
+    end
+  end
 end
 

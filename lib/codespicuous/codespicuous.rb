@@ -44,7 +44,7 @@ class Codespicuous
 
   def generate_output
     generator = MetricsGenerator.new
-    generator.generate(@commit_history)
+    generator.generate(@config, @commit_history)
   end
 
   def list_committed_repositories

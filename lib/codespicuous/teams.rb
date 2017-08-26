@@ -8,6 +8,14 @@ class Team
     @members = {}
   end
 
+  def clone_without_commits
+    cloned_team = Team.new(name)
+    members.each do | member |
+      cloned_team.add_member(member.clone_without_commits)
+    end
+    cloned_team
+  end
+
   def add_member(member)
     @members[member.username] = member
     member.team = self
@@ -62,6 +70,14 @@ class Teams
     @teams = {}
   end
 
+  def clone_without_commits
+    cloned_teams = Teams.new
+    teams.each do | name, team|
+      cloned_teams.add(team.clone_without_commits)
+    end
+    cloned_teams
+  end
+
   def find_by_name(name)
     @teams[name]
   end
@@ -74,6 +90,13 @@ class Teams
     @teams.values.sort.each { |team|
       yield team
     }
+  end
+
+  def contains_committer?(committer)
+    each_member { |team, member|
+      return true if member.username == committer.username
+    }
+    false
   end
 
   def committers

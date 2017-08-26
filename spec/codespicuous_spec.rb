@@ -63,7 +63,7 @@ describe "Codespicuous command line" do
   it "generates output" do
     generator = MetricsGenerator.new
     expect(MetricsGenerator).to receive(:new).and_return(generator)
-    expect(generator).to receive(:generate).with(subject.commit_history)
+    expect(generator).to receive(:generate).with(subject.config, subject.commit_history)
     subject.generate_output
   end
 

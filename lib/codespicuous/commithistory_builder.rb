@@ -24,6 +24,11 @@ class CommitHistoryBuilder
     self
   end
 
+  def without_team
+    @team = nil
+    self
+  end
+
   def at(date)
     @commit_date = date
     add_commit_to_history
@@ -43,7 +48,7 @@ class CommitHistoryBuilder
     commit.date = DateTime.parse(@commit_date)
     commit.repository = @current_repository
     @commit_history.add_commit(commit)
-    @commit_history.add_team_member(@team, @author)
+    @commit_history.add_team_member(@team, @author) if @team
   end
 end
 

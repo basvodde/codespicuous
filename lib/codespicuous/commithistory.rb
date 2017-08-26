@@ -51,6 +51,10 @@ class CommitHistory
     @repositories.repository_names
   end
 
+  def amount_of_repositories
+    @repositories.amount
+  end
+
   def amount_of_comitters
     @committers.amount
   end
@@ -71,6 +75,38 @@ class CommitHistory
 
   def == commit_history
     @commits == commit_history.commits
+  end
+
+  def copy_repositories_without_commits
+    repositories = Repositories.new
+    @repositories.each do |repository|
+      repositories.add(repository.clone_without_commits)
+    end
+    repositories
+  end
+
+  def prune_repositories_without_commit
+    @repositories.prune_repositories_without_commit
+  end
+
+  def restrict_to_teams
+    restricted_commit_history = CommitHistory.new
+
+    repositories = copy_repositories_without_commits
+    restricted_commit_history.configure(teams.clone_without_commits, repositories)
+
+    @commits.each do |commit|
+      if @teams.contains_committer?(commit.committer)
+        new_commit = commit.clone
+        new_commit.repository = repositories.repository(commit.repository.name)
+        restricted_commit_history.add_commit(new_commit)
+      end
+
+    end
+
+    restricted_commit_history.prune_repositories_without_commit
+
+    restricted_commit_history
   end
 
 end

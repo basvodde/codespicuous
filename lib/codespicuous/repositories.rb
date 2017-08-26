@@ -15,8 +15,16 @@ class Repository
     @commits = Commits.new
   end
 
+  def clone_without_commits
+    Repository.new(@name, @url)
+  end
+
   def add_commit commit
     @commits.add(commit)
+  end
+
+  def amount_of_commits
+    @commits.amount
   end
 
   def amount_of_commits_in_week(week_start)
@@ -59,6 +67,10 @@ class Repositories
     @repositories.values.each { |repository|
       yield repository
     }
+  end
+
+  def prune_repositories_without_commit
+    @repositories.delete_if { |key, value| value.amount_of_commits == 0 }
   end
 
   def empty?
